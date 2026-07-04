@@ -1,0 +1,28 @@
+# Inference environment for the deep-audio engine (WavLM-ft + emotion2vec + ECAPA).
+# This is the ISOLATED env (kept separate from the main handcrafted-feature venv).
+# Verified working set (macOS ARM / Python 3.13). See README.md for setup.
+#
+# NOTE ON TORCH: install torch/torchaudio for YOUR platform first, then this file.
+#   - CPU (any OS):     pip install torch torchaudio
+#   - NVIDIA CUDA:      see https://pytorch.org/get-started/locally/
+#   - macOS (Apple GPU): pip install torch torchaudio   (MPS works out of the box)
+# The pins below are what this project was validated against.
+
+torch==2.12.1
+torchaudio==2.11.0
+transformers==5.12.1
+safetensors==0.8.0
+funasr==1.3.14
+modelscope==1.38.0
+speechbrain==1.1.0
+librosa==0.11.0
+soundfile==0.14.0
+scikit-learn==1.9.0
+scipy==1.18.0
+numpy==2.4.6
+pandas==3.0.3
+
+# funasr on Python >=3.12 needs distutils shimmed via setuptools (<81), and
+# `import setuptools` must run BEFORE `from funasr import AutoModel`
+# (already handled in the scripts). Keep this pin.
+setuptools<81

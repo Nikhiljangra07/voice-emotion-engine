@@ -1,0 +1,48 @@
+# ── NEVER COMMIT: licensed / personal data ─────────────────────────
+# MSP-Podcast is licensed no-redistribution; RAVDESS/CREMA-D/MELD are large datasets.
+data/
+msp/
+# Personal voice recordings (owner + volunteers) — privacy, never publish
+own_voice/
+baselines/
+*.m4a
+*.mp3
+long_1.*
+
+# ── Private working notes (personal details / correspondence drafts) ─
+MSP_LICENSE_FILL_SHEET.md
+SESSION_LOG_*.md
+CHECKPOINT_*.md
+
+# ── Trained models (large; some trained on licensed data) ──────────
+models/
+
+# ── Generated artifacts / feature matrices (large, derived from datasets)
+out/
+
+# ── Python ──────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Virtual environments ────────────────────────────────────────────
+venv/
+.venv_diar/
+
+# ── IDE / OS ────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ── Tooling caches ──────────────────────────────────────────────────
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+notebooks/
+.cache/
+.huggingface/
+.claude/

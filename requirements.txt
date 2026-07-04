@@ -1,0 +1,29 @@
+# LoRa Waveform Engine — Dependencies
+# Install: pip install -r requirements.txt
+
+# Primary feature extraction
+opensmile>=2.5.0        # eGeMAPS feature set (88 standardized features)
+praat-parselmouth>=0.4.4  # Praat wrapper — jitter, shimmer, HNR, formants
+
+# Audio utilities
+librosa>=0.10.0         # Audio loading, resampling, basic spectrograms
+soundfile>=0.12.0       # WAV/FLAC I/O backend for librosa
+
+# Signal processing
+scipy>=1.11.0           # FFT, filtering, signal processing
+numpy>=1.24.0           # Array operations
+
+# Machine learning
+scikit-learn>=1.3.0     # SVM, Random Forest, evaluation metrics
+
+# Visualization
+matplotlib>=3.7.0       # Confusion matrices, feature plots
+
+# Phase 2 — dimensional datasets (IEMOCAP V/A/D)
+datasets>=3.0.0         # Hugging Face dataset loading (AbstractTTS/IEMOCAP)
+huggingface_hub>=0.25.0  # Dataset download from the Hub
+pandas>=2.0.0           # Tabular feature/label handling
+
+# Code quality
+mypy>=1.5.0             # Static type checking
+pytest>=7.4.0           # Testing
