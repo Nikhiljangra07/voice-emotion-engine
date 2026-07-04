@@ -73,9 +73,13 @@ anger adds the dominance axis). **Fear excluded** — judge blind spot (47%).
    (exemplar self-match). Harmless for verification, but benchmark scoring of
    *generated* audio is unaffected (TTS output can't be in the DB). Logged so the
    100% is never mistaken for typical confidence.
-3. **Python version pin** — IndexTTS-2 requires ≥3.10 and its stack is happiest
-   below 3.13; our main tooling is 3.13. Resolution: vendor env pinned to **3.12**
-   via uv, fully separate from `.venv_tts` (3.13).
+3. **Python version pin — twice.** IndexTTS-2 says ≥3.10, but first sync on 3.12
+   died building `llvmlite==0.41.1` (pinned via `numba==0.58.1` — no 3.12 wheels,
+   source build fails). Real constraint: **≤3.11**. Resolution: uv-managed
+   **Python 3.11** for the vendor env — third interpreter in the stack
+   (`.venv_tts`=3.13, engine `.venv_diar`=3.13, vendor=3.11), all isolated, none
+   system-level. Lesson for the log: a repo's `requires-python` is a claim, not a
+   guarantee — the transitive pins decide.
 
 **Verified (the bridge works end-to-end, engine untouched):**
 
