@@ -138,3 +138,57 @@ bridge.** Mouth → ear, closed.
 **Next (P4.2 continues):** the systematic sweep — sad slider at 0.4/0.8/1.2, sad+
 melancholic combinations, joy and anger vectors, an *emotional* speaker prompt as a
 control condition, and a listen-check — every clip a ledger row.
+
+### 2026-07-04 (later) — P4.2 SWEEP: 12 clips — anger SOLVED, sadness has a trail, joy broken informatively
+
+12 deterministic clips (model loaded once; MPS warmed to ~15 s/clip), judged in one
+batched bridge call, ledger now at 13 rows. Scripts committed:
+`sweep_p42_synth.py` (vendor env, resumable) + `sweep_p42_judge.py` (.venv_tts).
+
+| clip | target | V | A | D | dist | wavlm | judge(e2v) | hit |
+|---|---|---|---|---|---|---|---|---|
+| baseline_zero | neutral | −0.02 | 0.47 | +0.23 | 0.197 | neutral | neutral@100% | **HIT** |
+| sad_04 | sadness | −0.11 | 0.38 | +0.08 | 0.229 | neutral | neutral@100% | miss |
+| sad_12 | sadness | +0.04 | 0.40 | +0.07 | 0.354 | neutral | joy@80% | miss |
+| **mel_08** | sadness | **−0.16** | **0.30** | +0.01 | **0.166** | **sadness** | neutral@100% | miss |
+| sad_mel_06_06 | sadness | −0.13 | 0.30 | −0.07 | 0.178 | neutral | neutral@100% | miss |
+| joy_08 | joy | **−0.20** | 0.78 | +0.59 | 0.673 | contempt | surprise@80% | miss |
+| joy_12 | joy | **−0.40** | 0.84 | +0.67 | 0.883 | anger | surprise@80% | miss |
+| **angry_08** | anger | −0.38 | 0.79 | +0.61 | **0.227** | **anger** | **anger@100%** | **HIT** |
+| **angry_12** | anger | −0.55 | 0.88 | +0.77 | 0.422 | **anger** | **anger@100%** | **HIT** |
+| calm_08 | neutral | −0.11 | 0.35 | +0.08 | 0.137 | neutral | neutral@100% | **HIT** |
+| sad_08_sadprompt | sadness | −0.04 | 0.40 | +0.06 | 0.269 | neutral | fear@100% | miss |
+| **angry_08_angryprompt** | anger | −0.51 | 0.90 | +0.80 | 0.443 | **anger** | **anger@100%** | **HIT** |
+
+**Findings (each one a transfer-map coordinate):**
+1. **ANGER STEERS — first confirmed steering coordinate.** `angry` slider is
+   monotonic and correct on every axis: 0.8→1.2 drives V −0.38→−0.55, A 0.79→0.88,
+   D +0.61→+0.77 — exactly the engine's anger signature (high arousal, HIGH
+   dominance), and **both backbones agree at every strength**. Mouth and ear speak
+   the same language for anger.
+2. **The `sad` slider is the wrong knob; `melancholic` is the right one.** `sad`
+   0.4→1.2 barely moves valence (and at 1.2 *flips positive* — worse). But
+   `melancholic=0.8` produced the closest sadness of the day (dist 0.166, arousal
+   correctly LOW at 0.30, WavLM names it *sadness*). The e2v family verdict is still
+   neutral — delivered sadness is real but too weak for a family hit yet. Next:
+   melancholic at 1.0–1.4, melancholic+calm.
+3. **Joy is broken, informatively.** `happy` 0.8→1.2 yields **negative** valence
+   with soaring arousal/dominance — the model renders "happy" as loud/energetic,
+   which both backbones read as arousal *without* positive valence (surprise per
+   judge; contempt→anger per WavLM; higher slider = worse). Either IndexTTS-2's
+   happy is acoustically shouty, or the judge undervalues synthetic positive
+   valence. Discriminating experiment: human listen-check on joy_08 + try
+   happy+calm low-intensity combos.
+4. **Timbre–emotion disentanglement mostly holds.** Sad *prompt* + sad vector didn't
+   help (still neutral acoustics; e2v drifted to fear@100% — another OOD judge
+   quirk for the thread). Angry prompt mildly amplified anger (A 0.79→0.90,
+   D 0.61→0.80). Prompt is a seasoning, not a lever.
+5. **Controls behaved** (baseline + calm → neutral, both 100%) — the pipeline isn't
+   hallucinating emotions where none were requested.
+
+**Scoreboard after day one: anger 3/3 · neutral controls 2/2 · sadness 0/5 (best
+dist 0.166, trail = melancholic) · joy 0/2 (needs rethink).** 13 ledger rows.
+
+**Next (P4.3):** melancholic-scaling round for sadness; happy+calm combos for joy;
+first human listen-check (do the clips *sound* like what the meters say?); then the
+optimizer loop on whichever emotions have working knobs.
