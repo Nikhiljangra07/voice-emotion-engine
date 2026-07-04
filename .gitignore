@@ -49,3 +49,7 @@ notebooks/
 
 # Internal working spec (assistant config + decision log — kept local)
 CLAUDE.md
+
+# Phase-4 TTS steering artifacts (derived audio/large)
+tts_steering/out/
+.venv_tts/
