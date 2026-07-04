@@ -1,4 +1,4 @@
-# LoRa Waveform Engine — Reading Emotion from *How* a Voice Sounds
+# Voice Emotion Engine — Reading Emotion from *How* a Voice Sounds
 
 **Predict what a speaker feels — not from their words, but from their voice.**
 A dimensional (Valence / Arousal / Dominance) speech-emotion engine, built solo in two
@@ -116,7 +116,6 @@ Every result in the docs is reproducible from code in this repo + the datasets a
 | [RESULTS_AT_A_GLANCE.md](RESULTS_AT_A_GLANCE.md) | One-page summary |
 | [JOURNEY.md](JOURNEY.md) | The build story: every phase, every problem hit, every fix (31 and counting) |
 | [TRAJECTORY_ENGINE.md](TRAJECTORY_ENGINE.md) | Phase-2/3 spec, binding laws, progress log |
-| [CLAUDE.md](CLAUDE.md) | Phase-1 spec + complete decision log |
 | [REFERENCES.md](REFERENCES.md) | 21 citations, each verified against its primary source |
 | `src/` | The engine: preprocessing, 111-feature extraction, classifiers, signal mapper — 160+ tests |
 | `scripts/` | Every experiment: fine-tuning, hybrid fusion, diarization, stress tests — all runnable |
@@ -144,5 +143,5 @@ RAVDESS, CREMA-D, MELD. Backbones: WavLM (Chen et al., 2022), emotion2vec (Ma et
 ---
 
 *Solo project by [Nikhil Jangra](https://github.com/Nikhiljangra07) — Phase 1
-(March 2026) → packaged (July 2026). Part of the LoRa emotional-AI ecosystem: this
-engine is the signal layer; companion projects consume its output.*
+(March 2026) → packaged (July 2026). This engine is the signal layer of a larger
+emotional-AI project; companion projects consume its output through a versioned packet.*

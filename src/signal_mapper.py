@@ -1,6 +1,6 @@
 """Signal mapper: Ekman-6 predictions → valence, arousal, expressionStrength.
 
-Converts classifier output into the dimensional format that LoRa's
+Converts classifier output into the dimensional format that the companion backend's
 backend (Layer A) consumes. The bridge, pressure engine, escalation
 engine, mood engine — they all consume these three numbers.
 
@@ -105,7 +105,7 @@ def map_signal(
     prediction: dict[str, Any],
     speaker_baseline: SpeakerBaseline | None = None,
 ) -> dict[str, Any]:
-    """Map a classifier prediction to LoRa's Layer A signal format.
+    """Map a classifier prediction to the Layer A signal format.
 
     Args:
         prediction: Dict from Predictor.predict() with keys:

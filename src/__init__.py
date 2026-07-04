@@ -1,4 +1,4 @@
-"""LoRa Waveform Engine — emotional signal extraction from voice.
+"""Voice Emotion Engine — emotional signal extraction from voice.
 
 Public API:
     from src import preprocess, build_feature_vector, feature_names

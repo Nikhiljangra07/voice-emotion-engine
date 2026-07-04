@@ -46,3 +46,6 @@ notebooks/
 .cache/
 .huggingface/
 .claude/
+
+# Internal working spec (assistant config + decision log — kept local)
+CLAUDE.md

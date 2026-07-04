@@ -1,4 +1,4 @@
-# REFERENCES — LoRa Waveform Engine
+# REFERENCES — Voice Emotion Engine
 
 Foundational and directly-related literature for this project. Every citation below
 was verified against its primary source (publisher / arXiv / ACL Anthology). Each entry

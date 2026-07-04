@@ -221,7 +221,7 @@
   resume) and `scripts/study_msp.py` (speaker-independent split, CCC per dim, namer
   separability). Fixed a `np.savez` checkpoint bug (auto-appends `.npz`), salvaged 2,500
   rows. **Dev extraction running (~34k, ~80min, deterministic).** 147 tests pass.
-  **Scope decisions this session (now LAW — see §5 additions 15–20):** (a) LoRa
+  **Scope decisions this session (now LAW — see §5 additions 15–20):** (a) companion-app
   contract DROPPED — independent experiment, output is the V/A/D triple + distribution,
   ETV/EIV parked; (b) **MSP-Podcast is the PRIMARY spine**, all other corpora supplementary;
   (c) **Phase-1 numbers RETIRED** (acted/unverified) — regenerate every result on MSP;
@@ -459,7 +459,7 @@ the *structure* is: +++Exuberant(joy) · ++−Dependent(awe) · +−+Relaxed(cal
     number. Re-extract only when the engine actually changes.
 
 > **Contract note (supersedes Phase-1 coupling):** This is an independent experiment, not
-> a commercial LoRa feature. The engine's deliverable is the `(V,A,D)` point + emotion
+> a commercial companion-app feature. The engine's deliverable is the `(V,A,D)` point + emotion
 > distribution + intensity. ETV/EIV remain on disk and are used ONLY if they demonstrably
 > add value — they are not part of proving the perception engine.
 
@@ -484,7 +484,7 @@ the *structure* is: +++Exuberant(joy) · ++−Dependent(awe) · +−+Relaxed(cal
 - ❌ Rebuilding Layer 1 or forking the feature extractor. (Law 5)
 - ❌ Collapsing V/A/D to a scalar or a 1-D emotion index. (Law 1)
 - ❌ Validating dimensions on categorical-only datasets. (Law 6)
-- ❌ Building/owning ETV/EIV here. They are LoRa-side consumers, parked on disk; used only
+- ❌ Building/owning ETV/EIV here. They are companion-backend consumers, parked on disk; used only
   if they demonstrably add value. (Contract note, §5)
 - ❌ Headlining or citing Phase-1 (acted-dataset) numbers as results. (Law 16)
 - ❌ Reporting per-tick trajectory accuracy from MSP's per-segment labels. (Law 18)

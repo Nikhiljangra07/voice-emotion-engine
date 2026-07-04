@@ -1,6 +1,6 @@
 # JOURNEY.md — How This Project Was Built, Step by Step
 
-> The chronological story of the LoRa Waveform Engine: where we started, every
+> The chronological story of the Voice Emotion Engine: where we started, every
 > major action, the tools we used, the problems we hit, and exactly how we solved
 > each one. Read top-to-bottom, it's the narrative of how we reached a working
 > dimensional emotion engine on a gold-standard corpus.
@@ -19,7 +19,7 @@ with a trajectory engine on top.
 
 ## PHASE 0 — Why we started (the dead end behind us)
 
-**The text ceiling.** The original LoRa backend had a complete *text-based*
+**The text ceiling.** The companion AI's original backend had a complete *text-based*
 emotional-signal pipeline (appraisal lab, Ekman-6 inference, Naive-Bayes
 classifier) — 4–5 months, 584+ commits. It hit a wall: people mask in text
 (sarcasm, understatement, performative calm), and ~60% of signal leaked in the
@@ -215,7 +215,7 @@ trained speaker-independent. Result: **arousal 0.624, dominance 0.567, valence
 noise floor — *the valence problem, confirmed in the starkest terms.*
 
 **(c) Scope decisions (locked into law).** With the gold standard in hand, we made
-deliberate calls: dropped the old LoRa contract (independent experiment; output is
+deliberate calls: dropped the old backend-integration contract (independent experiment; output is
 the V/A/D triple, ETV/EIV parked); **MSP is the primary spine**, all else
 supplementary; **Phase-1 acted-speech numbers retired** (regenerate everything on
 MSP); the gold standard is **empirical, not truth** (labels = mean of ≥5

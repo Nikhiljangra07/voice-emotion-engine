@@ -118,7 +118,7 @@ class TestPipeline:
         assert 0.0 <= result["confidence"] <= 1.0
 
     def test_layer_a_spec_compliance(self) -> None:
-        """Verify output matches LoRa's Layer A signal spec exactly."""
+        """Verify output matches the Layer A signal spec exactly."""
         model_dir = Path("models/svm_ravdess")
         audio = Path("data/ravdess/Actor_01/03-01-05-01-01-01-01.wav")
         if not model_dir.exists() or not audio.exists():

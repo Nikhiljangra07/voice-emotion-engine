@@ -1,4 +1,4 @@
-# Results at a Glance — LoRa Waveform Engine
+# Results at a Glance — Voice Emotion Engine
 
 *Reading emotion from **how** a voice sounds. One page. Full report: `WRITEUP.md`.*
 

@@ -7,7 +7,7 @@ good or bad** they feel too, which was long considered the hard, language-bound
 axis. This report proves that on a gold-standard corpus, honestly, with the failure
 modes named.
 
-*LoRa Waveform Engine — Phase 2 (dimensional PAD) + Phase 3 (SSL fine-tune, emotion
+*Voice Emotion Engine — Phase 2 (dimensional PAD) + Phase 3 (SSL fine-tune, emotion
 naming, speaker separation). Status: complete. Portfolio / workshop project —
 faithful reproduction plus an honest engineering arc, not new theory.*
 

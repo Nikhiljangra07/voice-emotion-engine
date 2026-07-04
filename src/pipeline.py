@@ -66,7 +66,7 @@ def run(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="LoRa Waveform Engine — audio → emotion prediction",
+        description="Voice Emotion Engine — audio → emotion prediction",
     )
     parser.add_argument(
         "--input", required=True, help="Path to audio file (WAV, MP3, etc.)",
