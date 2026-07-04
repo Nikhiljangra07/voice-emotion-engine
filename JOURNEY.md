@@ -5,9 +5,9 @@
 > each one. Read top-to-bottom, it's the narrative of how we reached a working
 > dimensional emotion engine on a gold-standard corpus.
 >
-> Companion docs: `WRITEUP.md` (the results report), `CLAUDE.md` (Phase-1 spec +
-> decision log), `TRAJECTORY_ENGINE.md` (Phase-2 binding spec + 14 laws),
-> `BUILD_LOG.md` (Phase-1 experiment log).
+> Companion docs: `WRITEUP.md` (the results report) and `TRAJECTORY_ENGINE.md`
+> (Phase-2 binding spec + laws). Phase-1's internal spec and experiment log are
+> kept local; their substance is summarized in this file.
 
 **The whole arc in one line:** text-based emotion extraction failed → we built a
 *voice* feature engine → proved it on acted data → hit the acted-speech ceiling →

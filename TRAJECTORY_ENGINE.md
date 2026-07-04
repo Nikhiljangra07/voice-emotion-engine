@@ -2,7 +2,7 @@
 
 > **This is the active priority.** Read this before touching code. It is the
 > single source of truth for what we are building in Phase 2 and the laws that
-> keep us from drifting. CLAUDE.md remains the Phase 1 spec + decision log;
+> keep us from drifting. The internal Phase-1 spec (kept local) holds the early decision log;
 > this file governs everything from here.
 >
 > **Created:** 2026-06-22 · **Phase:** 2 (PAD Trajectory Engine) → 3 (deep audio). · **Status:** ✅ COMPLETE + valence wall broken. Phase 2 study shipped (classical V 0.347 / A 0.612 / D 0.515, trajectory + emotion web + writeup). **Phase 3 headline (2026-06-30): fine-tuned WavLM-large, held-out MSP Test1 V 0.705 / A 0.714 / D 0.626 / mean 0.681 — valence 0.10→0.705 (7×), the "valence problem" solved.** Model at `models/wavlm_vad_ft/`, inference via `scripts/predict_wavlm_ft.py` (.venv_diar). **Phase 3.2 (2026-07-01): emotion namer (retrieval + frozen/fine-tuned hybrid ≈ 69% cross-speaker) + ECAPA diarization, packaged as routable enrollable adaptors — writeup shipped (`WRITEUP.md`, `RESULTS_AT_A_GLANCE.md`, `REFERENCES.md`).** Project packaged.
