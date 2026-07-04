@@ -94,8 +94,47 @@ dominance signature (D=+0.47), the axis this engine uniquely measures. (WavLM's
 "contempt" on the anger clip is the known adjacent-centroid call — "contempt is cold
 anger" — which is exactly why the judge, not the steerer, names the family.)
 
-**In progress:** IndexTTS-2 vendor env sync (uv, Py3.12) + 5.9 GB weights download —
-running in background (`vendor/setup_uv.log`, `vendor/setup_weights.log`).
+**More hurdles (same day, the environment fought back — all cleared):**
+4. **PyPI timeout** killed the first successful sync at the last package (`jieba`,
+   45 s connect timeout). Resolution: retry — uv's cache made it cheap.
+5. **Full network drop mid-weights** (DNS couldn't resolve huggingface.co, 52 MB into
+   5.9 GB). Resolution: relaunch with **resume + 6-attempt retry loop** — the download
+   continued from where it died. Pattern adopted for all future large downloads.
+6. **`uv run` sabotaged by the vendor's own `.python-version`** — the repo pins `3.10`,
+   so `uv run` rejected our synced 3.11 env and silently spun up a bare one →
+   `ModuleNotFoundError: indextts` (a *silent-wrong-env* failure, cousin of the parent
+   repo's silent-garbage lesson). Resolution: bypass `uv run` entirely — call
+   `vendor/index-tts/.venv/bin/python` directly with explicit
+   `PYTHONPATH=<vendor root>`. Absolute interpreter + explicit path = no resolver
+   magic, no surprises.
 
-**Next (P4.2):** first synthesis — manual emotion-vector sweep on the three target
-emotions, listen + measure through the bridge, log the first generated-audio scores.
+### 2026-07-04 (later) — P4.2 FIRST SYNTHESIS + FIRST JUDGED CLIP: an honest MISS
+
+The full pipeline ran end-to-end for the first time: **IndexTTS-2 on Apple Silicon
+(MPS) synthesized speech from an emotion vector, and the engine judged it through the
+bridge.** Mouth → ear, closed.
+
+- Setup: RAVDESS neutral clip as speaker prompt (neutral timbre — any emotion must
+  come from the vector), neutral sentence, `emo_vector sad=0.8`.
+- Synthesis: 4.28 s audio in 72.5 s (RTF ≈ 17 on MPS — slow, fine for batch; a GPU
+  pod is the speed escape hatch if sweeps get big).
+- **Result (ledger row 1): MISS.** Judged V=−0.06 A=0.41 D=+0.05 → acoustically
+  ~neutral (distance to sadness centroid 0.251). WavLM says *neutral*; e2v judge says
+  *joy@100%*.
+
+**What this miss teaches (why the ledger exists):**
+- The sad slider at 0.8 did NOT move the acoustics to sadness — either the emotion
+  vector needs different scaling/combination (sweep needed), the neutral speaker
+  prompt dampens it, or emotional English from a Chinese-first model is weaker than
+  advertised. All testable.
+- **judge=joy@100% on a near-neutral synthetic voice is a judge finding, not just a
+  TTS finding** — the e2v retrieval DB has never seen studio-clean synthetic audio;
+  its nearest neighbors for "clean + calm" may skew joy. Out-of-domain judge behavior
+  is now a tracked thread (this is exactly the "rival clips double as judge test
+  data" effect, arriving early).
+- 100% kNN confidence on out-of-domain input reconfirms: **confidence is vote-share,
+  not evidence** (parent repo, problem #4 of the stress test).
+
+**Next (P4.2 continues):** the systematic sweep — sad slider at 0.4/0.8/1.2, sad+
+melancholic combinations, joy and anger vectors, an *emotional* speaker prompt as a
+control condition, and a listen-check — every clip a ledger row.
