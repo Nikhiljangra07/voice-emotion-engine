@@ -87,6 +87,16 @@ Gemini Flash TTS. Small API spend; each gets the same sentences and target emoti
    judge confidence; per-emotion breakdown. No single vanity number.
 5. **Optimizer:** black-box search over the 8-dim emotion vector (grid → CMA-ES if
    needed). Budgeted; iterations logged.
+5b. **The LEDGER (every generation is data):** every clip ever synthesized — ours or
+   a rival's — appends one row to `out/loop_ledger.csv`:
+   `iteration, system, target_emotion, control_params, judged_V, judged_A, judged_D,
+   judge_family, judge_confidence, distance_to_target, accepted`.
+   Misses are kept, not discarded — they map the control-space → perception-space
+   transfer function, enable warm-starting future searches, and expose judge blind
+   spots. **Boundary (binding):** ledger data may improve the *mouth's control
+   policy*, never the *ear* — the judge stays frozen for the entire project. Feeding
+   synthetic audio back into the judge's training would be self-poisoning
+   (optimizing the meter instead of the sound).
 6. **Report negatives** exactly as the parent project does (fear exclusion, judge
    bias toward acted speech, license constraints).
 
