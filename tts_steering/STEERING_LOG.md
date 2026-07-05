@@ -416,3 +416,35 @@ joy Chatterbox (local MIT) · commercial APIs win no category on this yardstick.
 
 **Next:** OpenAI TTS slot-in when key lands; optional blind human check on rival
 clips (protocol proven); then P4.5 — the Phase-4 writeup.
+
+### 2026-07-05 — P4.4 addendum: OpenAI TTS slots in — the flattest mouth of the five
+
+Key fixed, resumable scripts did their job (only the 4 missing clips ran). Ledger
+rows 45–48. `gpt-4o-mini-tts`, voice=alloy, steered via the `instructions` prompt.
+
+| target | V | A | D | d | judge |
+|---|---|---|---|---|---|
+| neutral | −0.04 | 0.41 | +0.20 | 0.178 | neutral@100% ✅ |
+| sadness | −0.14 | 0.27 | −0.00 | 0.199 | neutral@100% |
+| joy | −0.11 | 0.44 | +0.26 | 0.440 | neutral@100% |
+| anger | −0.13 | 0.43 | +0.23 | **0.434** | neutral@100% |
+
+**Finding: OpenAI's instruction-following barely moves the acoustics.** All four
+clips cluster near neutral; its "furious" (d=0.434) is more than 2× farther from
+the anger centroid than our steered clip (0.207) and its joy/anger were judged
+neutral@100% — the emotional dynamic range is minimal on this voice. Its sadness
+leans the right way (arousal drops to 0.27) but stays in the neutral basin. On
+this yardstick OpenAI TTS optimizes for clarity, not affect.
+
+**FINAL five-system scoreboard (frozen judge, one sentence, probe-scale):**
+
+| | ours (steered) | Chatterbox | ElevenLabs v3 | Hume | OpenAI |
+|---|---|---|---|---|---|
+| neutral | ✅ | ✅ 0.096 | ✅ 0.291 | ✅ 0.336 | ✅ 0.178 |
+| sadness | **0.134** ★human | 0.264 | 0.395 | 0.145 | 0.199 |
+| joy | 0.354 | **✅ HIT** 0.294 | 0.462 (anger!) | 0.513 | 0.440 |
+| anger | **✅ HIT@100% 0.207** | 0.338 | ✅ HIT@60% 0.263 | 0.282 | 0.434 |
+
+Anger: OURS. Sadness acoustics: OURS (judge-blind-spot caveat, human-confirmed).
+Joy: Chatterbox (local, MIT). The two local, free systems took every category;
+neither commercial API won one. Benchmark closed — on to P4.5, the writeup.
