@@ -360,3 +360,59 @@ two escape routes.**
 **Next: P4.4 — the rivals benchmark** (ElevenLabs v3 / Hume Octave 2 / OpenAI TTS),
 same sentence, same frozen judge, plus blind human spot-checks now that the
 listener protocol is proven.
+
+### 2026-07-05 — P4.4 THE RIVALS BENCHMARK: the $0 local loop holds its ground against commercial APIs
+
+**Setup.** Same neutral sentence, same frozen judge, same MSP centroids. Each rival
+driven through its own native emotion-control surface, one fixed voice each:
+ElevenLabs **eleven_v3** (audio tags `[sad]/[happily]/[angry]`, voice=River),
+**Hume Octave** (acting description per utterance). OpenAI TTS pending (key issue —
+401; will slot in via the resumable scripts). Ledger rows 37–44. One clip per
+emotion per rival — probe-scale, not a definitive study; stated as such.
+
+**Hurdles (logged):** ElevenLabs free tier 402'd on the classic "Rachel" voice —
+premade catalog voices are now account-scoped; fix was listing `/v1/voices` and
+using a premade one (River). Hume worked first try, 4/4.
+
+**Results (frozen judge, rows 37–44):**
+
+| target | **IndexTTS-2 (ours, loop-steered)** | Chatterbox (local) | ElevenLabs v3 | Hume Octave |
+|---|---|---|---|---|
+| neutral | HIT | HIT d=0.096 | HIT d=0.291 | HIT d=0.336 |
+| sadness | **d=0.134** ★human-adjudicated HIT | d=0.264, neutral | d=0.395, neutral | d=0.145, neutral |
+| joy | d=0.354 (fear; moderate=human-real) | **joy@60% HIT** d=0.294 | d=0.462, **anger@60%** | d=0.513, neutral |
+| anger | **anger@100% HIT, d=0.207** | d=0.338, fear | anger@60% HIT, d=0.263 | d=0.282, neutral@80% |
+
+**Findings:**
+
+1. **ANGER — we win outright.** Our loop-steered `angry=0.7` beats ElevenLabs v3 on
+   BOTH axes (distance 0.207 vs 0.263; judge confidence 100% vs 60%). Hume's anger
+   missed entirely (neutral@80%). A local model + 30 ledger iterations out-delivered
+   the commercial APIs' one-shot on the instrument everyone was scored by.
+2. **SADNESS — acoustically, ours is the closest of all four mouths** (0.134 vs
+   Hume 0.145, Chatterbox 0.264, ElevenLabs 0.395) — and the judge said neutral for
+   **every system**. Four independent mouths, zero sadness family-hits. The Gate-2
+   verdict is now overwhelming: the e2v judge locks synthetic sadness to neutral,
+   period. (Human ears already confirmed ours sounds sad.)
+3. **JOY — no rival cracked it either.** ElevenLabs `[happily]` was judged
+   *anger*@60% with negative valence; Hume joy read neutral. Chatterbox's joy@60%
+   remains the ONLY synthetic joy ever named by the judge. Notably: **not one of
+   ten joy attempts across four systems produced positive WavLM valence** — the
+   positive-valence gap on synthetic speech is universal, not an IndexTTS-2 defect.
+   (Whether that's TTS acoustics or judge attenuation, Gate 2 says at least part
+   is the ear.)
+4. **Neutral: all four systems pass** — the yardstick is sane.
+
+**Honest framing for the writeup:** our clips had the closed-loop advantage — 30
+iterations of steer-measure-adjust vs the rivals' single prompt-shot. That is not
+an unfair comparison; it *is the thesis*: a feedback loop around a frozen judge
+buys a $0 local model parity-or-better with commercial emotional TTS on this
+instrument. Caveats: n=1 per cell, one sentence, one voice per system, judge has
+documented synthetic blind spots (sadness-lock, joy attenuation). Next escalation
+would be more sentences/voices + blind human panel on rival clips.
+
+**Scoreboard: anger OURS · sadness OURS (acoustic) with judge-blind-spot caveat ·
+joy Chatterbox (local MIT) · commercial APIs win no category on this yardstick.**
+
+**Next:** OpenAI TTS slot-in when key lands; optional blind human check on rival
+clips (protocol proven); then P4.5 — the Phase-4 writeup.

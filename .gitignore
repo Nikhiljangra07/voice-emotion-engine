@@ -55,3 +55,4 @@ tts_steering/out/
 .venv_tts/
 .venv_cbx/
 tts_steering/vendor/
+tts_steering/.keys.env
