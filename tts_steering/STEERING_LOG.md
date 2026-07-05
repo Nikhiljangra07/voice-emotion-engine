@@ -225,3 +225,79 @@ fake convergence where it isn't**. Both behaviors are the point.
 
 Budget discipline worked: 17 clips spent of a 30-clip worst case; anger stopped
 buying after it converged; the proposer deduplicated already-tried vectors.
+
+### 2026-07-05 — P4.3b Cross-model probe: a SECOND mouth (Chatterbox) settles joy — and reframes sadness
+
+**Why a second mouth.** After the optimizer, two open verdicts hinged on the same
+ambiguity: is the failure the MOUTH (IndexTTS-2 can't produce the acoustics) or the
+EAR (our judge undervalues synthetic emotion)? A second, unrelated TTS attempting
+the same emotions through its own control surface — same sentence, same frozen
+judge — separates the two without waiting for human ears.
+
+**Setup.** Chatterbox (Resemble AI, MIT license) in a third isolated env
+(`.venv_cbx`, py3.12). Control surface is entirely different from IndexTTS-2's:
+an *emotional reference clip* (RAVDESS strong-intensity acted emotions) + an
+`exaggeration` knob. 6 clips, judged by the same bridge, ledger rows 31–36
+(`system=chatterbox`).
+
+**Hurdle (logged for the record):** first run crashed with a cryptic
+`'NoneType' object is not callable` inside Chatterbox's constructor. Root cause was
+two generations of packaging drift stacked: the `perth` watermarking lib still
+imports legacy `pkg_resources`; py3.12 venvs don't bundle setuptools; and installing
+setuptools got v83 — which has *removed* `pkg_resources` entirely. `perth` swallows
+its own ImportError and exports `None`. Fix: pin `setuptools<81`. Real watermarker
+restored (no dummy-patching — clips keep Resemble's responsible-AI watermark).
+
+**Results (ledger 31–36):**
+
+| clip | target | control | V | A | D | judge | verdict |
+|---|---|---|---|---|---|---|---|
+| cbx_neutral_e05 | neutral | ref=neutral, ex=0.5 | −0.07 | 0.37 | +0.08 | **neutral@100%** | ✅ HIT (d=0.096) |
+| cbx_joy_e05 | joy | ref=happy, ex=0.5 | **+0.03** | 0.47 | +0.20 | **joy@60%** | ✅ **HIT** |
+| cbx_joy_e09 | joy | ref=happy, ex=0.9 | −0.10 | 0.66 | +0.44 | fear@80% | ❌ |
+| cbx_sad_e05 | sadness | ref=sad, ex=0.5 | −0.06 | 0.33 | +0.07 | neutral@100% | ❌ |
+| cbx_sad_e09 | sadness | ref=sad, ex=0.9 | −0.10 | 0.50 | +0.30 | neutral@100% | ❌ |
+| cbx_anger_e07 | anger | ref=angry, ex=0.7 | −0.41 | 0.86 | +0.71 | fear@83% | ❌ |
+
+**The triangulation, emotion by emotion:**
+
+1. **JOY: the ear is exonerated — IndexTTS-2's mouth is broken.** Chatterbox at
+   exaggeration 0.5 produced the **first synthetic joy HIT of the entire project**
+   (judge joy@60%, valence positive) — something IndexTTS-2 failed to do in 8
+   attempts. The judge CAN name synthetic joy when the acoustics carry it.
+   IndexTTS-2's `happy` slider renders shout, not smile. Caveat kept honest:
+   V=+0.03 vs centroid +0.30 — the judge grants synthetic joy only *weakly*
+   positive valence, so a milder ear-side attenuation may still coexist.
+   Consequences: (a) Phase-5 Gate 1 evidence upgraded — joy is mouth-limited and
+   training-eligible; (b) pragmatic alternative: **route joy to Chatterbox** in any
+   multi-mouth setup.
+2. **JOY at high intensity breaks the same way in BOTH mouths.** Chatterbox
+   ex=0.9 → fear@80% with negative valence — the exact signature of IndexTTS-2's
+   `happy=0.8+`. Cross-model replication says this is a real acoustic phenomenon:
+   *over-intensified synthetic happiness converges on fear's acoustics* (high
+   arousal, unstable pitch, no positive-valence markers). Moderation wins on both
+   control surfaces.
+3. **SADNESS: two unrelated mouths, identical verdict — suspicion shifts to the
+   ear.** Chatterbox's sad (both intensities) landed neutral@100%, same as all 9
+   IndexTTS-2 melancholic attempts. Notably Chatterbox's sadness is acoustically
+   WORSE than ours (d=0.264 vs our 0.134 floor) — IndexTTS-2 + `melancholic` remains
+   the better sadness mouth. But when two independent systems both read "neutral,"
+   either synthetic sadness universally lacks the voice-quality markers the judge
+   keys on, or the judge's synthetic-neighborhood locks to neutral. **Only human
+   ears can now break this tie** → the blind listen-check is decisive for sadness.
+4. **ANGER: IndexTTS-2 wins the head-to-head.** Chatterbox's anger nails valence
+   (−0.41 vs centroid −0.42!) but overshoots arousal/dominance (0.86/0.71) and the
+   judge reads it as fear@83%. IndexTTS-2's `angry=0.7` remains the only judged
+   anger HIT. First rivalry scoreboard: **anger IndexTTS-2 · joy Chatterbox ·
+   sadness nobody (yet).**
+5. **Neutral control passed 100%** — the bridge, references, and new env are sound;
+   the misses above are signal, not plumbing.
+
+**Scoreboard after the probe: ledger 36 rows across two systems. Joy has its first
+HIT (chatterbox). Sadness is now formally an EAR-question (Gate 2 = human ears).
+Anger remains IndexTTS-2's flag.**
+
+**Next:** (1) human blind listen-check — `out/listen_check/RESPONSE_SHEET.md`
+(11 clips, answer key sealed) — decides sadness mouth-vs-ear and validates joy;
+(2) P4.4 rivals benchmark (ElevenLabs v3 / Hume Octave 2 / OpenAI TTS) with the
+same sentence + same judge; (3) Phase-5 go/no-go after gates.
