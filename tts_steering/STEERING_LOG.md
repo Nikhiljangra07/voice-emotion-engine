@@ -192,3 +192,36 @@ dist 0.166, trail = melancholic) · joy 0/2 (needs rethink).** 13 ledger rows.
 **Next (P4.3):** melancholic-scaling round for sadness; happy+calm combos for joy;
 first human listen-check (do the clips *sound* like what the meters say?); then the
 optimizer loop on whichever emotions have working knobs.
+
+### 2026-07-05 — P4.3 THE OPTIMIZER: first autonomous convergence — and two honest walls
+
+The loop ran **with no human between iterations** for the first time:
+`optimize_p43.py` (orchestrator, deterministic rule-based proposer, budget-capped)
++ `synth_worker.py` (vendor-side, JSON-driven, one model load per round).
+3 rounds, 17 clips, ledger now at **30 rows**. Design held: steer on WavLM distance,
+**HIT declared only by the independent e2v judge**; emotions that converge stop
+spending budget (anger did, after round 1).
+
+| Emotion | Outcome | Evidence |
+|---|---|---|
+| **anger** | ✅ **CONVERGED — autonomously refined** | Machine tried `angry=0.7` on its own → distance **0.227 → 0.207**, judge anger@100%. It took a working setting and made it measurably better. |
+| **sadness** | ⚠️ improved 24%, then plateaued — a *measured floor* | Best **0.166 → 0.134** (`mel=1.0 + calm=0.3`); rounds 2–3 couldn't beat it (0.134/0.142/0.154...). Acoustics sit near the sadness centroid, but the e2v judge said **neutral@100% in all 9 attempts**. Either the TTS's sadness lacks the voice-quality markers (breathiness, instability) that live beyond V/A/D position, or the judge's synthetic-voice neighbors lock to neutral. |
+| **joy** | ❌ **ceiling confirmed** | 6 attempts across P4.2+P4.3, **zero positive valence ever produced**. Failure modes scatter: `happy=0.4`→fear@100%, `+calm`→neutral, `+surprised`→surprise/anger(!). This model cannot reach joy's coordinates by steering — per our instruments. |
+
+**What this answers (the "logging vs improving" question, with data):** the system
+now demonstrably improves itself where improvement is reachable — anger refined
+0.227→0.207 and sadness 0.166→0.134 with zero human decisions — and **refuses to
+fake convergence where it isn't**. Both behaviors are the point.
+
+**What it sets up:**
+- **The human listen-check is now the single most important next experiment** — for
+  BOTH sadness and joy it decides mouth-broken vs ear-biased (Phase-5 Gate 2). If
+  `r2_sadness_0` *sounds* clearly sad to human ears while the judge says neutral,
+  the judge's synthetic-voice bias is real and measurable.
+- **Joy is the documented candidate for Phase-5 training** (Gate 1 filling: steering
+  provably exhausted) — or for a knob-change to Chatterbox. Decision after ears.
+- e2v OOD-scatter thread grows: fear@100% and anger@100% on happy-slider clips —
+  the judge's confidence remains vote-share, not evidence, on synthetic audio.
+
+Budget discipline worked: 17 clips spent of a 30-clip worst case; anger stopped
+buying after it converged; the proposer deduplicated already-tried vectors.
