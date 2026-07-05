@@ -547,3 +547,75 @@ per THE CATCH above.
   Alternative that needs no training: route joy to Chatterbox (MIT).
 - StyleTTS2 research angle (task-vector papers) — untouched, optional.
 - Rival clips as blind human listening material — protocol proven, optional.
+
+### 2026-07-05 — P4.4b THE FAIR REMATCH: every system gets the loop — and our crown mostly melts
+
+THE CATCH demanded a fair fight; this is it. **Every rival got the same closed
+loop** (3 seeds → judge → deterministic error-keyed refinements, ≤5 judged
+attempts/emotion), **voice selection by the meter** (ElevenLabs: Charlie/Harry/
+Laura tested; OpenAI: ash/coral/ballad tested), richer native control surfaces
+(multi-tags, acting descriptions, method-actor instructions, exaggeration×cfg
+grid), and a **generalization round** — every system's best config, including
+ours, re-judged on 2 sentences no steering ever saw. Same frozen judge, same
+centroids, semantics untouched. Ledger rows 49–130 (52 steering + 30
+generalization). Harness: `fair_p44b.py` + `cbx_worker.py`.
+
+**Hurdles:** (1) mid-run network outage killed the generalization round AND
+revealed the ledger was only written at the end — rows from 3 completed rounds
+would have been lost. Fix: per-round ledger persistence + control-strings
+reconstructed for cached clips; full resume worked. (2) e2v judge also needs
+network at init (modelscope ping) — noted as an ops constraint.
+
+**FAIR steering results (S1, ≤5 attempts each):**
+
+| emotion | ours (historical) | Chatterbox | ElevenLabs v3 | Hume | OpenAI |
+|---|---|---|---|---|---|
+| anger | HIT@100% d=0.207 | **HIT@60% d=0.171** | HIT@59% d=0.380 | HIT@100% d=0.256 | **HIT@80% d=0.187** |
+| joy | ✗ 0.354 | ✗ 0.309 | **HIT@80% d=0.144** | ✗ (anger) | ✗ 0.495 |
+| sadness | 0.134 ★human | 0.162 | 0.357 | 0.210 | 0.240 |
+
+**Generalization (best configs, 2 unseen sentences; family hits / 6 clips):**
+ours **3/6** · OpenAI **3/6** · ElevenLabs 2/6 · Chatterbox 2/6 · Hume 1/6.
+Nobody is stable. Many off-target clips judged joy@80% on the new sentences —
+the judge shows a joy-attractor basin there (echoes the parent project's MELD
+joy-absorption finding). And two firsts: **the judge named synthetic sadness for
+the first time ever** — ours (sadness@40%) and Chatterbox (sadness@60%), both on
+sentence S3 only. The sadness lock is real but *sentence-dependent* — softer
+than we claimed.
+
+**RETRACTIONS (what the fair fight takes away):**
+1. ~~"Anger: OURS"~~ → **anger is a four-way tie.** Given the loop, Chatterbox
+   (0.171) and OpenAI (0.187) beat our distance (0.207); we keep only the
+   confidence edge (100% vs 60–80%, shared with Hume). Our previous win was
+   mostly the iteration asymmetry, as suspected.
+2. ~~"Commercial APIs win no category"~~ → **ElevenLabs v3 wins joy outright**
+   (d=0.144@80%, best joy of the project) once given an expressive voice + tag
+   combos. OpenAI's "flatness" was half our voice choice: coral+loop found
+   anger d=0.187@80% where alloy one-shot gave 0.434 neutral.
+3. ~~n=1 doesn't matter much~~ → it mattered enormously. Steering-round winners
+   are S1-specialists; cross-sentence stability is poor for every system
+   including ours.
+
+**What survives — and is strengthened:**
+1. **The loop is the product, not the model.** It improved every control surface
+   it touched (sliders, tags, descriptions, instructions, exaggeration) in ≤5
+   attempts — that's the transferable engineering result.
+2. **The instrument characterization replicates across 5 systems:** the
+   sadness→neutral lock (now with its sentence-dependence mapped), the
+   joy-attractor on certain texts, and the **moderation law** — every
+   max-intensity refinement overshot into fear/surprise (Hume "ecstatic" →
+   d=0.956 surprise; Chatterbox ex=1.0 → fear@100%), on every system, every time.
+3. Ours still holds: best sadness acoustics (0.134, human-confirmed), highest-
+   confidence anger, and the only system with a fully mapped control surface.
+
+**THE DELICATE CLAIM, revised smaller (supersedes the previous):**
+> A deterministic feedback loop around a frozen perceptual judge finds the best
+> emotional operating point of ANY TTS control surface — local or commercial —
+> in ≤5 judged attempts, and in doing so characterizes both the mouths (all
+> five share a high-intensity collapse) and the ear (sentence-dependent sadness
+> lock, joy attractor). On this instrument, a $0 local stack remains
+> competitive with commercial APIs, winning no category cleanly and losing
+> only joy.
+
+That is what we actually gained. It is smaller than the P4.4 headline and it is
+true — which makes it worth more.
