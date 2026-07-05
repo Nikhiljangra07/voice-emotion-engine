@@ -448,3 +448,102 @@ this yardstick OpenAI TTS optimizes for clarity, not affect.
 Anger: OURS. Sadness acoustics: OURS (judge-blind-spot caveat, human-confirmed).
 Joy: Chatterbox (local, MIT). The two local, free systems took every category;
 neither commercial API won one. Benchmark closed — on to P4.5, the writeup.
+
+### 2026-07-05 — THE CATCH: stepping back — what this benchmark does NOT show
+
+Right after the final scoreboard landed, the project owner asked the question a
+sharp interviewer would ask: *"Don't you feel it's too good to be true? We beat
+multimillion-dollar infrastructure with a little tweaking and a feedback loop?
+There must be a catch."* There is. Five, recorded here **before** the writeup, so
+the record shows the skepticism came from inside the project, not from a reviewer.
+
+1. **We won on our own scoreboard, in our own stadium.** The yardstick is our WavLM
+   judge and our MSP centroids. We iterated against that metric ~30 times; every
+   rival got one prompt-shot. Anyone allowed to iterate against a fixed metric will
+   beat one-shot competitors *on that metric* — Goodhart's law working in our favor.
+   The result is a claim about **loops and instruments**, not about who has the
+   better TTS.
+2. **We never measured what the rivals actually sell.** Naturalness, cloning
+   fidelity, 30 languages, sub-300 ms streaming, stability across arbitrary text,
+   pronunciation, uptime. Our benchmark scores none of it. Their clips almost
+   certainly *sound more human* than ours — no MOS/naturalness test was run. A
+   slightly robotic clip with exaggerated acoustics can win our metric while losing
+   every human preference test.
+3. **OpenAI's flatness is plausibly a product choice, not incapacity.** Overacted
+   emotion is cringe in a product that reads text aloud a billion times a day.
+   Commercial TTS deliberately underplays; we measured "won't chew the scenery"
+   and scored it "can't act."
+4. **We may have handicapped ElevenLabs ourselves.** The voice used (River —
+   "Relaxed, Neutral, Informative") was chosen as a clean neutral base — which is
+   like testing emotional range on a newsreader. A theatrical catalog voice plus
+   the same 30-iteration budget we gave ourselves could tell a different story.
+5. **n=1 per cell.** One sentence, one voice per system, one clip per emotion.
+   ElevenLabs anger@60% vs ours @100% is, at this sample size, an anecdote wearing
+   a table's clothes.
+
+**What survives the deflation (the actual value):**
+- The **methodology**: frozen judge, anti-circularity law, ledger that keeps every
+  miss, deterministic optimizer, blind human gate with real-voice controls.
+- The **judge blind-spot discovery** — synthetic sadness → neutral across five
+  independent mouths, broken only by blind human ears. That finding is solid.
+- The **anger steering map** on IndexTTS-2 — monotonic, repeatable, both backbones
+  agree at every strength.
+- The **universal synthetic-joy valence gap** — ten attempts, four synthetic
+  mouths, zero positive WavLM valence. Whatever its cause, it's real and measured.
+
+**THE DELICATE CLAIM (the sentence the writeup must not exceed):**
+> A closed feedback loop around a frozen perceptual judge lets a $0 local TTS
+> match or exceed commercial emotional TTS **on that judge's scale**, at
+> probe-scale (n=1/cell, one sentence) — while the loop's ledger doubles as a
+> characterization of both the TTS's control surface and the judge's own blind
+> spots.
+
+Nothing more. The moment it becomes "we beat ElevenLabs," it stops being true.
+
+---
+
+## WHERE WE STAND (as of 2026-07-05 — P4.0 through P4.4 complete)
+
+**Pipeline built and proven:** IndexTTS-2 (mouth, MPS) → bridge.py (subprocess-only)
+→ WavLM V/A/D (steering signal) + frozen e2v (family verdict) → deterministic
+optimizer → ledger. Four isolated envs, zero shared imports, engine repo untouched.
+
+**The ledger: 48 rows, 5 systems** (indextts2 smoke+sweep+p43 · chatterbox ·
+elevenlabs · hume-octave · openai-tts). Every miss kept. Artifacts: `out/loop_ledger.csv`,
+`out/p43/summary.json`, `out/p44/manifest.json`, `out/listen_check/` (sheet + sealed key).
+
+**Findings, in one place:**
+1. Anger is fully solved and won: monotonic steering, autonomous convergence
+   (`angry=0.7`, d=0.207, anger@100%), triple agreement (judge+human+intent),
+   beats all four other systems.
+2. Sadness is delivered but the judge can't see it: best clip d=0.134 (closest of
+   all five systems), heard as sad by blind human ears; e2v locks ALL synthetic
+   sadness to neutral (5/5 systems) — a characterized instrument blind spot.
+   Success criterion amended for sadness only: WavLM distance + blind human
+   confirmation (judge stays frozen).
+3. Joy splits by intensity: moderate IndexTTS-2 joy is human-real but
+   judge-attenuated; high-intensity joy collapses into fear/anger acoustics in BOTH
+   local mouths (cross-model replication). Chatterbox e=0.5 holds the only judged
+   joy HIT. No system, commercial or local, produced positive WavLM valence (0/10).
+4. The loop improves itself where improvement is reachable (anger 0.227→0.207,
+   sadness 0.166→0.134, zero human decisions) and refuses to fake convergence
+   where it isn't (joy, honestly failed).
+5. Judge OOD behavior on synthetic audio is now a documented thread: sadness→neutral
+   lock, joy attenuation (fear/surprise misreads), confidence = vote-share not
+   evidence. Joins the parent's fear-47% in the instrument-limitations ledger.
+
+**Laws still binding:** judge frozen (no retraining the ear on loop data, ever) ·
+bridge-not-merge (subprocess/CLI/JSON only) · every clip a ledger row · misses kept ·
+no magic numbers (centroids from 137k MSP; thresholds data-derived) · claims sized
+per THE CATCH above.
+
+**Open threads:**
+- **P4.5 writeup** — next deliverable. Structure: thesis (the delicate claim) →
+  method → scoreboard → the catch → blind-spot discovery → what we'd do with a
+  bigger budget.
+- **Phase 5 (gated)**: reward-guided fine-tuning of IndexTTS-2 for high-intensity
+  joy. Gate 1 (steering exhausted) ✅ filled. Gate 2 (human listen-check) ✅ run.
+  Gates 3–4 (training-grade data variety; reward-hacking mitigation plan) open.
+  Alternative that needs no training: route joy to Chatterbox (MIT).
+- StyleTTS2 research angle (task-vector papers) — untouched, optional.
+- Rival clips as blind human listening material — protocol proven, optional.
