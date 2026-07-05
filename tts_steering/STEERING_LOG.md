@@ -301,3 +301,62 @@ Anger remains IndexTTS-2's flag.**
 (11 clips, answer key sealed) — decides sadness mouth-vs-ear and validates joy;
 (2) P4.4 rivals benchmark (ElevenLabs v3 / Hume Octave 2 / OpenAI TTS) with the
 same sentence + same judge; (3) Phase-5 go/no-go after gates.
+
+### 2026-07-05 — GATE 2: the human listen-check — the ear's blind spot is real, and the mouth was better than we thought
+
+The decisive experiment ran: 11 blind clips (8 synthetic + 3 real-voice controls),
+hash-shuffled names, key sealed until the listener finished. Listener scored blind
+and — before seeing anything — independently proposed scoring at *family* level
+because joy↔neutral and sad↔serious felt like continua, not bins. That is exactly
+the pipeline's own Ekman-family + V/A/D design, rediscovered from the listening
+side. (Full sheet: `out/listen_check/RESPONSE_SHEET.md`.)
+
+**Calibration first: all 3 real-voice controls correct** (joy/anger/sad on real
+recordings). The ears are trustworthy; what follows is signal. 9/11 vs intent.
+
+**The three verdicts:**
+
+1. **SADNESS — the judge has a synthetic-sadness blind spot; the mouth was
+   succeeding.** Both sadness clips the e2v judge called neutral@100% across nine
+   optimizer attempts (`r2_sadness_0`, `mel_08`) were heard as **sad**, blind. This
+   retro-explains Chatterbox's identical neutral verdicts: same ear, same lock. The
+   melancholic knob works for humans. Honest asterisk: the listener also heard
+   "sad" on `calm_08` (human calm/serious/sad boundary is fuzzy in the same
+   low-arousal region) — but did NOT call the neutral baseline sad, so the finding
+   stands, caveated.
+2. **JOY — split by intensity.** `happy=0.4` (judge: fear@100%) was heard as
+   **joy** — moderate IndexTTS-2 joy is human-real and the ear under-credits it.
+   `happy=0.8` (judge: surprise) was heard as **anger** — high-intensity joy is
+   genuinely broken, human and judge agree. Combined with the Chatterbox joy HIT:
+   the ear CAN name synthetic joy but attenuates it; the mouth degrades with the
+   slider. Both effects are real, at different intensities.
+3. **ANGER — closed with triple agreement.** Both synthetic anger clips: judge
+   anger@100%, human anger, intended anger. Mouth ✓ ear ✓ human ✓.
+
+**Consequences (binding):**
+- **The judge stays frozen.** The tempting move — "teach the ear to hear synthetic
+  sadness" — is exactly the self-grading trap the judge-frozen law exists to
+  prevent. Instead the blind spot is *documented* (it joins the parent writeup's
+  known fear-47% weakness): **e2v locks synthetic sadness to neutral even when
+  humans hear sadness.**
+- **Sadness success criterion amended (judge untouched):** for sadness only, success
+  = WavLM distance ≤ ~0.14 to the MSP centroid + blind human confirmation. By that
+  standard, `mel=1.0 + calm=0.3` at d=0.134 **is a sadness HIT** — the scoreboard
+  gains one, honestly annotated as human-adjudicated.
+- **Phase-5 target sharpened:** joy remains the only training-eligible candidate,
+  and specifically *high-intensity* joy (moderate joy already works to human ears;
+  the high-slider regime is where the mouth breaks). Alternative stays live: route
+  joy to Chatterbox.
+- e2v blind-spot ledger for the writeup now reads: fear 47% (parent, real speech) +
+  synthetic-sadness→neutral lock + synthetic-joy attenuation (fear/surprise
+  misreads). The instrument is characterized, not perfect — that's what makes the
+  benchmark honest.
+
+**Scoreboard after Gate 2: anger ✅ (triple) · sadness ✅ (human-adjudicated,
+d=0.134) · joy ◐ (moderate=human-real, high=broken; Chatterbox HIT as alternative).
+Two of three target emotions delivered; the third has a mapped failure mode and
+two escape routes.**
+
+**Next: P4.4 — the rivals benchmark** (ElevenLabs v3 / Hume Octave 2 / OpenAI TTS),
+same sentence, same frozen judge, plus blind human spot-checks now that the
+listener protocol is proven.
