@@ -10,6 +10,17 @@ model that broke the axis everyone said was unrecoverable from audio alone.
 > Valence from voice alone went **0.06 → 0.35 → 0.705** across the project — a 7× arc,
 > each step earned and documented.
 
+> 📦 **This repository contains TWO projects.**
+> **Project 1 (this document): the Voice Emotion Engine** — the *ear*: audio in,
+> emotion out. **Project 2 ([`tts_steering/`](tts_steering/)): Emotional TTS Steering
+> & Fair Benchmark** — a separate project that points the finished ear at a synthetic
+> *mouth* and closes a feedback loop. They are deliberately independent systems:
+> zero shared code, zero shared dependencies, four isolated environments. Their only
+> connection is a **thin bridge** ([`tts_steering/bridge.py`](tts_steering/bridge.py))
+> that consumes the engine exactly as an external user would — subprocess → CLI →
+> JSON. The engine powers the second project; it doesn't know it exists.
+> → Project 2's own front door: **[tts_steering/WRITEUP.md](tts_steering/WRITEUP.md)**.
+
 ---
 
 ## What this engine does
@@ -108,14 +119,22 @@ Every result in the docs is reproducible from code in this repo + the datasets a
    music emotion (different field), text+voice fusion (breaks the "pure voice" identity —
    a choice, not a gap).
 
-## Phase 4 (in-repo, isolated): Emotional TTS Steering & Fair Benchmark
+## Project 2 (same repo, separate system): Emotional TTS Steering & Fair Benchmark
 
-The engine turned around and pointed at a synthetic mouth: a **closed feedback
-loop** steers IndexTTS-2 toward target emotions (judged by this engine, frozen),
-then benchmarks the whole idea **fairly** against ElevenLabs v3, Hume Octave and
-OpenAI TTS — every system given the same loop, 130 judged clips, headline result
-retracted when a fairer test dissolved it. Lives in [`tts_steering/`](tts_steering/)
-behind a subprocess-only bridge (zero imports into the engine).
+An **extension project powered by this engine, not part of it.** The finished ear
+turned around and pointed at a synthetic mouth: a **closed feedback loop** steers
+IndexTTS-2 toward target emotions (judged by this engine, frozen), then benchmarks
+the whole idea **fairly** against ElevenLabs v3, Hume Octave and OpenAI TTS —
+every system given the same loop, 130 judged clips, and the headline result
+retracted when a fairer test dissolved it.
+
+**Why one repo, two projects:** the second project's judge IS the first project's
+model — shipping them together keeps the benchmark reproducible. **Why they stay
+apart:** the engine is frozen and additive-only; the TTS project connects through
+one file ([`tts_steering/bridge.py`](tts_steering/bridge.py)), subprocess → CLI →
+JSON, zero code imports in either direction, its own venvs. Delete `tts_steering/`
+and the engine doesn't notice; break the engine and the bridge fails *loudly*.
+
 → **[tts_steering/WRITEUP.md](tts_steering/WRITEUP.md)** (the story + scoreboard) ·
 [tts_steering/STEERING_LOG.md](tts_steering/STEERING_LOG.md) (chronological log) ·
 [tts_steering/loop_ledger.csv](tts_steering/loop_ledger.csv) (the data).
@@ -125,7 +144,7 @@ behind a subprocess-only bridge (zero imports into the engine).
 | File | What's inside |
 |---|---|
 | [WRITEUP.md](WRITEUP.md) | The full technical report — methods, results, honest negatives |
-| [tts_steering/WRITEUP.md](tts_steering/WRITEUP.md) | Phase 4: TTS steering loop + fair 5-system benchmark |
+| [tts_steering/WRITEUP.md](tts_steering/WRITEUP.md) | **Project 2**: TTS steering loop + fair 5-system benchmark (bridge-linked, code-isolated) |
 | [RESULTS_AT_A_GLANCE.md](RESULTS_AT_A_GLANCE.md) | One-page summary |
 | [JOURNEY.md](JOURNEY.md) | The build story: every phase, every problem hit, every fix (31 and counting) |
 | [TRAJECTORY_ENGINE.md](TRAJECTORY_ENGINE.md) | Phase-2/3 spec, binding laws, progress log |

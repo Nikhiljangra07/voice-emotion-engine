@@ -1,9 +1,15 @@
-# Emotional TTS Steering — Phase 4 Writeup
+# Emotional TTS Steering & Fair Benchmark
 
 **A closed feedback loop that steers text-to-speech toward target emotions, judged
 by a frozen voice-emotion engine — benchmarked fairly against ElevenLabs v3, Hume
 Octave, and OpenAI TTS, with every mistake kept and the headline result retracted
 when a fairer test dissolved it.**
+
+> **This is Project 2 of this repository** — a separate system *powered by* the
+> [Voice Emotion Engine](../README.md) (Project 1), not part of it. The engine is
+> the judge; this project is the contestant-wrangler. They touch through exactly
+> one file — [`bridge.py`](bridge.py), subprocess → CLI → JSON — with zero code
+> imports in either direction and fully separate environments.
 
 *Companion doc: [STEERING_LOG.md](STEERING_LOG.md) — the full chronological record
 (every hurdle, every miss). Charter: [README.md](README.md).

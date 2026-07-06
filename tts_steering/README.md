@@ -113,6 +113,22 @@ Gemini Flash TTS. Small API spend; each gets the same sentences and target emoti
 - Engine repo remains additive-only; this folder is the only place Phase-4 work lives
   until it graduates to its own repository.
 
+## 6b. Reproduction (environments & keys)
+
+Four isolated interpreters — none shared, none system-level:
+
+| env | python | purpose | setup |
+|---|---|---|---|
+| `.venv_tts/` | 3.13 | this project's orchestrator (loop, bridge callers, API rivals) | `python3 -m venv .venv_tts && .venv_tts/bin/pip install requests numpy soundfile` |
+| `tts_steering/vendor/index-tts/.venv/` | 3.11 | IndexTTS-2 (the mouth) | clone [index-tts](https://github.com/index-tts/index-tts) into `vendor/`, `uv sync --python 3.11`, download checkpoints (~5.9 GB) |
+| `.venv_cbx/` | 3.12 | Chatterbox (second mouth) | `python3.12 -m venv .venv_cbx && .venv_cbx/bin/pip install chatterbox-tts "setuptools<81"` (the pin restores `pkg_resources` for the perth watermarker — see STEERING_LOG) |
+| `.venv_diar/` | 3.13 | the judge (parent engine — untouched by this project) | see [../README.md](../README.md) reproduction table |
+
+Commercial-rival keys go in `tts_steering/.keys.env` (gitignored; format in the
+scripts' docstrings): `OPENAI_API_KEY` / `ELEVENLABS_API_KEY` / `HUME_API_KEY`.
+Judged clips land in `out/` (gitignored); the committed
+[`loop_ledger.csv`](loop_ledger.csv) is the frozen conclusion-time snapshot.
+
 ## 7. Papers this project reads *and applies*
 
 - IndexTTS2 (arXiv:2506.21619) — the foundation's emotion-disentanglement design.
