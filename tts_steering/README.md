@@ -125,9 +125,16 @@ Gemini Flash TTS. Small API spend; each gets the same sentences and target emoti
 
 1. **P4.0 — this charter.** ✅
 2. **P4.1 — judge harness:** wrap the engine CLI as the scoring function; verify on
-   labeled clips (sanity: known-sad clip scores sad).
+   labeled clips (sanity: known-sad clip scores sad). ✅
 3. **P4.2 — foundation online:** IndexTTS-2 running (MPS or pod); manual emotion-vector
-   sweep; listen + measure.
-4. **P4.3 — closed loop:** optimizer over the emotion vector against the judge.
-5. **P4.4 — benchmark:** open + commercial systems, same protocol; tables + plots.
-6. **P4.5 — writeup:** results, negatives, judge-vs-human gap.
+   sweep; listen + measure. ✅
+4. **P4.3 — closed loop:** optimizer over the emotion vector against the judge. ✅
+   (+ P4.3b cross-model probe, + blind human gate)
+5. **P4.4 — benchmark:** open + commercial systems, same protocol; tables + plots. ✅
+   (+ P4.4b fair rematch: every rival gets the loop; retractions logged)
+6. **P4.5 — writeup:** results, negatives, judge-vs-human gap. ✅
+   → **[WRITEUP.md](WRITEUP.md)** — Phase 4 concluded 2026-07-05.
+
+**Post-conclusion (documented, gated, not promised):** P4.6 multi-sentence
+transfer map · Phase 5 rejection-sampling fine-tune behind its four gates
+(see STEERING_LOG "WHERE WE STAND").

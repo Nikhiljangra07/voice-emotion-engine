@@ -619,3 +619,16 @@ than we claimed.
 
 That is what we actually gained. It is smaller than the P4.4 headline and it is
 true — which makes it worth more.
+
+### 2026-07-05 — P4.5: writeup shipped. PHASE 4 CONCLUDED.
+
+[`WRITEUP.md`](WRITEUP.md) condenses this log into the presentable story: the
+claim (v3, sized honestly), the loop, the fair scoreboard, the human gate, the
+catch, and the gated next steps. A snapshot of the full ledger
+([`loop_ledger.csv`](loop_ledger.csv), 130 rows) is now committed alongside it —
+the data travels with the claims. Root README links the phase.
+
+Final state: 2 days, 5 systems, 130 judged clips, 12+ hurdles logged, 1 headline
+result retracted by our own fairer test, 2 instrument blind spots discovered and
+characterized, 1 human blind protocol run with 3/3 controls. The project ends the
+way it was designed to: with the smallest claim that is fully true.

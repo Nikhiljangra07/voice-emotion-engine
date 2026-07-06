@@ -108,11 +108,24 @@ Every result in the docs is reproducible from code in this repo + the datasets a
    music emotion (different field), text+voice fusion (breaks the "pure voice" identity —
    a choice, not a gap).
 
+## Phase 4 (in-repo, isolated): Emotional TTS Steering & Fair Benchmark
+
+The engine turned around and pointed at a synthetic mouth: a **closed feedback
+loop** steers IndexTTS-2 toward target emotions (judged by this engine, frozen),
+then benchmarks the whole idea **fairly** against ElevenLabs v3, Hume Octave and
+OpenAI TTS — every system given the same loop, 130 judged clips, headline result
+retracted when a fairer test dissolved it. Lives in [`tts_steering/`](tts_steering/)
+behind a subprocess-only bridge (zero imports into the engine).
+→ **[tts_steering/WRITEUP.md](tts_steering/WRITEUP.md)** (the story + scoreboard) ·
+[tts_steering/STEERING_LOG.md](tts_steering/STEERING_LOG.md) (chronological log) ·
+[tts_steering/loop_ledger.csv](tts_steering/loop_ledger.csv) (the data).
+
 ## Repository map
 
 | File | What's inside |
 |---|---|
 | [WRITEUP.md](WRITEUP.md) | The full technical report — methods, results, honest negatives |
+| [tts_steering/WRITEUP.md](tts_steering/WRITEUP.md) | Phase 4: TTS steering loop + fair 5-system benchmark |
 | [RESULTS_AT_A_GLANCE.md](RESULTS_AT_A_GLANCE.md) | One-page summary |
 | [JOURNEY.md](JOURNEY.md) | The build story: every phase, every problem hit, every fix (31 and counting) |
 | [TRAJECTORY_ENGINE.md](TRAJECTORY_ENGINE.md) | Phase-2/3 spec, binding laws, progress log |

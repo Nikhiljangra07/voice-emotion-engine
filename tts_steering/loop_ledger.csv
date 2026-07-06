@@ -1,0 +1,131 @@
+iteration,system,target_emotion,control_params,judged_V,judged_A,judged_D,judge_family,judge_confidence,distance_to_target,accepted
+1,indextts2,sadness,"emo_vector=[0,0,0.8,0,0,0,0,0];spk=ravdess_neutral_A01",-0.06,0.41,0.05,joy,1.0,0.251,0
+2,indextts2,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=03-01-01-01-01-01-01.wav",-0.022,0.474,0.225,neutral,1.0,0.197,1
+3,indextts2,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];spk=03-01-01-01-01-01-01.wav",-0.109,0.382,0.082,neutral,1.0,0.229,0
+4,indextts2,sadness,"emo_vector=[0.0, 0.0, 1.2, 0.0, 0.0, 0.0, 0.0, 0.0];spk=03-01-01-01-01-01-01.wav",0.044,0.4,0.073,joy,0.8,0.354,0
+5,indextts2,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0, 0.0];spk=03-01-01-01-01-01-01.wav",-0.163,0.303,0.01,neutral,1.0,0.166,0
+6,indextts2,sadness,"emo_vector=[0.0, 0.0, 0.6, 0.0, 0.0, 0.6, 0.0, 0.0];spk=03-01-01-01-01-01-01.wav",-0.13,0.296,-0.072,neutral,1.0,0.178,0
+7,indextts2,joy,"emo_vector=[0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=03-01-01-01-01-01-01.wav",-0.202,0.775,0.594,surprise,0.8,0.673,0
+8,indextts2,joy,"emo_vector=[1.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=03-01-01-01-01-01-01.wav",-0.396,0.836,0.669,surprise,0.8,0.883,0
+9,indextts2,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=03-01-01-01-01-01-01.wav",-0.381,0.79,0.615,anger,1.0,0.227,1
+10,indextts2,anger,"emo_vector=[0.0, 1.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=03-01-01-01-01-01-01.wav",-0.547,0.883,0.768,anger,1.0,0.422,1
+11,indextts2,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8];spk=03-01-01-01-01-01-01.wav",-0.114,0.346,0.08,neutral,1.0,0.137,1
+12,indextts2,sadness,"emo_vector=[0.0, 0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0];spk=03-01-04-02-01-01-01.wav",-0.045,0.4,0.06,fear,1.0,0.269,0
+13,indextts2,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=03-01-05-02-01-01-01.wav",-0.509,0.897,0.796,anger,1.0,0.443,1
+14,indextts2-p43,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0];spk=ravdess_neutral_A01",-0.193,0.295,-0.026,neutral,1.0,0.136,0
+15,indextts2-p43,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0, 0.0];spk=ravdess_neutral_A01",-0.199,0.283,-0.021,neutral,1.0,0.143,0
+16,indextts2-p43,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0, 0.3];spk=ravdess_neutral_A01",-0.211,0.275,-0.057,neutral,1.0,0.135,0
+17,indextts2-p43,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.7, 0.0, 0.0];spk=ravdess_neutral_A01",-0.193,0.273,-0.054,neutral,1.0,0.147,0
+18,indextts2-p43,joy,"emo_vector=[0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01",-0.027,0.555,0.324,fear,1.0,0.354,0
+19,indextts2-p43,joy,"emo_vector=[0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];spk=ravdess_neutral_A01",-0.142,0.516,0.28,neutral,1.0,0.455,0
+20,indextts2-p43,joy,"emo_vector=[0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.0];spk=ravdess_neutral_A01",-0.139,0.695,0.458,surprise,0.8,0.527,0
+21,indextts2-p43,joy,"emo_vector=[0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3];spk=ravdess_neutral_A01",-0.178,0.605,0.409,anger,1.0,0.526,0
+22,indextts2-p43,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01",-0.356,0.775,0.592,anger,1.0,0.207,1
+23,indextts2-p43,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];spk=ravdess_neutral_A01",-0.366,0.782,0.624,anger,1.0,0.236,1
+24,indextts2-p43,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];spk=ravdess_neutral_A01",-0.219,0.284,-0.016,neutral,1.0,0.134,0
+25,indextts2-p43,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.6, 0.0, 0.3];spk=ravdess_neutral_A01",-0.181,0.321,0.025,neutral,1.0,0.154,0
+26,indextts2-p43,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0, 0.0];spk=ravdess_neutral_A01",-0.229,0.258,-0.077,neutral,1.0,0.142,0
+27,indextts2-p43,joy,"emo_vector=[0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01",-0.123,0.577,0.338,fear,0.83,0.448,0
+28,indextts2-p43,joy,"emo_vector=[0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01",-0.134,0.533,0.297,neutral,0.8,0.449,0
+29,indextts2-p43,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.21, 0.0, 0.29];spk=ravdess_neutral_A01",-0.236,0.242,-0.074,neutral,1.0,0.154,0
+30,indextts2-p43,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.75, 0.0, 0.3];spk=ravdess_neutral_A01",-0.155,0.287,-0.015,neutral,1.0,0.171,0
+31,chatterbox,neutral,"ref=neutral,exagg=0.5",-0.07,0.371,0.076,neutral,1.0,0.096,1
+32,chatterbox,joy,"ref=joy,exagg=0.5",0.026,0.473,0.2,joy,0.6,0.294,1
+33,chatterbox,joy,"ref=joy,exagg=0.9",-0.097,0.657,0.445,fear,0.8,0.478,0
+34,chatterbox,sadness,"ref=sadness,exagg=0.5",-0.063,0.33,0.068,neutral,1.0,0.264,0
+35,chatterbox,sadness,"ref=sadness,exagg=0.9",-0.097,0.499,0.298,neutral,1.0,0.425,0
+36,chatterbox,anger,"ref=anger,exagg=0.7",-0.406,0.859,0.708,fear,0.83,0.338,0
+37,elevenlabs,neutral,"eleven_v3 tags (v2+style fallback), voice=Rachel",-0.102,0.54,0.3,neutral,1.0,0.291,1
+38,elevenlabs,sadness,"eleven_v3 tags (v2+style fallback), voice=Rachel",-0.021,0.484,0.214,neutral,1.0,0.395,0
+39,elevenlabs,joy,"eleven_v3 tags (v2+style fallback), voice=Rachel",-0.099,0.613,0.419,anger,0.6,0.462,0
+40,elevenlabs,anger,"eleven_v3 tags (v2+style fallback), voice=Rachel",-0.173,0.682,0.499,anger,0.6,0.263,1
+41,hume-octave,neutral,octave acting description,-0.077,0.519,0.357,neutral,1.0,0.336,1
+42,hume-octave,sadness,octave acting description,-0.25,0.307,0.044,neutral,1.0,0.145,0
+43,hume-octave,joy,octave acting description,-0.16,0.601,0.417,neutral,1.0,0.513,0
+44,hume-octave,anger,octave acting description,-0.144,0.646,0.422,neutral,0.8,0.282,0
+45,openai-tts,neutral,"gpt-4o-mini-tts, voice=alloy, instructions",-0.044,0.413,0.204,neutral,1.0,0.178,1
+46,openai-tts,sadness,"gpt-4o-mini-tts, voice=alloy, instructions",-0.142,0.265,-0.001,neutral,1.0,0.199,0
+47,openai-tts,joy,"gpt-4o-mini-tts, voice=alloy, instructions",-0.11,0.436,0.257,neutral,1.0,0.44,0
+48,openai-tts,anger,"gpt-4o-mini-tts, voice=alloy, instructions",-0.134,0.427,0.231,neutral,1.0,0.434,0
+49,elevenlabs-fair,sadness,v3;tags=[sad];stab=0.0;voice=charlie,-0.016,0.422,0.249,neutral,1.0,0.416,0
+50,elevenlabs-fair,sadness,v3;tags=[crying];stab=0.0;voice=charlie,-0.129,0.464,0.245,neutral,1.0,0.357,0
+51,elevenlabs-fair,sadness,v3;tags=[sad][sighs];stab=0.5;voice=charlie,0.071,0.352,0.129,neutral,1.0,0.405,0
+52,elevenlabs-fair,joy,v3;tags=[happily];stab=0.0;voice=charlie,0.059,0.502,0.327,neutral,1.0,0.288,0
+53,elevenlabs-fair,joy,v3;tags=[laughs];stab=0.0;voice=charlie,0.517,0.647,0.349,joy,0.8,0.277,1
+54,elevenlabs-fair,joy,v3;tags=[excited];stab=0.5;voice=charlie,-0.097,0.553,0.393,neutral,0.8,0.446,0
+55,elevenlabs-fair,anger,v3;tags=[angry];stab=0.0;voice=charlie,-0.072,0.606,0.486,neutral,1.0,0.369,0
+56,elevenlabs-fair,anger,v3;tags=[angry];stab=0.0;voice=harry,-0.462,0.868,0.792,anger,0.6,0.419,1
+57,elevenlabs-fair,anger,v3;tags=[angry];stab=0.0;voice=laura,-0.052,0.655,0.494,anger,0.59,0.38,1
+58,hume-octave-fair,sadness,"octave;desc=quietly devastated, voice breaking, holding back tears, slow",-0.212,0.19,-0.178,neutral,1.0,0.237,0
+59,hume-octave-fair,sadness,"octave;desc=grieving at a funeral, hollow and drained, almost whispering",-0.119,0.347,0.057,neutral,1.0,0.21,0
+60,hume-octave-fair,sadness,"octave;desc=heartbroken, trembling voice, long heavy pauses",-0.203,0.457,0.224,neutral,1.0,0.311,0
+61,hume-octave-fair,joy,"octave;desc=genuinely delighted, warm bright smile in the voice, light",-0.142,0.661,0.427,neutral,1.0,0.508,0
+62,hume-octave-fair,joy,"octave;desc=laughing with joy, just heard wonderful news, elated",-0.09,0.713,0.546,anger,0.6,0.545,0
+63,hume-octave-fair,joy,"octave;desc=cheerful and playful, sunny warmth, giggling between words",-0.167,0.604,0.41,anger,0.4,0.516,0
+64,hume-octave-fair,anger,"octave;desc=furious, harsh, clipped, seething with rage",-0.199,0.573,0.408,anger,1.0,0.256,1
+65,hume-octave-fair,anger,"octave;desc=shouting in outrage, aggressive, confrontational",-0.573,0.797,0.715,neutral,0.8,0.355,0
+66,hume-octave-fair,anger,"octave;desc=cold fury, menacing, speaking through gritted teeth",-0.216,0.285,0.013,neutral,1.0,0.609,0
+67,openai-tts-fair,sadness,"4o-mini-tts;voice=coral;instr=Speak as if quietly devastated: slow, heavy, voice breaking,",-0.125,0.496,0.272,neutral,0.6,0.39,0
+68,openai-tts-fair,sadness,"4o-mini-tts;voice=coral;instr=Speak like someone grieving at a funeral: hollow, drained, a",-0.084,0.334,0.146,neutral,1.0,0.297,0
+69,openai-tts-fair,sadness,"4o-mini-tts;voice=coral;instr=Speak with deep melancholy: low pitch, trembling, exhausted ",-0.124,0.319,0.097,neutral,1.0,0.24,0
+70,openai-tts-fair,joy,"4o-mini-tts;voice=coral;instr=Speak with genuine delight: warm, bright, smiling while spea",-0.159,0.523,0.367,neutral,1.0,0.495,0
+71,openai-tts-fair,joy,"4o-mini-tts;voice=coral;instr=Speak as if you just heard wonderful news: elated, laughing ",-0.185,0.631,0.492,neutral,0.6,0.574,0
+72,openai-tts-fair,joy,"4o-mini-tts;voice=coral;instr=Speak cheerfully and playfully: sunny, melodious, upbeat but",-0.166,0.491,0.366,neutral,1.0,0.506,0
+73,openai-tts-fair,anger,"4o-mini-tts;voice=ash;instr=Speak with furious, harsh, clipped, seething rage — raised v",-0.267,0.421,0.237,anger,0.61,0.362,1
+74,openai-tts-fair,anger,"4o-mini-tts;voice=coral;instr=Speak with furious, harsh, clipped, seething rage — raised v",-0.262,0.6,0.417,anger,0.8,0.187,1
+75,openai-tts-fair,anger,"4o-mini-tts;voice=ballad;instr=Speak with furious, harsh, clipped, seething rage — raised v",-0.27,0.712,0.587,neutral,0.8,0.232,0
+76,chatterbox-fair,sadness,ref=sadness;ex=0.3;cfg=0.5,-0.148,0.301,-0.04,neutral,1.0,0.162,0
+77,chatterbox-fair,sadness,ref=sadness;ex=0.5;cfg=0.5,-0.059,0.36,0.025,neutral,1.0,0.243,0
+78,chatterbox-fair,sadness,ref=sadness;ex=0.7;cfg=0.5,-0.099,0.5,0.222,neutral,1.0,0.361,0
+79,chatterbox-fair,joy,ref=joy;ex=0.4;cfg=0.5,-0.038,0.486,0.226,neutral,1.0,0.353,0
+80,chatterbox-fair,joy,ref=joy;ex=0.5;cfg=0.5,0.015,0.532,0.299,neutral,1.0,0.309,0
+81,chatterbox-fair,joy,ref=joy;ex=0.6;cfg=0.5,-0.164,0.597,0.369,fear,0.6,0.497,0
+82,chatterbox-fair,anger,ref=anger;ex=0.4;cfg=0.5,-0.165,0.646,0.405,anger,0.6,0.261,1
+83,chatterbox-fair,anger,ref=anger;ex=0.6;cfg=0.5,-0.031,0.693,0.477,neutral,0.8,0.395,0
+84,chatterbox-fair,anger,ref=anger;ex=0.8;cfg=0.5,-0.379,0.775,0.604,fear,0.65,0.212,0
+85,elevenlabs-fair,sadness,v3;tags=[crying][sighs];stab=0.0;voice=charlie,0.118,0.49,0.232,joy,0.8,0.509,0
+86,elevenlabs-fair,joy,v3;tags=[excited][laughs];stab=0.0;voice=charlie,0.379,0.469,0.236,joy,0.8,0.144,1
+87,elevenlabs-fair,anger,v3;tags=[angry][shouting];stab=0.0;voice=charlie,-0.18,0.638,0.483,neutral,1.0,0.259,0
+88,hume-octave-fair,sadness,"octave;desc=openly crying while speaking, sobbing between words",-0.127,0.576,0.245,joy,0.4,0.396,0
+89,hume-octave-fair,joy,"octave;desc=overflowing warm happiness, melodious laughter in every word",-0.053,0.555,0.36,anger,0.6,0.393,0
+90,hume-octave-fair,anger,"octave;desc=explosive rage, yelling at the top of the lungs",-0.336,0.728,0.562,neutral,0.6,0.176,0
+91,openai-tts-fair,sadness,"4o-mini-tts;voice=coral;instr=You are a method actor: openly crying while speaking, voice ",-0.15,0.478,0.236,neutral,0.6,0.344,0
+92,openai-tts-fair,joy,4o-mini-tts;voice=coral;instr=You are a method actor overflowing with warm happiness: melo,-0.176,0.532,0.337,neutral,1.0,0.5,0
+93,openai-tts-fair,anger,"4o-mini-tts;voice=coral;instr=You are a method actor playing explosive rage: yell, snarl, ",-0.153,0.489,0.334,neutral,0.8,0.349,0
+94,chatterbox-fair,sadness,ref=sadness;ex=0.9;cfg=0.5,-0.092,0.477,0.315,neutral,1.0,0.438,0
+95,chatterbox-fair,joy,ref=joy;ex=0.5;cfg=0.3,-0.022,0.549,0.31,neutral,0.61,0.345,0
+96,chatterbox-fair,anger,ref=anger;ex=0.5;cfg=0.7,-0.252,0.691,0.44,anger,0.6,0.171,1
+97,hume-octave-fair,joy,"octave;desc=ecstatic celebration, whooping with delight",-0.425,0.864,0.744,surprise,0.8,0.956,0
+98,openai-tts-fair,joy,"4o-mini-tts;voice=coral;instr=Speak ecstatically: celebrating, whooping with delight, maxi",-0.153,0.612,0.493,neutral,0.8,0.545,0
+99,chatterbox-fair,joy,ref=joy;ex=0.7;cfg=0.5,0.04,0.624,0.411,surprise,0.4,0.344,0
+100,chatterbox-fair,anger,ref=anger;ex=1.0;cfg=0.5,-0.343,0.881,0.727,fear,1.0,0.373,0
+101,indextts2-fair-gen,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s2",-0.141,0.811,0.636,neutral,0.4,0.375,0
+102,indextts2-fair-gen,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s3",0.16,0.8,0.588,anger,1.0,0.615,1
+103,indextts2-fair-gen,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s2",-0.01,0.235,-0.068,joy,0.8,0.312,0
+104,indextts2-fair-gen,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s3",0.031,0.297,-0.026,sadness,0.4,0.328,1
+105,indextts2-fair-gen,joy,"emo_vector=[0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s2",0.103,0.538,0.303,joy,0.8,0.231,1
+106,indextts2-fair-gen,joy,"emo_vector=[0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s3",0.266,0.6,0.354,neutral,0.4,0.169,0
+107,elevenlabs-fair-gen,sadness,v3;tags=[crying];stab=0.0;voice=charlie;sent=s2,0.155,0.411,0.128,joy,0.8,0.478,0
+108,elevenlabs-fair-gen,sadness,v3;tags=[crying];stab=0.0;voice=charlie;sent=s3,0.395,0.534,0.214,joy,0.6,0.747,0
+109,elevenlabs-fair-gen,joy,v3;tags=[excited][laughs];stab=0.0;voice=charlie;sent=s2,0.551,0.585,0.291,joy,0.6,0.271,1
+110,elevenlabs-fair-gen,joy,v3;tags=[excited][laughs];stab=0.0;voice=charlie;sent=s3,0.718,0.684,0.397,joy,0.6,0.478,1
+111,elevenlabs-fair-gen,anger,v3;tags=[angry];stab=0.0;voice=laura;sent=s2,0.245,0.516,0.272,joy,0.8,0.704,0
+112,elevenlabs-fair-gen,anger,v3;tags=[angry];stab=0.0;voice=laura;sent=s3,0.456,0.684,0.506,joy,0.8,0.881,0
+113,hume-octave-fair-gen,sadness,"octave;desc=grieving at a funeral, hollow and drained, almost whispering;sent=s2",0.263,0.273,-0.0,neutral,1.0,0.56,0
+114,hume-octave-fair-gen,sadness,"octave;desc=grieving at a funeral, hollow and drained, almost whispering;sent=s3",-0.015,0.311,-0.028,anger,0.4,0.279,0
+115,hume-octave-fair-gen,joy,"octave;desc=overflowing warm happiness, melodious laughter in every word;sent=s2",0.218,0.591,0.4,neutral,0.41,0.226,0
+116,hume-octave-fair-gen,joy,"octave;desc=overflowing warm happiness, melodious laughter in every word;sent=s3",0.398,0.701,0.484,joy,0.8,0.333,1
+117,hume-octave-fair-gen,anger,"octave;desc=furious, harsh, clipped, seething with rage;sent=s2",-0.098,0.644,0.488,joy,0.8,0.336,0
+118,hume-octave-fair-gen,anger,"octave;desc=furious, harsh, clipped, seething with rage;sent=s3",0.376,0.773,0.598,joy,0.8,0.821,0
+119,openai-tts-fair-gen,sadness,"4o-mini-tts;voice=coral;instr=Speak with deep melancholy: low pitch, trembling, exhausted ;sent=s2",0.106,0.328,0.129,joy,0.4,0.439,0
+120,openai-tts-fair-gen,sadness,"4o-mini-tts;voice=coral;instr=Speak with deep melancholy: low pitch, trembling, exhausted ;sent=s3",0.162,0.484,0.268,joy,0.6,0.564,0
+121,openai-tts-fair-gen,joy,"4o-mini-tts;voice=coral;instr=Speak with genuine delight: warm, bright, smiling while spea;sent=s2",0.065,0.504,0.383,joy,0.8,0.313,1
+122,openai-tts-fair-gen,joy,"4o-mini-tts;voice=coral;instr=Speak with genuine delight: warm, bright, smiling while spea;sent=s3",0.223,0.596,0.434,joy,0.8,0.256,1
+123,openai-tts-fair-gen,anger,"4o-mini-tts;voice=coral;instr=Speak with furious, harsh, clipped, seething rage — raised v;sent=s2",-0.108,0.598,0.422,joy,0.8,0.329,0
+124,openai-tts-fair-gen,anger,"4o-mini-tts;voice=coral;instr=Speak with furious, harsh, clipped, seething rage — raised v;sent=s3",-0.028,0.711,0.545,anger,0.8,0.415,1
+125,chatterbox-fair-gen,sadness,ref=sadness;ex=0.3;cfg=0.5;sent=s2,0.044,0.35,0.1,neutral,0.6,0.368,0
+126,chatterbox-fair-gen,sadness,ref=sadness;ex=0.3;cfg=0.5;sent=s3,0.017,0.354,0.004,sadness,0.6,0.308,1
+127,chatterbox-fair-gen,joy,ref=joy;ex=0.5;cfg=0.5;sent=s2,0.256,0.507,0.24,joy,0.6,0.099,1
+128,chatterbox-fair-gen,joy,ref=joy;ex=0.5;cfg=0.5;sent=s3,0.322,0.53,0.245,anger,0.6,0.077,0
+129,chatterbox-fair-gen,anger,ref=anger;ex=0.5;cfg=0.7;sent=s2,0.126,0.558,0.237,joy,0.4,0.59,0
+130,chatterbox-fair-gen,anger,ref=anger;ex=0.5;cfg=0.7;sent=s3,0.344,0.676,0.416,joy,1.0,0.765,0
