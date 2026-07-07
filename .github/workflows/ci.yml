@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  compile:
+    name: Python syntax check
+    runs-on: ubuntu-latest
+    # Note: the model/audio stack (torch, torchaudio, transformers, librosa) is
+    # heavy and platform-specific — see requirements_diar.txt — so CI does a
+    # syntax/compile gate rather than a full test run that would require
+    # downloading model weights and system audio libraries.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile all source
+        run: python -m compileall -q src tts_steering scripts
