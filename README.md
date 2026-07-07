@@ -144,6 +144,7 @@ and the engine doesn't notice; break the engine and the bridge fails *loudly*.
 | File | What's inside |
 |---|---|
 | [WRITEUP.md](WRITEUP.md) | The full technical report — methods, results, honest negatives |
+| [ARTICLE.md](ARTICLE.md) | The narrative essay: the 0.06 → 0.35 → 0.705 valence arc, written for a general ML audience |
 | [tts_steering/WRITEUP.md](tts_steering/WRITEUP.md) | **Project 2**: TTS steering loop + fair 5-system benchmark (bridge-linked, code-isolated) |
 | [RESULTS_AT_A_GLANCE.md](RESULTS_AT_A_GLANCE.md) | One-page summary |
 | [JOURNEY.md](JOURNEY.md) | The build story: every phase, every problem hit, every fix (31 and counting) |
