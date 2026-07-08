@@ -148,6 +148,14 @@ insight: **stop forcing one label; predict the underlying dimensions instead.**
 Move to the **PAD model** — Valence, Arousal, Dominance — treat emotion as a
 *point in 3-D space*, track it over time as a *trajectory*.
 
+<img src="docs/pad_founding_sketch.jpg" alt="Hand-drawn notebook sketch of the PAD plane: X = valence, Y = arousal, Z = dominance drawn as a diagonal axis, with quadrants marked and happy/sad/surprise placed" width="620">
+
+*The founding sketch — the PAD plane as first drawn in a notebook (June 2026),
+before any of this phase's code existed. X = valence, Y = arousal, the diagonal
+Z = dominance. Everything that follows — the regressor, the centroids, the
+trajectory engine, even Project 2's steering distance — happens inside this
+drawing. The fine-tuned model's output space is still exactly this plane.*
+
 - **Why 3-D (add dominance)?** It separates anger from fear, which collide in 2-D.
 - **The central constraint named up front — "the valence problem":** acoustics give
   arousal and dominance; valence lives in *words* and is weak from voice alone. We

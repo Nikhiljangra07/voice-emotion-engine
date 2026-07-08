@@ -68,6 +68,10 @@ The model layer was swapped **five times** (SVM → RF → SVR+calibration → f
 fusion → fine-tuned WavLM) without touching the engine — the separation is load-bearing,
 not aspirational.
 
+> ✏️ The output space (V/A/D) began as a literal notebook drawing before any code —
+> [the founding sketch](docs/pad_founding_sketch.jpg) is preserved in
+> [JOURNEY.md § The Pivot](JOURNEY.md#the-pivot--from-categories-to-coordinates-june-2026).
+
 ## Results at a glance
 
 | Task | Protocol | Result |
