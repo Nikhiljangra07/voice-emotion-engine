@@ -632,3 +632,33 @@ Final state: 2 days, 5 systems, 130 judged clips, 12+ hurdles logged, 1 headline
 result retracted by our own fairer test, 2 instrument blind spots discovered and
 characterized, 1 human blind protocol run with 3/3 controls. The project ends the
 way it was designed to: with the smallest claim that is fully true.
+
+---
+
+## RECOMMENCEMENT — 2026-08-08 (after a deliberate one-month pause)
+
+**Why the pause:** Phase 4 concluded gracefully on 2026-07-05 (P4.5 writeup, claim
+v3, 130-row ledger, retractions published). The month since went to packaging and
+applications — the repo became the portfolio it was built to be (two-projects
+framing, ARTICLE.md, CI check, HF weights pointer, founding sketch). No
+experimental work happened in the gap; the working tree stayed clean. This entry
+exists so the record shows the seam: everything above it is the concluded Phase 4;
+everything below is the next campaign.
+
+**Why we commence at P4.6 (the transfer map):**
+1. It was the log's own declared next step at conclusion ("no-regret").
+2. The fair rematch's sharpest finding was *sentence instability* — best systems
+   managed only 3/6 family hits on unseen sentences. P4.6 maps exactly that
+   weakness: how the vector→emotion transfer function varies across sentence
+   types (~20 varied sentences × known-good vector regions ≈ 500 clips, local,
+   $0, judge frozen as ever).
+3. Its ledger IS Phase-5 Gate 3 (training-grade data variety) — so the training
+   question advances as a side effect, not a gamble.
+
+**Still open after P4.6 (the standing map):** Phase 5 fine-tune behind Gate 4 +
+feasibility spike (fallback: ledger-distilled control policy) · engine serving
+layer (stress-test spec) · trajectory rebuild on the fine-tuned model · RFE/MRE
+consumer projects · optional: StyleTTS2, rival blind-listen pack, e2v fine-tune.
+
+Laws unchanged and binding: judge frozen · bridge-not-merge · every clip a ledger
+row · misses kept · claims sized to evidence.
