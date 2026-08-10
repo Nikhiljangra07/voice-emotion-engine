@@ -1224,3 +1224,58 @@ the only legal moves are microdoses of calm/melancholic/disgusted with no hot
 knob — a region P4.6 can sweep across sentences at zero extra design cost.
 
 $0. Ledger untouched (analysis only). Laws unchanged.
+
+---
+
+## P4.6 — THE TRANSFER MAP: 19 sentences × 11 configs, 209 clips (2026-08-10)
+
+The declared recommencement point, finally run — and it broke two locks in one
+night. Every clip judged by the frozen bridge, every clip a ledger row
+(ledger 186 → 395). Per-sentence zero-vector baseline included, so every
+verdict is ATTRIBUTABLE: config-caused vs text-caused.
+
+### JOY: UNLOCKED — six verdicts, three independent routes
+| route | sentences | note |
+|---|---|---|
+| joyref_hm10 (reference channel) | s05 warm, s07 warm, s19 somber | replicated 3× |
+| joy_detension (calm.3+mel.2 — the P4.13 subtract-tension region) | s11 exclaim, s19 | the user's axis hunch, vindicated in synthesis |
+| joy_h035 (the gap vector) | s07 warm | even the plain vector works on the right sentence |
+Attribution clean: on every joy-verdict sentence the zero-vector baseline read
+neutral — the configs caused the verdicts, not the text alone. S1-era
+conclusion refined: joy was never mouth-impossible, it was
+SENTENCE-CONDITIONAL, exactly like sadness. Both keys (channel × sentence)
+were required.
+
+### SADNESS: UNLOCKED WIDE — ten verdicts
+sad_m10c03 (mel 1.0 + calm 0.3) hits on NINE sentences (s02 — replicating the
+original P4.4b S3 unlock — plus s06,s07,s08,s09,s13,s14,s15,s16); sad_s04
+adds s08. The lock is now precisely bounded: only dead-flat declaratives
+(s01/s03/s04-type) stay locked; somber, question, short, even warm sentences
+open it.
+
+### ANGER: UNIVERSAL — anger_a08c02 went 19/19
+Perfect across every sentence category. anger_a07: 17/19 (2 drift to
+surprise). The fair-rematch "sentence instability" criticism is answered:
+a stable config exists and is now proven.
+
+### SURPRISE: NEAR-UNIVERSAL — 16-17/19
+Drifts to anger only at the short/long extremes (s17 "It's over.", s18 long).
+
+### The confound, quantified (and why the map survives it)
+The zero-vector baseline itself reads non-neutral on 7/19 sentences (exclaim
+category 0/3 neutral; s12 zero-vector even reads joy@judge) — the mouth
+performs sentence semantics on its own, and the judge follows. This is why
+every claim above is stated against the per-sentence baseline; the
+text-prosody confound is measured, not ignored.
+
+### Standing after this run
+Mouth scoreboard: anger universal · surprise near-universal · sadness
+sentence-conditional (10 verdicts) · joy sentence-conditional (6 verdicts,
+3 routes). Fear/disgust remain ear-limited (unchanged). Phase-5 Gate 3
+(data variety): ledger now 395 rows across 19 sentence types + 5 systems —
+GREEN, pending human ratification of the new verdicts (blind pack next: the
+6 joy clips + sample of the 10 sadness clips, user's ears, pre-registered
+protocol as in GATE 2).
+
+Cost: ~75 min MPS, $0. Laws unchanged: judge frozen · misses kept (all 209
+rows) · per-sentence baselines for attribution · claims sized to evidence.

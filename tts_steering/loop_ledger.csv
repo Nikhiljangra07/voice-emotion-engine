@@ -185,3 +185,212 @@ iteration,system,target_emotion,control_params,judged_V,judged_A,judged_D,judge_
 184,indextts2-joyref,joy,emo_ref=rav_happy_female;alpha=1.0;spk=neutral_A01,0.017,0.635,0.401,neutral,0.6,0.357,0
 185,indextts2-joyref,joy,emo_ref=rav_happy_male;alpha=0.8;spk=neutral_A01,-0.133,0.538,0.282,neutral,1.0,0.445,0
 186,indextts2-joyref,joy,emo_ref=meld_joy_2;alpha=1.0;spk=neutral_A01,-0.201,0.733,0.538,fear,0.4,0.629,0
+187,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s01;cat=flat",-0.313,0.803,0.623,anger,1.0,0.26,1
+188,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s01;cat=flat",-0.431,0.784,0.617,anger,1.0,0.224,1
+189,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s01;cat=flat",-0.267,0.732,0.525,surprise,0.8,0.423,1
+190,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s01;cat=flat",-0.429,0.807,0.614,surprise,0.8,0.618,1
+191,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s01;cat=flat",-0.189,0.252,-0.056,neutral,1.0,0.166,0
+192,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s01;cat=flat",-0.048,0.358,0.078,neutral,1.0,0.277,0
+193,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s01;cat=flat",-0.185,0.545,0.307,neutral,1.0,0.501,0
+194,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s01;cat=flat",-0.189,0.363,0.06,neutral,1.0,0.55,0
+195,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s01;cat=flat",-0.147,0.432,0.139,neutral,1.0,0.474,0
+196,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s01;cat=flat,-0.015,0.532,0.299,anger,0.4,0.337,0
+197,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s01;cat=flat",-0.139,0.425,0.132,neutral,1.0,0.144,1
+198,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s02;cat=flat",0.104,0.779,0.571,anger,1.0,0.554,1
+199,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s02;cat=flat",0.094,0.813,0.631,anger,1.0,0.571,1
+200,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s02;cat=flat",0.261,0.738,0.495,anger,0.4,0.331,0
+201,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s02;cat=flat",-0.074,0.846,0.689,surprise,0.8,0.492,1
+202,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s02;cat=flat",0.035,0.307,-0.04,sadness,0.6,0.327,1
+203,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s02;cat=flat",0.119,0.329,-0.026,neutral,1.0,0.406,0
+204,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s02;cat=flat",0.257,0.539,0.271,neutral,0.8,0.1,0
+205,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s02;cat=flat",0.021,0.344,-0.054,anger,0.4,0.439,0
+206,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s02;cat=flat",0.104,0.42,0.077,neutral,1.0,0.277,0
+207,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s02;cat=flat,0.4,0.592,0.34,neutral,0.6,0.181,0
+208,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s02;cat=flat",0.125,0.472,0.143,neutral,0.8,0.201,1
+209,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s03;cat=flat",-0.325,0.807,0.619,anger,1.0,0.253,1
+210,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s03;cat=flat",-0.351,0.806,0.632,anger,1.0,0.255,1
+211,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s03;cat=flat",-0.211,0.7,0.47,surprise,0.8,0.34,1
+212,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s03;cat=flat",-0.368,0.835,0.663,surprise,0.8,0.612,1
+213,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s03;cat=flat",-0.115,0.311,-0.018,neutral,1.0,0.19,0
+214,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s03;cat=flat",-0.076,0.393,0.064,neutral,1.0,0.244,0
+215,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s03;cat=flat",-0.056,0.502,0.206,neutral,1.0,0.365,0
+216,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s03;cat=flat",0.003,0.352,0.033,neutral,1.0,0.406,0
+217,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s03;cat=flat",-0.007,0.44,0.132,neutral,1.0,0.343,0
+218,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s03;cat=flat,-0.011,0.541,0.271,surprise,0.6,0.324,0
+219,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s03;cat=flat",-0.076,0.45,0.099,neutral,1.0,0.078,1
+220,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s04;cat=flat",-0.326,0.784,0.624,surprise,1.0,0.249,0
+221,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s04;cat=flat",-0.492,0.837,0.702,anger,1.0,0.331,1
+222,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s04;cat=flat",-0.079,0.688,0.439,surprise,0.8,0.226,1
+223,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s04;cat=flat",-0.102,0.834,0.651,surprise,0.8,0.462,1
+224,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s04;cat=flat",-0.217,0.271,-0.075,neutral,1.0,0.135,0
+225,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s04;cat=flat",-0.125,0.433,0.089,neutral,1.0,0.226,0
+226,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s04;cat=flat",-0.185,0.551,0.284,surprise,0.8,0.495,0
+227,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s04;cat=flat",-0.141,0.353,0.008,neutral,1.0,0.528,0
+228,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s04;cat=flat",-0.137,0.451,0.121,neutral,1.0,0.461,0
+229,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s04;cat=flat,-0.072,0.545,0.277,surprise,0.8,0.384,0
+230,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s04;cat=flat",-0.084,0.422,0.068,neutral,1.0,0.064,1
+231,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s05;cat=warm",-0.393,0.843,0.685,anger,0.8,0.311,1
+232,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s05;cat=warm",-0.503,0.84,0.703,anger,0.8,0.336,1
+233,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s05;cat=warm",-0.215,0.757,0.572,surprise,0.8,0.426,1
+234,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s05;cat=warm",-0.323,0.789,0.602,surprise,0.8,0.527,1
+235,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s05;cat=warm",-0.137,0.274,-0.056,neutral,0.8,0.185,0
+236,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s05;cat=warm",-0.161,0.412,0.115,neutral,0.6,0.221,0
+237,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s05;cat=warm",-0.177,0.571,0.348,neutral,0.6,0.503,0
+238,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s05;cat=warm",-0.13,0.357,0.024,neutral,1.0,0.512,0
+239,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s05;cat=warm",-0.177,0.458,0.185,neutral,0.6,0.492,0
+240,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s05;cat=warm,-0.037,0.6,0.381,joy,0.8,0.388,1
+241,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s05;cat=warm",-0.131,0.444,0.154,neutral,1.0,0.153,1
+242,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s06;cat=warm",0.192,0.798,0.625,anger,1.0,0.656,1
+243,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s06;cat=warm",0.206,0.823,0.677,anger,1.0,0.691,1
+244,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s06;cat=warm",0.447,0.761,0.578,surprise,0.8,0.523,1
+245,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s06;cat=warm",0.254,0.834,0.665,surprise,1.0,0.493,1
+246,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s06;cat=warm",0.193,0.253,-0.06,sadness,1.0,0.492,1
+247,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s06;cat=warm",0.291,0.38,0.104,neutral,0.8,0.597,0
+248,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s06;cat=warm",0.362,0.571,0.334,neutral,0.8,0.157,0
+249,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s06;cat=warm",0.243,0.335,-0.011,neutral,1.0,0.322,0
+250,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s06;cat=warm",0.391,0.409,0.116,neutral,1.0,0.207,0
+251,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s06;cat=warm,0.479,0.569,0.318,fear,0.8,0.22,0
+252,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s06;cat=warm",0.324,0.45,0.17,neutral,1.0,0.39,1
+253,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s07;cat=warm",-0.186,0.862,0.729,anger,1.0,0.428,1
+254,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s07;cat=warm",-0.267,0.867,0.743,anger,1.0,0.403,1
+255,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s07;cat=warm",0.233,0.787,0.622,surprise,0.8,0.432,1
+256,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s07;cat=warm",-0.074,0.892,0.737,surprise,0.8,0.553,1
+257,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s07;cat=warm",0.064,0.267,-0.082,sadness,0.6,0.365,1
+258,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s07;cat=warm",0.257,0.396,0.033,joy,0.6,0.547,0
+259,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s07;cat=warm",0.451,0.589,0.318,joy,0.6,0.198,1
+260,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s07;cat=warm",0.121,0.37,-0.002,neutral,0.8,0.336,0
+261,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s07;cat=warm",0.131,0.429,0.119,neutral,0.8,0.237,0
+262,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s07;cat=warm,0.49,0.624,0.348,joy,1.0,0.251,1
+263,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s07;cat=warm",0.103,0.408,0.058,neutral,0.8,0.151,1
+264,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s08;cat=somber",-0.596,0.783,0.628,anger,1.0,0.293,1
+265,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s08;cat=somber",-0.636,0.817,0.693,anger,1.0,0.375,1
+266,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s08;cat=somber",-0.4,0.708,0.503,surprise,0.8,0.516,1
+267,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s08;cat=somber",-0.608,0.828,0.718,surprise,0.8,0.824,1
+268,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s08;cat=somber",-0.268,0.224,-0.144,sadness,0.8,0.182,1
+269,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s08;cat=somber",-0.276,0.307,-0.051,sadness,0.8,0.085,1
+270,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s08;cat=somber",-0.335,0.548,0.3,anger,0.6,0.645,0
+271,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s08;cat=somber",-0.281,0.301,-0.075,sadness,1.0,0.697,0
+272,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s08;cat=somber",-0.324,0.424,0.118,neutral,1.0,0.647,0
+273,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s08;cat=somber,-0.308,0.519,0.263,surprise,0.8,0.615,0
+274,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s08;cat=somber",-0.231,0.435,0.11,neutral,1.0,0.207,1
+275,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s09;cat=somber",-0.546,0.811,0.666,anger,1.0,0.306,1
+276,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s09;cat=somber",-0.6,0.813,0.682,anger,1.0,0.345,1
+277,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s09;cat=somber",-0.432,0.767,0.574,surprise,0.8,0.589,1
+278,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s09;cat=somber",-0.55,0.859,0.726,surprise,0.8,0.791,1
+279,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s09;cat=somber",-0.384,0.251,-0.133,sadness,0.6,0.185,1
+280,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s09;cat=somber",-0.278,0.398,0.03,fear,0.6,0.1,0
+281,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s09;cat=somber",-0.328,0.528,0.23,anger,0.6,0.632,0
+282,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s09;cat=somber",-0.31,0.385,0.02,sadness,0.6,0.662,0
+283,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s09;cat=somber",-0.297,0.391,0.055,sadness,0.6,0.641,0
+284,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s09;cat=somber,-0.301,0.561,0.275,surprise,0.4,0.607,0
+285,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s09;cat=somber",-0.3,0.443,0.113,sadness,0.6,0.273,0
+286,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s10;cat=somber",-0.393,0.794,0.644,anger,0.6,0.254,1
+287,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s10;cat=somber",-0.502,0.849,0.717,anger,1.0,0.351,1
+288,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s10;cat=somber",-0.306,0.779,0.583,surprise,0.8,0.501,1
+289,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s10;cat=somber",-0.435,0.83,0.692,surprise,0.8,0.677,1
+290,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s10;cat=somber",-0.179,0.317,-0.014,joy,0.4,0.137,0
+291,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s10;cat=somber",-0.063,0.409,0.092,neutral,1.0,0.272,0
+292,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s10;cat=somber",-0.122,0.557,0.315,neutral,1.0,0.441,0
+293,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s10;cat=somber",-0.128,0.386,0.049,neutral,1.0,0.491,0
+294,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s10;cat=somber",-0.105,0.462,0.171,neutral,1.0,0.422,0
+295,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s10;cat=somber,-0.026,0.574,0.313,surprise,0.8,0.349,0
+296,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s10;cat=somber",-0.088,0.475,0.183,neutral,1.0,0.163,1
+297,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s11;cat=exclaim",-0.688,0.841,0.696,anger,1.0,0.417,1
+298,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s11;cat=exclaim",-0.68,0.844,0.689,anger,1.0,0.408,1
+299,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s11;cat=exclaim",-0.563,0.742,0.548,surprise,0.8,0.685,1
+300,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s11;cat=exclaim",-0.727,0.853,0.706,surprise,0.8,0.921,1
+301,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s11;cat=exclaim",-0.468,0.336,0.03,joy,0.4,0.22,0
+302,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s11;cat=exclaim",-0.428,0.394,0.027,surprise,0.4,0.177,0
+303,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s11;cat=exclaim",-0.468,0.584,0.323,surprise,0.4,0.779,0
+304,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s11;cat=exclaim",-0.4,0.375,0.015,joy,0.4,0.75,1
+305,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s11;cat=exclaim",-0.439,0.484,0.183,anger,0.6,0.745,0
+306,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s11;cat=exclaim,-0.287,0.582,0.315,surprise,0.8,0.601,0
+307,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s11;cat=exclaim",-0.383,0.404,-0.023,surprise,0.6,0.351,0
+308,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s12;cat=exclaim",-0.368,0.854,0.74,anger,1.0,0.368,1
+309,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s12;cat=exclaim",-0.437,0.843,0.749,anger,1.0,0.369,1
+310,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s12;cat=exclaim",-0.249,0.723,0.553,surprise,0.8,0.427,1
+311,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s12;cat=exclaim",-0.369,0.853,0.713,surprise,0.8,0.653,1
+312,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s12;cat=exclaim",-0.12,0.28,-0.016,neutral,0.8,0.202,0
+313,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s12;cat=exclaim",-0.093,0.419,0.111,neutral,0.6,0.262,0
+314,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s12;cat=exclaim",-0.011,0.589,0.343,anger,0.8,0.347,0
+315,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s12;cat=exclaim",-0.153,0.373,0.059,neutral,0.6,0.515,0
+316,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s12;cat=exclaim",-0.13,0.475,0.232,anger,0.4,0.445,0
+317,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s12;cat=exclaim,0.034,0.57,0.339,surprise,0.4,0.305,0
+318,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s12;cat=exclaim",-0.099,0.422,0.105,joy,0.6,0.1,0
+319,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s13;cat=exclaim",-0.452,0.847,0.713,anger,1.0,0.338,1
+320,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s13;cat=exclaim",-0.549,0.858,0.723,anger,0.6,0.374,1
+321,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s13;cat=exclaim",-0.385,0.795,0.613,surprise,0.8,0.581,1
+322,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s13;cat=exclaim",-0.473,0.864,0.746,surprise,0.59,0.748,1
+323,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s13;cat=exclaim",-0.335,0.335,-0.014,sadness,0.8,0.096,1
+324,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s13;cat=exclaim",-0.349,0.395,-0.035,fear,1.0,0.078,0
+325,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s13;cat=exclaim",-0.293,0.565,0.266,fear,1.0,0.598,0
+326,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s13;cat=exclaim",-0.259,0.45,0.099,neutral,0.6,0.581,0
+327,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s13;cat=exclaim",-0.371,0.484,0.199,sadness,0.6,0.678,0
+328,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s13;cat=exclaim,-0.279,0.563,0.262,fear,0.8,0.583,0
+329,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s13;cat=exclaim",-0.331,0.467,0.103,fear,1.0,0.301,0
+330,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s14;cat=question",-0.435,0.808,0.596,anger,1.0,0.216,1
+331,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s14;cat=question",-0.511,0.787,0.623,anger,1.0,0.248,1
+332,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s14;cat=question",-0.367,0.769,0.573,surprise,1.0,0.537,1
+333,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s14;cat=question",-0.602,0.855,0.728,surprise,1.0,0.831,1
+334,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s14;cat=question",-0.289,0.263,-0.089,sadness,0.8,0.129,1
+335,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s14;cat=question",-0.238,0.334,-0.005,fear,0.6,0.096,0
+336,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s14;cat=question",-0.301,0.516,0.208,fear,0.4,0.604,0
+337,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s14;cat=question",-0.283,0.371,0.027,sadness,1.0,0.64,0
+338,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s14;cat=question",-0.308,0.4,0.072,sadness,0.6,0.645,0
+339,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s14;cat=question,-0.197,0.535,0.234,fear,0.8,0.501,0
+340,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s14;cat=question",-0.278,0.413,0.082,sadness,1.0,0.247,0
+341,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s15;cat=question",-0.415,0.767,0.591,anger,1.0,0.193,1
+342,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s15;cat=question",-0.569,0.828,0.683,anger,1.0,0.336,1
+343,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s15;cat=question",-0.409,0.753,0.539,surprise,0.8,0.549,1
+344,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s15;cat=question",-0.523,0.801,0.643,surprise,0.8,0.708,1
+345,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s15;cat=question",-0.312,0.227,-0.188,sadness,0.8,0.204,1
+346,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s15;cat=question",-0.227,0.38,-0.051,fear,0.8,0.057,0
+347,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s15;cat=question",-0.242,0.512,0.193,fear,0.82,0.546,0
+348,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s15;cat=question",-0.244,0.31,-0.16,fear,0.4,0.701,0
+349,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s15;cat=question",-0.262,0.395,-0.019,anger,0.6,0.627,0
+350,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s15;cat=question,-0.281,0.538,0.244,fear,0.81,0.585,0
+351,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s15;cat=question",-0.218,0.412,0.014,anger,0.4,0.183,0
+352,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s16;cat=short",-0.611,0.877,0.729,anger,1.0,0.412,1
+353,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s16;cat=short",-0.567,0.861,0.754,anger,1.0,0.407,1
+354,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s16;cat=short",-0.53,0.805,0.655,surprise,0.4,0.721,1
+355,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s16;cat=short",-0.672,0.907,0.807,surprise,0.6,0.944,1
+356,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s16;cat=short",-0.266,0.237,-0.092,sadness,0.8,0.156,1
+357,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s16;cat=short",-0.366,0.424,0.119,anger,0.6,0.211,0
+358,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s16;cat=short",-0.291,0.529,0.287,anger,0.8,0.601,0
+359,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s16;cat=short",-0.246,0.368,0.084,neutral,0.6,0.595,0
+360,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s16;cat=short",-0.251,0.44,0.171,anger,0.8,0.569,0
+361,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s16;cat=short,-0.184,0.648,0.421,anger,0.6,0.54,0
+362,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s16;cat=short",-0.158,0.512,0.251,anger,0.8,0.258,0
+363,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s17;cat=short",-0.176,0.763,0.673,anger,1.0,0.365,1
+364,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s17;cat=short",-0.487,0.807,0.719,anger,1.0,0.334,1
+365,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s17;cat=short",-0.495,0.748,0.585,anger,1.0,0.644,0
+366,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s17;cat=short",-0.625,0.79,0.609,anger,1.0,0.775,0
+367,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s17;cat=short",-0.356,0.232,-0.136,neutral,0.6,0.187,0
+368,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s17;cat=short",-0.176,0.405,0.142,anger,1.0,0.236,0
+369,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s17;cat=short",-0.405,0.428,0.166,anger,0.6,0.722,0
+370,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s17;cat=short",-0.276,0.373,0.075,neutral,0.6,0.623,0
+371,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s17;cat=short",-0.387,0.413,0.172,neutral,0.6,0.707,0
+372,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s17;cat=short,-0.18,0.582,0.35,anger,0.6,0.506,0
+373,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s17;cat=short",-0.26,0.409,0.13,neutral,0.6,0.245,1
+374,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s18;cat=long",-0.377,0.817,0.625,anger,1.0,0.248,1
+375,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s18;cat=long",-0.403,0.821,0.62,anger,0.8,0.243,1
+376,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s18;cat=long",-0.224,0.79,0.58,anger,0.6,0.447,0
+377,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s18;cat=long",-0.359,0.837,0.678,neutral,0.6,0.617,0
+378,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s18;cat=long",-0.204,0.305,-0.03,neutral,0.8,0.121,0
+379,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s18;cat=long",-0.12,0.388,0.008,neutral,0.6,0.178,0
+380,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s18;cat=long",-0.152,0.598,0.321,neutral,0.6,0.471,0
+381,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s18;cat=long",-0.091,0.403,0.098,neutral,0.6,0.438,0
+382,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s18;cat=long",-0.144,0.464,0.164,anger,0.6,0.46,0
+383,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s18;cat=long,-0.044,0.601,0.323,surprise,1.0,0.369,0
+384,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s18;cat=long",-0.149,0.418,0.1,neutral,0.8,0.134,1
+385,indextts2-p46,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s19;cat=somber",-0.122,0.792,0.621,surprise,0.4,0.376,0
+386,indextts2-p46,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];sent=s19;cat=somber",-0.24,0.84,0.692,anger,1.0,0.362,1
+387,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];sent=s19;cat=somber",-0.098,0.786,0.628,surprise,0.8,0.422,1
+388,indextts2-p46,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];sent=s19;cat=somber",-0.116,0.83,0.675,surprise,0.8,0.486,1
+389,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];sent=s19;cat=somber",-0.019,0.262,-0.016,joy,0.6,0.295,0
+390,indextts2-p46,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s19;cat=somber",0.064,0.362,0.079,neutral,0.8,0.376,0
+391,indextts2-p46,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s19;cat=somber",0.104,0.525,0.287,neutral,0.6,0.225,0
+392,indextts2-p46,joy,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0, 0.3];sent=s19;cat=somber",0.065,0.354,0.077,joy,0.6,0.345,1
+393,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s19;cat=somber",0.062,0.413,0.176,neutral,0.4,0.291,0
+394,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s19;cat=somber,0.112,0.572,0.377,joy,0.8,0.265,1
+395,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s19;cat=somber",0.058,0.425,0.14,neutral,0.6,0.149,1
