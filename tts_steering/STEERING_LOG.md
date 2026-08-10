@@ -996,3 +996,47 @@ scaffold for sadness/surprise. (c) park + P4.6.
 
 Cost of the expanded view: $0, ~40 min compute, 10,955 fingerprints cached.
 Laws unchanged.
+
+---
+
+## P4.9d — THE EPICYCLE GATE: 3-axis Fourier with cross-axis circles (2026-08-10)
+
+**User's idea:** the 1-axis series was a shadow — represent the gesture as a
+curve in 3-D acoustic space (F0 × Energy × HNR-over-time, the third axis chosen
+to attack sadness's missing voice-quality dynamics) with the epicycle form:
+complex harmonics + cross-axis phase terms (lead/lag rotation invariants —
+time-shift invariant, genuinely new physics the DCT concatenation cannot see).
+
+**Pre-registered (before run):** matched-text contrast sanity ≥3/4 incl. anger
+AND at least one of sadness/surprise must flip sane ("open the blockages").
+Fear/disgust declared out of scope (judge vocabulary).
+
+**Results:**
+1. **Foundation-side gem: surprise recall jumps to 69%** (held-out actors,
+   W_deriv) — from 14.5% (static v1) and weak in 1-axis Fourier. The human
+   surprise signature IS a cross-axis timing event (pitch spike vs energy lag),
+   exactly as the epicycle hypothesis predicted. This is the best surprise
+   detector built anywhere in this project — a candidate feature set for the
+   EAR (Project 1) as future work.
+2. Sadness recall collapsed to 8% — HNR *dynamics* did not reveal acted
+   sadness; 4-way overall 35.9% (below the 1-axis 38–40%).
+3. **Gate: FAIL (1/4 — anger only, both weightings).** Joy lost sanity (calm
+   tops), sadness/surprise still insane on the mouth side.
+
+**The decisive relocation of the wall:** the epicycle basis *can* see human
+surprise (69%) — yet the mouth's `surprised` knob still scores negative
+against human surprise contrasts. The blockage is therefore no longer "we
+can't measure the difference" — **the mouth does not perform the human
+gesture.** Third-dialect finding (P4.9c) confirmed from a second direction:
+the judge names the mouth's surprise correctly, human-timing templates do not.
+
+**Representation program closed.** Four bases gated ($0 total): static,
+dynamics statistics, 1-axis Fourier + derivative, 3-axis epicycles. Convergent
+conclusion: anger is solved in equation space; joy is marginal; sadness and
+surprise are mouth-gesture-limited (steering) and ear-limited (naming), not
+measurement-limited. Remaining honest paths unchanged: joy spike ·
+embedding-space scaffold · sentence-aware sadness (S3) · ear v2 for
+fear/disgust — plus the new spin-off: epicycle timing features as an ear
+upgrade candidate for surprise.
+
+Laws unchanged. Every gate pre-registered, every failure kept.
