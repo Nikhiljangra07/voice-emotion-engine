@@ -888,3 +888,59 @@ all three hot-knob pairwise cosines < 0.80 in the combined basis.
 Cumulative cost of the entire scaffold investigation (P4.8 + P4.9): $0.00,
 zero clips synthesized, root cause + two half-validated user hypotheses on the
 record. Laws unchanged.
+
+---
+
+## P4.9b — THE FOURIER FINGERPRINT LADDER (the user's equations, taken literally) (2026-08-10)
+
+**User's correction, valid:** Gate 0 had summarized derivatives into statistics
+— still integrating the shape away. The reels' idea taken literally: the
+contour ITSELF is the equation. Each clip's F0 and energy trajectories are fit
+as truncated cosine series (DCT-II, K=10, time-normalized):
+F0(t) ≈ c0/2 + Σ c_k cos(πkt). The coefficient vector IS the fingerprint;
+"derivation in the equation" is exact calculus — d/dt scales harmonic k by k,
+so W_deriv (w_k = k²) compares pure fluctuation. Three weightings declared
+before running (shape / deriv / combined; disclosed multiplicity).
+
+**The fitted fingerprint equations (RAVDESS, printed in full in
+`fourier_gate.py` output)** confirm the spike/plateau/melody intuition
+quantitatively: surprise is high-harmonic-rich (−0.94cos3πt +0.95cos4πt — the
+spike), anger concentrates in the 1st harmonic (+2.22cos1πt — sustained fall),
+joy has the largest swing + strong 5th harmonic (melody), neutral is a smooth
+near-pure decline. Held-out actor validation: hot-3-way 48.6–51.0% vs 33%
+chance — the fingerprints separate acted emotions.
+
+**The ladder (each rung $0 except the disclosed calibration synthesis):**
+
+| rung | question | result |
+|---|---|---|
+| Gate 0 (knob distinguishability) | can the basis tell the mouth's hot knobs apart? | **PASS under W_deriv**: happy\|angry 0.95→**0.76**, happy\|surprised 0.95→**0.61**, angry\|surprised 0.91→**0.64** — the user's derivative weighting is what does it |
+| Gate 1 (cross-text alignment) | do knob effects align with RAVDESS directions? | FAIL — max cos +0.29 ≈ noise. Contour equations are text-sensitive; mouth spoke S1, actors spoke "Kids..." |
+| Gate 1-bis (matched text; 12 unscored calibration clips, mouth speaks the RAVDESS sentence) | same, text held constant | transfer fixed (alignments 0.6–0.8) **but a common-expressivity axis dominates**: every emotion-vs-neutral direction shares "more contour movement than neutral," and the melancholic knob adds the most of it → melancholic tops every target → FAIL |
+| Exploratory (contrast directions subtract the common axis; post-hoc, labeled as such) | hot-vs-hot geometry, matched text, W_deriv | **anger: `angry` knob decisively sane (+0.66, #2 at +0.34)** — first scaffold basis ever to solve anger. joy: `happy` weakly sane (+0.13). sadness/surprise: fail (no knob out-fluctuates rivals). **2/4** |
+
+**Honest verdict:**
+1. **The user's two ideas are now both partially vindicated with data:** the
+   Fourier-equation fingerprints are real and validated; the derivative
+   weighting is the single ingredient that made the mouth's hot knobs
+   distinguishable (Gate 0's first-ever pass).
+2. The best configuration found (Fourier + derivation + matched text +
+   contrasts) reaches 2/4 sane — anger decisively, joy marginally — but was
+   assembled adaptively after the pre-registered gates failed, so it is a
+   **hypothesis for confirmation, not a confirmed pass**. The 3/4 bar for
+   spending steering clips is not met.
+3. Remaining wall, precisely located: the mouth's `sad` and `surprised` knobs
+   do not produce fluctuation signatures that beat their rival emotions'
+   directions — jointly a mouth expressiveness limit and a single-clip noise
+   floor (deterministic synthesis → no replicates at fixed text).
+4. Paths from here (user's call): (a) a narrow pre-registered joy-only spike —
+   the one target where this compass could add value the rules never achieved
+   (judge-named joy = the only win condition, ~6 clips); (b) the
+   embedding-space scaffold (P4.8 verdict #4) — still the deep fix; (c) park
+   and return to P4.6.
+
+Artifacts: `fourier_gate.py`, `gate1_fourier.py`, `gate1b_matched.py`,
+`out/fourier_gate.json`, 12 matched-text calibration clips (unscored,
+disclosed). Laws unchanged: judge frozen, never consulted here · calibration
+clips unscored per P4.7 precedent · adaptive analyses labeled exploratory ·
+claims sized to evidence.
