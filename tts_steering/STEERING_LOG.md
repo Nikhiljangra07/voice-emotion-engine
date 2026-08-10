@@ -944,3 +944,55 @@ Artifacts: `fourier_gate.py`, `gate1_fourier.py`, `gate1b_matched.py`,
 disclosed). Laws unchanged: judge frozen, never consulted here · calibration
 clips unscored per P4.7 precedent · adaptive analyses labeled exploratory ·
 claims sized to evidence.
+
+---
+
+## P4.9c — THE EXPANDED VIEW: fingerprints across three human corpora (2026-08-10)
+
+**User's directive:** don't judge the equations on one corpus — expand to
+CREMA-D and MSP audio, then work from the results. Extracted Fourier
+fingerprints for **10,955 human clips** (RAVDESS 1,056 · CREMA-D 4,899 ·
+MSP sample 5,000 seeded, 1 failure in 10,956): one canonical z-space,
+per-corpus neutral anchors, W_deriv throughout. MSP audio used as statistics
+only, license-safe.
+
+**Finding 1 — THE FLUCTUATION FINGERPRINTS ARE NOT UNIVERSAL.** Same-family
+direction similarity across corpora: acted↔acted moderate (anger rav~crema
++0.49, joy +0.44), but acted↔natural collapses (anger rav~msp +0.25,
+crema~msp +0.06, joy ~0) and **sadness is ANTI-correlated: rav~msp −0.46** —
+stage sadness and real conversational sadness are *opposite gestures* in
+derivative space. Cross-corpus transfer classification confirms: 25.7–44.3%
+vs 25/33% chance ≈ noise. **Performed emotion and felt emotion differ at the
+contour-dynamics level.** (This independently corroborates the P4.3/P4.7
+sadness triangulation: humans can hear performed sadness, but its acoustics
+are not natural sadness.)
+
+**Finding 2 — the mouth is a THIRD style.** Every one of our judge-confirmed
+anger and surprise HITs scores best as "joy" against the pooled human
+directions (anger HITs score *negative* on pooled anger). The frozen judge
+recognizes the mouth's emotions; pooled human fluctuation-equations do not.
+Mouth ≠ acted ≠ natural — three dialects of emotional prosody.
+
+**Finding 3 — the pre-registered pooled gate: FAIL, 2/4** (declared before the
+run; one shot, honored). anger → `angry` decisively sane (+0.61, replicating
+matched-text +0.66 — anger is now solved in equation space under two
+independent foundations). joy → `happy` sane (+0.23). sadness ✗, surprise ✗
+(the `surprised` knob scores −0.15 on its own target).
+
+**Where the whole scaffold program now stands (P4.8→P4.9c, exhaustive):**
+static features, dynamics statistics, Fourier equations, derivative weighting,
+contrast directions, matched text, and a three-corpus pooled foundation have
+each been gated. Stable conclusion across all of it: **anger and joy are
+solvable in interpretable equation space (2/4, twice, independent
+foundations); sadness and surprise are not, under any hand-crafted basis or
+foundation** — their knob signatures don't resemble any human style, and human
+styles don't even agree with each other. The discriminative information the
+judge provably uses for those families is embedding-level.
+
+**Supported next steps (from results, user's call):** (a) joy-only
+pre-registered spike — the compass's valid domain (anger solved, joy open);
+win = frozen judge says "joy", nothing else counts. (b) embedding-space
+scaffold for sadness/surprise. (c) park + P4.6.
+
+Cost of the expanded view: $0, ~40 min compute, 10,955 fingerprints cached.
+Laws unchanged.
