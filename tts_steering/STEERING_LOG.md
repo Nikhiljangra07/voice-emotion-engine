@@ -762,3 +762,83 @@ recorded for every clip.
 
 Laws unchanged: judge frozen · every clip a ledger row (174) · misses kept ·
 claims sized to evidence · MSP used as statistics only.
+
+---
+
+## P4.8 — GATE 1: the scaffold must earn the training-wheel role before any clip is spent (2026-08-10)
+
+**User's discipline, pre-registered:** test the scaffold C *separately*, at $0,
+no synthesis — and only if it demonstrably picks meaningful directions does it
+keep the training-wheel role (and only then explore foundations beyond MSP,
+"somewhere more prominent for emotional calibration"). Amends the P4.7 verdict:
+"retired" → **v1 superseded; question tested properly here.**
+
+**Gate 1 (free):** with the mouth's measured knob→feature responses, does
+hill-climbing the scaffold score rank an emotion-appropriate knob first per
+target? Pass bar (pre-registered): 3/4 targets sane, anger mandatory (v1's
+exact failure: it ranked `happy` first for anger).
+
+**Round 1 — scaffold v2 on MSP foundation** (`scaffold2_msp.py`): added the
+missing Fourier harmonics — pairwise CONTRAST directions (anger−joy, …), blend
+weight λ fit by grid on held-out MSP dev (no magic numbers; λ=0.25). Dev
+validation improved modestly: hot-3-way 39.6%→43.2% (chance 33%).
+**Gate 1: FAIL (2/4).** Anger still picks `happy` (S +1.08 vs +1.00) — even the
+contrast term rates the happy knob's output as more anger-vs-rivals than the
+angry knob's own. Natural conversational speech carries the hot emotions too
+subtly; λ couldn't be pushed higher without hurting held-out accuracy.
+
+**Round 2 — scaffold-R on RAVDESS foundation** (`scaffold_ravdess.py`): the
+user's foundation hypothesis tested — acted speech is emotionally *prominent*
+(professional actors, validated labels, exaggerated delivery, same 111-feature
+language, neutral anchor = 288 RAVDESS neutral/calm from the same channel).
+Validation: hot-3-way separation jumps to 63.9% (resubstitution, labeled as
+such) with balanced recalls — the prominent foundation genuinely carries the
+valence slice. **Gate 1: FAIL (2/4), but differently:** anger FIXED (`angry`
+ranks first — the original failure cured), joy sane, but sadness broke (acted
+sadness is *stage* sadness — loud, projected, so its direction is
+arousal-heavy and the `angry` knob matches it) and surprise still picks happy.
+
+**Root cause found (the decisive diagnostic):** weighted-cosine similarity
+matrix of the mouth's own knob effects in scaffold feature space:
+
+| | happy | angry | surprised | afraid | sad | melanc | calm |
+|---|---|---|---|---|---|---|---|
+| happy | 1 | **+0.95** | **+0.95** | +0.89 | +0.37 | −0.07 | −0.05 |
+| angry | | 1 | **+0.91** | +0.88 | +0.52 | −0.10 | −0.05 |
+| surprised | | | 1 | +0.84 | +0.25 | −0.21 | −0.06 |
+
+**The mouth's hot knobs are ~95% collinear in classical feature space.** In
+F0/loudness/formant/voice-quality terms, happy = angry = surprised ≈ the same
+acoustic action. No foundation can make Gate 1 pass for hot emotions when the
+compass's measurement basis cannot see any difference between the knobs it must
+choose among. The judge CAN tell the outputs apart (it named surprise vs anger
+correctly in P4.7) because e2v lives in a learned embedding space that captures
+what IndexTTS-2 actually changes — something beyond these 32 classical terms.
+The distinguishable subspace is low-arousal: sad / melancholic / calm / disgusted
+effects are mutually distinct (cos +0.17…+0.48) — exactly where the scaffold
+made its one real P4.7 discovery (sad-knob +0.42 vs mel-knob −0.09 against
+certified sadness).
+
+**Verdict (per the pre-registered gate):**
+1. The scaffold does **not** currently earn the steering training-wheel role for
+   hot emotions — not because the idea is wrong, and not because of the
+   foundation (RAVDESS measurably improved it and fixed anger), but because the
+   *measurement basis* is blind to how the mouth's hot knobs differ. No
+   synthesis run was spent; the if-and-only-if held.
+2. The user's foundation hypothesis is **half-validated with data**: prominent
+   acted emotion sharpens the equations (63.9% vs 43.2% hot separation, anger
+   knob-choice cured). The remaining failure is not the foundation's fault.
+3. The scaffold keeps: its **diagnostic role** (per-clip recipe alignment) and a
+   candidate steering niche in the **low-arousal subspace** where knobs are
+   distinguishable.
+4. **The honest path to the training-wheel vision** (future work, gated):
+   refit the scaffold directions in a *learned* embedding space on the steering
+   side — e.g., WavLM embeddings (steering ear, so anti-circularity is
+   preserved; the e2v judge stays untouched) — fit from RAVDESS/MSP, where the
+   hot knobs are presumably separable, since the judge separates them. That is
+   a bigger build; it goes behind the same gate: embedding-space Gate 1 first,
+   $0, before any clip.
+
+Cost of P4.8: $0.00, zero clips synthesized, three scripts, one root cause.
+Laws unchanged: judge frozen · no magic numbers (λ grid-fit; gate pre-registered)
+· claims sized to evidence · MSP/RAVDESS statistics only.
