@@ -1107,3 +1107,49 @@ on S1 and unlocked on S3 (P4.4b); joy may behave the same. P4.6's transfer map
 answers this as part of its design. Ledger: 174 → 180 rows.
 
 Laws unchanged: pre-registered, misses kept, every clip a row.
+
+---
+
+## P4.12 — SURVEY: how open-source engines solve emotion (and two discoveries in our own mouth) (2026-08-10)
+
+**Local discovery 1 — the hidden bias.** IndexTTS-2's `normalize_emo_vec()`
+silently rescales every vector: happy ×0.9375, angry ×0.875, **surprised
+×0.6875, calm ×0.5625**, then clamps the TOTAL emotion sum to **0.8** (not the
+1.5 our code enforced). Every ledger `emo_vector` is the *requested* vector;
+the *effective* vector was smaller (surprised=1.4 → 0.8 actual; angry=0.7 →
+0.61). Conclusions unaffected (all systems shared the compression) but the
+intensity axis was ~45% narrower than documented for surprise/calm. Recorded
+as a correction note; future control strings should log effective vectors.
+
+**Local discovery 2 — the unused channel.** `infer()` accepts
+`emo_audio_prompt` + `emo_alpha`: emotion cloned from a REFERENCE AUDIO clip
+(mutually exclusive with emo_vector; speaker prompt supplies timbre
+separately). 180 ledger rows and we never used it once. A real human joyful
+clip as the emotion target bypasses the 8-slider bottleneck entirely. There is
+also `use_emo_text` (Qwen maps a description → the same 8-dim vector — no new
+physics, confirms the vector is that path's bottleneck).
+
+**The survey — four mechanisms across the open-source field:**
+1. **Reference-audio style transfer** (GST/reference encoders; IndexTTS-2's
+   emo_audio_prompt): emotion = embedding from a real emotional clip.
+2. **Semantic conditioning** (CosyVoice-instruct "speak happily";
+   EmotiVoice/PromptTTS style prompts; StyleTTS2 style diffusion conditioned
+   on emotional text): the TEXT carries the emotion. Note: this is exactly
+   what our delivery-only law holds constant — other engines' "joy" is partly
+   semantic leakage our benchmark forbids. In LoRa production, semantics vary,
+   so joy may be far easier in real use than on S1.
+3. **Paralinguistic event tokens** (Orpheus <laugh>/<chuckle>; CosyVoice2
+   [laughter][breath]; ElevenLabs v3 tags): joy is delivered by DISCRETE VOCAL
+   EVENTS — laughter, smiling voice — not by continuous prosody knobs. This
+   mechanistically explains our valence ceiling: real joy's markers (laughter
+   bursts, smile-raised formants) are events the 8 sliders cannot emit. EL's
+   P4.4b joy win used exactly these tags.
+4. **Embedding arithmetic on frozen models** (EmoKnob, EMNLP 2024): emotion
+   direction vectors in speaker-embedding space from neutral↔emotion pairs,
+   applied with a strength knob — **the published version of our proposed
+   embedding-space scaffold (P4.8 #4).** The field converged on the same idea.
+
+**Actionable next (pre-registered, awaiting go): P4.12b joy-by-reference** —
+emo_audio_prompt = real joyful clips (RAVDESS/MELD), neutral speaker prompt,
+emo_alpha sweep, S1 text, ~6 clips, win = judge says joy. The last untested
+channel of our own mouth, and the field's standard mechanism for exactly this.
