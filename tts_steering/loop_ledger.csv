@@ -173,3 +173,9 @@ iteration,system,target_emotion,control_params,judged_V,judged_A,judged_D,judge_
 172,indextts2-abcB-r1,joy,"emo_vector=[0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8];spk=ravdess_neutral_A01;p47_r3",-0.205,0.586,0.395,anger,1.0,0.545,0
 173,indextts2-abcB-r1,joy,"emo_vector=[0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0];spk=ravdess_neutral_A01;p47_r3",-0.191,0.454,0.221,neutral,1.0,0.507,0
 174,indextts2-abcC-scaffold,joy,"emo_vector=[0.0, 0.09, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r3",-0.131,0.436,0.165,neutral,1.0,0.455,0
+175,indextts2-joyspike,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];neutral_prompt;gap-probe",-0.18,0.562,0.326,fear,0.6,0.5,0
+176,indextts2-joyspike,joy,"emo_vector=[0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.0];neutral_prompt;low+transient",-0.171,0.639,0.385,fear,1.0,0.513,0
+177,indextts2-joyspike,joy,"emo_vector=[0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];happy_prompt;happy-prompt",-0.081,0.687,0.459,fear,0.63,0.479,0
+178,indextts2-joyspike,joy,"emo_vector=[0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.15];neutral_prompt;r2<-gap-probe:fear-cooled",-0.168,0.533,0.307,neutral,1.0,0.485,0
+179,indextts2-joyspike,joy,"emo_vector=[0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.15];neutral_prompt;r2<-low+transient:fear-cooled",-0.166,0.52,0.269,neutral,1.0,0.476,0
+180,indextts2-joyspike,joy,"emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.15];happy_prompt;r2<-happy-prompt:fear-cooled",-0.08,0.597,0.379,surprise,0.8,0.425,0

@@ -1079,3 +1079,31 @@ it.
 Classical-feature program (mouth P4.8–P4.9d + ear P4.10) now fully gated and
 closed: six pre-registered gates, zero steering clips wasted, every hypothesis
 answered with data. Laws unchanged.
+
+---
+
+## P4.11 — THE JOY SPIKE: six clips at the last open door on S1 (2026-08-10)
+
+**Pre-registered:** win = frozen judge says "joy" on S1, any confidence;
+budget 6 clips, round-2 rules declared before synthesis. Probes built from the
+P4.7 gap (happy 0.3→neutral, 0.4→fear, joy never between).
+
+**Result: NO JOY. 0/6.** The verdict cycle on S1 is now fully mapped:
+cool it → neutral@100%; warm it → fear@60-100%; add transient or cool the
+happy-prompt variant → surprise@80%. Joy is not on the path at any intensity.
+
+**The decisive diagnosis is in the valence column: V never went positive.**
+All six clips: V ∈ [−0.18, −0.08] against a joy centroid of +0.30. Even the
+happy speaker prompt (timbre warmth, the untested channel) only lifted V from
+−0.18 to −0.08 — the best S1 valence ever recorded for this mouth, still
+negative. **The mouth's happy knob adds arousal, not positivity; on a
+semantically neutral sentence it cannot produce positive-valence acoustics.**
+S1-joy is closed: mouth-limited (valence ceiling), consistent with the P4.7
+moderation pattern and the fair-rematch finding that only ElevenLabs ever
+produced a strong synthetic joy.
+
+**What remains for joy:** sentence dependence — untested. Sadness was locked
+on S1 and unlocked on S3 (P4.4b); joy may behave the same. P4.6's transfer map
+answers this as part of its design. Ledger: 174 → 180 rows.
+
+Laws unchanged: pre-registered, misses kept, every clip a row.
