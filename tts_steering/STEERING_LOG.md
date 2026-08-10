@@ -842,3 +842,49 @@ certified sadness).
 Cost of P4.8: $0.00, zero clips synthesized, three scripts, one root cause.
 Laws unchanged: judge frozen · no magic numbers (λ grid-fit; gate pre-registered)
 · claims sized to evidence · MSP/RAVDESS statistics only.
+
+---
+
+## P4.9 — GATE 0: derivatives + V/A/D + scaffold (the fluctuation hypothesis) (2026-08-10)
+
+**User's proposal:** the hot knobs collide in static features because static
+functionals integrate away the temporal shape — surprise is a *spike*, anger a
+*plateau*, joy a *melody*. Add DERIVATIVES (fluctuation features) to the basis;
+if the collaboration works, upgrade the whole system around it.
+
+**Gate 0 ($0, pre-registered):** 14 trajectory features (F0 slope/curvature/
+spike-rate/rise-fall asymmetry/final slope; energy modulation rate/depth/attack
+asymmetry; voicing rhythm) computed from the calibration clips already on disk
+(same sentence S1 → text-dependence cancels for knob comparison). Pass bar:
+all three hot-knob pairwise cosines < 0.80 in the combined basis.
+
+**Result: FAIL — 2 of 3 pairs stay ≥ 0.80. But the movement is real:**
+
+| hot pair | static (P4.8) | dynamics only | combined | bar |
+|---|---|---|---|---|
+| happy \| surprised | +0.95 | **+0.52** | **+0.72** | ✓ passes |
+| happy \| angry | +0.95 | +0.77 | +0.86 | ✗ |
+| angry \| surprised | +0.91 | +0.85 | +0.88 | ✗ |
+
+**Findings:**
+1. **Fluctuation carries real discriminative signal** — happy vs surprised
+   decollinearized dramatically (0.95 → 0.52 in pure dynamics). The user's
+   spike-vs-melody intuition is measurably correct for that pair.
+2. **The stubborn core is angry vs surprised (+0.85 even in dynamics):** the
+   mouth performs nearly the same temporal gesture for both — a sudden
+   high-arousal burst. Acoustically plausible; even humans separate these two
+   partly by valence/context, not contour.
+3. **Caveat, disclosed:** one deterministic clip per knob-level (IndexTTS-2
+   use_random=False) → dynamics estimates have irreducible single-sample noise
+   at this gate's cost level.
+4. Per the user's own rule ("if it works then we upgrade the rest according to
+   it") — it did not pass, so **no systemic upgrade**. Three $0 gates in a row
+   (P4.8 ×2, P4.9) now triangulate the same conclusion: the discriminative
+   information the frozen judge demonstrably uses lives beyond hand-crafted
+   classical + dynamics features. The remaining honest path to the
+   training-wheel vision stays the embedding-space scaffold (P4.8 verdict #4),
+   behind the same $0-gate-first discipline.
+
+Cumulative cost of the entire scaffold investigation (P4.8 + P4.9): $0.00,
+zero clips synthesized, root cause + two half-validated user hypotheses on the
+record. Laws unchanged.
