@@ -23,9 +23,17 @@ if todo:
     print(f"[model loaded in {time.time()-t0:.0f}s]", flush=True)
     for j in todo:
         t1 = time.time()
-        tts.infer(spk_audio_prompt=j["prompt"], text=j["text"],
-                  output_path=j["out"], emo_vector=j["vector"],
-                  use_random=False, verbose=False)
+        if "emo_audio" in j:
+            # emotion cloned from a reference clip (P4.12b channel);
+            # mutually exclusive with emo_vector by API design
+            tts.infer(spk_audio_prompt=j["prompt"], text=j["text"],
+                      output_path=j["out"], emo_audio_prompt=j["emo_audio"],
+                      emo_alpha=j.get("emo_alpha", 1.0),
+                      use_random=False, verbose=False)
+        else:
+            tts.infer(spk_audio_prompt=j["prompt"], text=j["text"],
+                      output_path=j["out"], emo_vector=j["vector"],
+                      use_random=False, verbose=False)
         print(f"  {Path(j['out']).name:36s} {time.time()-t1:.0f}s", flush=True)
 
 print("WORKER_DONE", flush=True)

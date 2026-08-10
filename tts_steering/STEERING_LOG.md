@@ -1153,3 +1153,32 @@ physics, confirms the vector is that path's bottleneck).
 emo_audio_prompt = real joyful clips (RAVDESS/MELD), neutral speaker prompt,
 emo_alpha sweep, S1 text, ~6 clips, win = judge says joy. The last untested
 channel of our own mouth, and the field's standard mechanism for exactly this.
+
+---
+
+## P4.12b — JOY BY REFERENCE: the last channel, closed (2026-08-10)
+
+**Pre-registered probe of the newly-discovered `emo_audio_prompt` channel**
+(emotion cloned from reference audio — Voxtral's mechanism, unused in 180
+prior rows). 6 clips, win = judge says joy on S1. **Result: 0/6. NO JOY.**
+
+**But the channel is measurably the best joy instrument the mouth has:**
+- `rav_happy_male @ alpha=1.0`: **V = +0.02 — the first non-negative valence
+  ever recorded for this mouth** (all-time prior best: −0.08), and
+  **d = 0.318, the best joy distance ever** (prior best 0.402).
+  Judge verdict: neutral@100%.
+- Female acted joy ref: V=+0.02 as well, neutral@60%.
+- Natural MELD joy refs backfired: conversational TV audio carried chaos, not
+  warmth — judged anger@100% / fear@40% at arousal 0.73–0.87. Reference
+  quality matters more than reference authenticity.
+
+**Verdict: S1-joy is closed across ALL FOUR channels** — emo_vector (P4.7,
+P4.11), speaker prompt (P4.11), text-implicit, and now reference audio. The
+mouth gets warmer by reference than by any vector, but cannot cross the joy
+threshold on a semantically neutral sentence. The failure pattern now exactly
+mirrors sadness-on-S1: nearest-ever acoustics, neutral@100% verdict. Both
+locks point at the same suspect — the SENTENCE. S3-class sentences unlocked
+sadness (P4.4b); the sentence hypothesis for joy is the single remaining path,
+and P4.6 (transfer map) tests it by design.
+
+Ledger: 180 → 186 rows. Laws unchanged: pre-registered, misses kept.
