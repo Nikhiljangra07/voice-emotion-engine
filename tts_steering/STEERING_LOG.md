@@ -1040,3 +1040,42 @@ fear/disgust — plus the new spin-off: epicycle timing features as an ear
 upgrade candidate for surprise.
 
 Laws unchanged. Every gate pre-registered, every failure kept.
+
+---
+
+## P4.10 — THE EAR GATE: Gabor micro-gestures vs the blind families (2026-08-10)
+
+**Scope shift, user-approved:** aim the uncertainty-principle math (Gabor
+acoustic quanta: tremor band 3–10 Hz, transient band 10–40 Hz, multi-scale
+responses, all in ABSOLUTE time) at the ear's blind families. Benchmark:
+16,548 clips (RAVDESS full · CREMA-D full · MSP sample with ALL fear/disgust
+kept), held-out speakers, identical nearest-centroid protocol for four bases
+(DCT-22 / epicycle-90 / wavelet-48 / epicycle+wavelet-138). Pre-registered:
+PASS = fear recall +10pp over epicycle, surprise within −5pp.
+
+**Verdict: FAIL — fear gain −3.8pp.** The folk hypothesis "fear = tremor" is
+refuted at scale: 3–10 Hz micro-fluctuation energy does not distinguish fear in
+any of three corpora (wavelet-alone fear 14.1% ≈ DCT 14.2%). Fear's expression
+is acoustically heterogeneous; it needs learned features, not hand-crafted
+bands. Important negative knowledge, cheaply bought.
+
+**Two secondary findings (exploratory — not the pre-registered target):**
+1. **Surprise detection: best-ever, again.** epi+wav 40.7% mean vs epicycle
+   29.0% (+11.7pp); on natural MSP speech 30% vs 16% — nearly doubled. Third
+   consecutive confirmation that surprise is a time-localized transient event;
+   micro-transient features are its natural detector.
+2. **Natural sadness: unexpected +7.7pp** (epi+wav 32.3% vs epicycle 24.6%;
+   MSP 37% vs 23%). Static HNR level never marked sadness — but voice-quality
+   MICRO-INSTABILITY does. The "breathiness dynamics" hypothesis was right at
+   millisecond scale, wrong at contour scale.
+
+**Honest placement:** these classical detectors are far below the production
+ear's embedding-based performance in absolute terms — their value is
+interpretability and complementarity (surprise/sadness micro-channels as
+auxiliary features for a future ear-v2), not replacement. Fear and disgust
+remain learned-feature problems. The judge stays frozen; nothing here touches
+it.
+
+Classical-feature program (mouth P4.8–P4.9d + ear P4.10) now fully gated and
+closed: six pre-registered gates, zero steering clips wasted, every hypothesis
+answered with data. Laws unchanged.
