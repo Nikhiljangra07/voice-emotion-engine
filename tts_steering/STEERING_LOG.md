@@ -1182,3 +1182,45 @@ sadness (P4.4b); the sentence hypothesis for joy is the single remaining path,
 and P4.6 (transfer map) tests it by design.
 
 Ledger: 180 → 186 rows. Laws unchanged: pre-registered, misses kept.
+
+---
+
+## P4.13 — THE ANGER↔JOY AXIS: the user's "little difference" hunch, measured (2026-08-10)
+
+**Hunch:** joy and anger share high pitch and fast delivery; the separation
+must be one small specific difference. **Measured on 59,656 real clips
+(MSP joy 37k + anger 22.6k; RAVDESS 192+192): the hunch is structurally
+CORRECT.** The separator is a narrow tension/relaxation delta on top of shared
+arousal — 12/15 top features agree in sign across natural and acted speech
+(axis cosine +0.54):
+- Joy sits LOWER than anger on F1/F2/F3 formants (relaxed vs pressed vocal
+  tract; F2 d=−0.64/−0.74 — the strongest separator).
+- Joy's pitch is slightly LOWER than anger's (d≈−0.5) — correcting the "pitch
+  is the same" premise: same register, small offset.
+- Joy is warmer in spectrum (mfcc1V/mfcc3 up) with a SMALLER loudness range
+  (less spiking). In one line: **joy = anger minus tension.**
+
+**The mouth's knobs on this axis (the whole joy predicament in one table):**
+angry −4.61 · sad −4.88 · surprised −3.99 · **happy −3.39** · afraid −2.40 ·
+disgusted +0.64 · melancholic +0.62 · calm +0.39 (per unit slider, + = joy-ward).
+**Every expressive knob — including `happy` — moves the voice ANGER-ward on
+the axis that separates joy from anger.** Pressing "happy" adds tension. The
+only joy-ward knobs are weak (+0.4..0.6) and capped: max reachable ≈ +0.5
+against a needed ≈ +0.9 (EL's judged joy) from −0.07 (our warmest clip).
+The little difference is real, but it lies in the one direction the mouth's
+control space cannot travel. Mouth-limitation now proven *in the exact plane
+of the user's hunch*.
+
+**Forensics of the only judge-approved synthetic joy (EL d=0.144):** vs our
+warmest clip it is LOWER-pitched, softer-onset (attack +1.4z), more flowing
+(mean pause −5.6z), with a contained loudness range — plus its [laughs]
+events. The recipe of synthetic joy the judge accepts: warm, low-tension,
+flowing, event-punctuated — not "excited." (Caveat kept honest: EL's other
+joy HIT sits at −0.97 on this axis — the e2v judge does not strictly follow
+classical-axis geometry; embeddings see more.)
+
+**Actionable residue:** joy-ward = SUBTRACT tension. Within the vector space
+the only legal moves are microdoses of calm/melancholic/disgusted with no hot
+knob — a region P4.6 can sweep across sentences at zero extra design cost.
+
+$0. Ledger untouched (analysis only). Laws unchanged.
