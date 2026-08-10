@@ -662,3 +662,103 @@ consumer projects · optional: StyleTTS2, rival blind-listen pack, e2v fine-tune
 
 Laws unchanged and binding: judge frozen · bridge-not-merge · every clip a ledger
 row · misses kept · claims sized to evidence.
+
+---
+
+## P4.7 — THE A/B/C TEST: three proposers, one mouth, one frozen judge (2026-08-09)
+
+**Detour note:** the recommencement entry named P4.6 (transfer map) as next; the
+user redirected first to a question worth answering before spending 500 clips:
+*does a smarter proposer beat the deterministic rules?* Three arms, equal budgets:
+
+- **ARM A** `indextts2-abcA-det` — the incumbent P4.3 deterministic rules.
+- **ARM B** `indextts2-abcB-r1` — DeepSeek R1 (OpenRouter) reasons over the arm's
+  own judged history and proposes vectors. Honest-forfeit on parse failure; spend
+  hard-capped $2.50 (actual: **$0.13**).
+- **ARM C** `indextts2-abcC-scaffold` — the user's **MSP equation scaffold**
+  ("training wheels"): steer toward the certified acoustic *recipe* of each
+  emotion, fit from real human speech, instead of a bare V/A/D point.
+
+**The scaffold (new instrument, `scaffold_msp.py` → `out/scaffold_msp.json`):**
+statistics-only fit from 132,276 MSP train clips (license-safe, nothing
+redistributed, nothing trains the mouth): 32 equation terms selected by Fisher
+score from the engine's own 111 classical features (categories excluded:
+text/timing/absolute-level). Per-family templates + *direction-from-neutral*
+vectors; clip score = weighted cosine between (clip − synth-baseline) and
+(family − neutral)_MSP — differencing both sides cancels the channel gap between
+podcast audio and clean TTS. **Validated before use** on 24,909 held-out MSP dev
+clips: 33.3% nearest-template 5-way accuracy vs 20% chance (anger 67.9%, sadness
+34.2%, joy 18.3%, surprise 14.5%). Sanity check on our own mouth: old `angry_08`
+clip scores +0.76 vs certified anger direction, +0.13 vs sadness.
+
+**New lawful constant:** surprise centroid **(+0.05, 0.64, +0.26)** — derived by
+exactly reproducing the original centroid computation on MSP Train labels
+(existing three verified to the third decimal; surprise n=3,220). Surprise had
+never been a steering target before this run.
+
+**Pre-registered before the run (both confirmed by it):**
+1. The hot emotions are entangled in scaffold space — for the anger target the
+   *happy* knob aligned +0.88, above the angry knob itself (+0.82).
+2. No knob moves features convincingly toward certified sadness (best: sad knob
+   at +0.28).
+
+**Setup:** 4 targets × 3 arms, 3 rounds × 2 candidates, stop-on-HIT, arms blind
+to each other, S1 + neutral prompt, frozen e2v judge = the only law. Calibration
+(disclosed, unscored): P4.2 single-knob clips + 3 new probes (afraid/disgusted/
+surprised @0.8) → knob→feature response map. 42 scored clips, ledger 132 → 174.
+
+### Scoreboard (frozen judge)
+
+| Target | A (rules) | B (R1) | C (scaffold) |
+|---|---|---|---|
+| **anger** | **HIT@80% att.1, d=0.244** | HIT@100% att.1, d=0.393 | no HIT (fear@82%, surprise@80%) |
+| **surprise** (new) | HIT@80% att.2, d=0.482 | HIT@80% att.1, d=0.692 | HIT@60% att.2 · best d=**0.179** |
+| **joy** | no HIT, best d=0.415 | no HIT, best d=0.507 | no HIT, best d=**0.402** |
+| **sadness** | no HIT, best d=**0.163** | no HIT, d=0.210 | no HIT, d=0.206 |
+
+### Findings
+
+1. **SURPRISE IS A NEW CONFIRMED STEERABLE FAMILY — 3/3 arms produced
+   judge-confirmed HITs on first exposure.** The mouth's steerable set is now
+   anger + surprise (reliable), joy (split), sadness (locked). The `surprised`
+   slider at 0.8–1.4 is the direct route (A att.2, B att.1); C got there via
+   happy+angry blend.
+2. **The incumbent rules remain the best proposer overall.** A matched or beat
+   the challengers on hits and won sadness/anger distance. Four lines of
+   deterministic rules ≥ a frontier reasoning model, on this mouth, at this
+   budget. R1 was competitive (2 attempt-1 HITs) but wilder (worse distances)
+   and found nothing the rules didn't.
+3. **The scaffold's compass is real but valence-blind between hot emotions**
+   (pre-registration #1 confirmed in action): steering anger by certified-recipe
+   alignment, C pushed the *happy* knob and the judge heard fear/surprise. Yet C
+   scored the two best distances of the entire run (surprise 0.179, joy 0.402) —
+   the training wheels DO pull clips into the right acoustic *region*; they
+   cannot pick the right *neighbor* within it.
+4. **Third witness on the sadness lock — and it dissents in an informative way.**
+   The melancholic=1.0 clip (best V/A/D distance, humans blind-ruled it SAD in
+   P4.3) scores **−0.09** against the certified MSP sadness recipe, while plain
+   sad=0.4 scores +0.42. So: WavLM-distance says mel-clips are sad-like; humans
+   agree; but feature-level comparison with *real conversational* sadness sides
+   with the e2v judge — the acoustics are NOT natural-sadness acoustics. Reading:
+   the mouth produces *performed/acted* sadness cues (slow, flat, low), not the
+   voice-quality signature of genuine conversational sadness, and e2v keys on
+   exactly that gap. The sadness miss is jointly mouth- and ear-shaped, not
+   ear-only. (Claim v3 unchanged; this sharpens the diagnosis.)
+5. **Disclosed harness inefficiency:** arm C under-spent its budget (anger 2/6,
+   sadness 3/6 attempts) — residual-driven proposals starved on dedup/clamp
+   (once it even proposed the zero vector). C's numbers are therefore a floor,
+   not a ceiling. Fix before any rematch: fallback candidate pool when the
+   residual step degenerates.
+6. **Cost of the whole question: $0.13 of R1 + ~40 min MPS.**
+
+**Verdict for the record:** the A/B/C question is answered — keep the
+deterministic rules as the loop's proposer; keep the scaffold as a *diagnostic
+instrument* (its per-clip recipe-alignment column is new evidence the ledger
+never had); R1 adds no lift at this budget. The scaffold's true value was not
+steering but *witnessing*: it independently corroborated the judge on synthetic
+sadness and quantified exactly how far each clip sits from certified human
+emotion. Next: P4.6 transfer map as planned, now with the scaffold column
+recorded for every clip.
+
+Laws unchanged: judge frozen · every clip a ledger row (174) · misses kept ·
+claims sized to evidence · MSP used as statistics only.

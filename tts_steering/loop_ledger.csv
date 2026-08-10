@@ -129,3 +129,47 @@ iteration,system,target_emotion,control_params,judged_V,judged_A,judged_D,judge_
 128,chatterbox-fair-gen,joy,ref=joy;ex=0.5;cfg=0.5;sent=s3,0.322,0.53,0.245,anger,0.6,0.077,0
 129,chatterbox-fair-gen,anger,ref=anger;ex=0.5;cfg=0.7;sent=s2,0.126,0.558,0.237,joy,0.4,0.59,0
 130,chatterbox-fair-gen,anger,ref=anger;ex=0.5;cfg=0.7;sent=s3,0.344,0.676,0.416,joy,1.0,0.765,0
+131,observatory-demo,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01",-0.379,0.772,0.588,anger,1.0,0.197,1
+132,observatory-demo,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.3];spk=ravdess_neutral_A01",-0.231,0.245,-0.076,neutral,1.0,0.153,0
+133,indextts2-abcA-det,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.196,0.25,-0.078,neutral,1.0,0.163,0
+134,indextts2-abcA-det,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.168,0.259,-0.029,neutral,1.0,0.177,0
+135,indextts2-abcA-det,joy,"emo_vector=[0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.156,0.558,0.313,fear,1.0,0.473,0
+136,indextts2-abcA-det,joy,"emo_vector=[0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];spk=ravdess_neutral_A01;p47_r1",-0.172,0.483,0.252,neutral,1.0,0.486,0
+137,indextts2-abcA-det,anger,"emo_vector=[0.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.404,0.804,0.63,anger,0.8,0.244,1
+138,indextts2-abcA-det,anger,"emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];spk=ravdess_neutral_A01;p47_r1",-0.377,0.833,0.661,anger,1.0,0.287,1
+139,indextts2-abcA-det,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.267,0.781,0.581,fear,0.41,0.473,0
+140,indextts2-abcA-det,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.272,0.786,0.587,surprise,0.8,0.482,1
+141,indextts2-abcB-r1,sadness,"emo_vector=[0.0, 0.0, 0.8, 0.0, 0.0, 0.7, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.129,0.251,-0.12,neutral,1.0,0.212,0
+142,indextts2-abcB-r1,sadness,"emo_vector=[0.0, 0.0, 0.6, 0.0, 0.0, 0.9, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.124,0.251,-0.091,neutral,1.0,0.21,0
+143,indextts2-abcB-r1,joy,"emo_vector=[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.1];spk=ravdess_neutral_A01;p47_r1",-0.479,0.861,0.719,surprise,0.6,0.983,0
+144,indextts2-abcB-r1,joy,"emo_vector=[1.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.1];spk=ravdess_neutral_A01;p47_r1",-0.375,0.881,0.745,surprise,0.59,0.924,0
+145,indextts2-abcB-r1,anger,"emo_vector=[0.0, 1.4, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.495,0.878,0.753,anger,1.0,0.393,1
+146,indextts2-abcB-r1,anger,"emo_vector=[0.0, 1.0, 0.0, 0.2, 0.0, 0.0, 0.0, 0.3];spk=ravdess_neutral_A01;p47_r1",-0.558,0.858,0.736,anger,1.0,0.388,1
+147,indextts2-abcB-r1,surprise,"emo_vector=[0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 1.4, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.426,0.854,0.714,surprise,0.8,0.692,1
+148,indextts2-abcB-r1,surprise,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.4, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.408,0.834,0.669,surprise,0.8,0.644,1
+149,indextts2-abcC-scaffold,sadness,"emo_vector=[0.0, 0.0, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.111,0.39,0.079,neutral,1.0,0.225,0
+150,indextts2-abcC-scaffold,sadness,"emo_vector=[0.0, 0.0, 0.6, 0.0, 0.0, 0.0, 0.6, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.279,0.743,0.457,fear,0.64,0.634,0
+151,indextts2-abcC-scaffold,joy,"emo_vector=[0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.166,0.576,0.345,fear,1.0,0.491,0
+152,indextts2-abcC-scaffold,joy,"emo_vector=[0.6, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.459,0.879,0.757,surprise,0.8,0.993,0
+153,indextts2-abcC-scaffold,anger,"emo_vector=[0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.083,0.632,0.398,fear,0.82,0.344,0
+154,indextts2-abcC-scaffold,anger,"emo_vector=[0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.6, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.431,0.873,0.725,surprise,0.8,0.359,0
+155,indextts2-abcC-scaffold,surprise,"emo_vector=[0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.104,0.548,0.259,fear,1.0,0.179,0
+156,indextts2-abcC-scaffold,surprise,"emo_vector=[0.6, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r1",-0.498,0.853,0.697,surprise,0.6,0.732,1
+157,indextts2-abcA-det,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 1.25, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r2",-0.191,0.243,-0.092,neutral,1.0,0.173,0
+158,indextts2-abcA-det,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.75, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r2",-0.166,0.341,0.037,neutral,1.0,0.164,0
+159,indextts2-abcA-det,joy,"emo_vector=[0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r2",-0.135,0.591,0.336,fear,0.66,0.459,0
+160,indextts2-abcA-det,joy,"emo_vector=[0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r2",-0.133,0.559,0.297,neutral,0.8,0.446,0
+161,indextts2-abcB-r1,sadness,"emo_vector=[0.0, 0.0, 0.8, 0.4, 0.0, 0.3, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r2",-0.002,0.411,0.09,joy,0.8,0.321,0
+162,indextts2-abcB-r1,sadness,"emo_vector=[0.0, 0.0, 1.4, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r2",0.005,0.483,0.111,joy,0.6,0.351,0
+163,indextts2-abcB-r1,joy,"emo_vector=[1.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3];spk=ravdess_neutral_A01;p47_r2",-0.362,0.856,0.726,surprise,0.8,0.896,0
+164,indextts2-abcB-r1,joy,"emo_vector=[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.4];spk=ravdess_neutral_A01;p47_r2",-0.386,0.839,0.712,anger,1.0,0.9,0
+165,indextts2-abcC-scaffold,sadness,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r2",-0.139,0.374,0.079,neutral,1.0,0.206,0
+166,indextts2-abcC-scaffold,joy,"emo_vector=[0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r2",-0.022,0.645,0.422,fear,0.82,0.402,0
+167,indextts2-abcC-scaffold,joy,"emo_vector=[0.0, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r2",-0.263,0.727,0.518,anger,1.0,0.668,0
+168,indextts2-abcA-det,joy,"emo_vector=[0.38, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r3",-0.146,0.55,0.318,fear,1.0,0.465,0
+169,indextts2-abcA-det,joy,"emo_vector=[0.22, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r3",-0.104,0.495,0.226,neutral,1.0,0.415,0
+170,indextts2-abcB-r1,sadness,"emo_vector=[0.0, 0.5, 0.5, 0.0, 0.0, 0.5, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r3",-0.012,0.609,0.302,anger,0.4,0.508,0
+171,indextts2-abcB-r1,sadness,"emo_vector=[0.0, 0.0, 0.5, 0.0, 0.5, 0.5, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r3",-0.193,0.429,0.176,neutral,1.0,0.264,0
+172,indextts2-abcB-r1,joy,"emo_vector=[0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8];spk=ravdess_neutral_A01;p47_r3",-0.205,0.586,0.395,anger,1.0,0.545,0
+173,indextts2-abcB-r1,joy,"emo_vector=[0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0];spk=ravdess_neutral_A01;p47_r3",-0.191,0.454,0.221,neutral,1.0,0.507,0
+174,indextts2-abcC-scaffold,joy,"emo_vector=[0.0, 0.09, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];spk=ravdess_neutral_A01;p47_r3",-0.131,0.436,0.165,neutral,1.0,0.455,0
