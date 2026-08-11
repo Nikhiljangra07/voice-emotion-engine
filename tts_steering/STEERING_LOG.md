@@ -1315,6 +1315,7 @@ sentences (listener's stated obstacle), fresh controls, fresh shuffle.
 
 **Listener's product insight, adopted into the record:** context/semantics is
 now a MEASURED control channel (the map quantified it: zero-vector baseline
-non-neutral on 7/19 sentences). For LoRa this is a lever, not a confound —
-the mouth authors its own sentences, so sentence-conditional emotion is
-usable by design: choose the words and the delivery together.
+non-neutral on 7/19 sentences). For any conversational product built on this
+engine, that is a lever, not a confound — the mouth authors its own
+sentences, so sentence-conditional emotion is usable by design: choose the
+words and the delivery together.
