@@ -1319,3 +1319,49 @@ non-neutral on 7/19 sentences). For any conversational product built on this
 engine, that is a lever, not a confound — the mouth authors its own
 sentences, so sentence-conditional emotion is usable by design: choose the
 words and the delivery together.
+
+---
+
+## P4.14 — THE TRAJECTORY: the mouth writes a journey, the ear reads it back (2026-08-10)
+
+**User's directive:** lengthier speech, fixed-interval analysis with the
+interval chosen empirically, and a graph of the emotional fluctuation.
+
+**Setup:** four-act journey (neutral → joy → sadness → anger, 27 s total),
+each act three sentences using its map-proven config (joy = reference
+channel; sadness = mel1.0+calm0.3; anger = the 19/19 config). Read back by
+WavLM at four window sizes, 50% overlap; judge (frozen e2v) named every
+window at the chosen size. Graph: `docs/p414_trajectory_graph.png`.
+
+**The window question, answered by data:**
+| window | corr V | corr A | mean |
+|---|---|---|---|
+| 1.5 s | +0.80 | +0.85 | +0.83 |
+| 2.0 s | +0.86 | +0.94 | +0.90 |
+| **3.0 s** | **+0.93** | **+0.90** | **+0.92** |
+| 4.0 s | +0.87 | +0.93 | +0.90 |
+**≈3 s is the appropriate interval** (2–4 s is a broad plateau; below 2 s the
+estimate gets noisy). Independently consistent with the 3 s windows chosen in
+the long_1.wav experiment months earlier.
+
+**The result: the commanded emotional staircase reads back at r ≈ 0.92.**
+Valence: flat ≈ −0.1 through neutral, rises to +0.45 in the joy act
+(EXCEEDING the commanded +0.30 — the first time measured valence beat the joy
+centroid), falls to −0.3 in sadness, plunges to −0.7 in anger. Arousal dips
+to 0.25 in sadness and spikes to 0.88 in anger. The judge strip narrates the
+same story: neutral ×4 → joy ×4 (one boundary window reads surprise) →
+sadness ×2 → anger ×2 at the finale. **Sustained, judge-named JOY in flowing
+speech** — stronger evidence than any single clip: WavLM's own family read
+agrees (joy ×4).
+
+**Honest notes:** boundary windows straddle two acts and read mixed
+(surprise/contempt at transitions — expected artifact of windowing, not
+drift); two mid-sadness windows relax to neutral (the act's quiet middle);
+the journey switches emotion BETWEEN utterances — within-utterance gliding
+remains the mouth's frontier (Phase 5).
+
+**Significance for the record:** this is the founding notebook sketch
+completed — the repo began with points on the PAD plane; this experiment
+commands a PATH through that plane and watches the ear trace it back at
+r≈0.92. Ear and mouth demonstrably speak the same geometric language over
+time. $0, ~10 min compute.
