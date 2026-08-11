@@ -1279,3 +1279,42 @@ protocol as in GATE 2).
 
 Cost: ~75 min MPS, $0. Laws unchanged: judge frozen · misses kept (all 209
 rows) · per-sentence baselines for attribution · claims sized to evidence.
+
+---
+
+## P4.6-HG — HUMAN GATE on the map's new verdicts: VOID by controls, with signal (2026-08-10)
+
+13-clip sealed blind pack (6 joy verdicts, 3 sadness verdicts, 4 controls),
+scored against pre-registered rules. Listener's own caveat, recorded: clips
+2-3s, thin lines between hot emotions, context missing.
+
+**Controls: 2/4 → the session is formally VOID** (rule declared before
+listening: scrambled controls void the session — a protection, applied).
+The two failures are themselves a finding: the listener heard the ANGER
+control as surprise and the SURPRISE control as angry — the exact pair our
+instruments confuse (knob collinearity 0.85-0.91, P4.9). Human ears, classical
+features, and acted corpora all blur anger↔surprise on short clips; only the
+frozen judge separates them consistently.
+
+**Void-but-informative per-route signals (not claims):**
+- **Sadness 3/3 heard sad-family** — even a skeptical listener corroborates
+  the sadness unlock (sad, sad, melancholic).
+- **Reference-channel joy: 2/3 heard "happy"** (s05✓ s19✓, s07 heard
+  surprise) — the strongest human agreement of any joy route.
+- **Subtract-tension joy: 0/2 — both heard "sad."** Judge says joy, human
+  says sad: the detension route is flagged as possibly judge-idiosyncratic
+  (embedding-neighbor artifact). Demoted to "judge-only" pending re-test.
+- Overall joy 3/6 = below the pre-registered majority bar even ignoring the
+  void.
+
+**Status line updated:** sadness unlock = judge-confirmed + informally
+human-corroborated. Joy unlock = judge-confirmed on 3 routes; human
+ratification INCOMPLETE (void session; detension route disputed). Writeup
+language stays sized accordingly. Re-test path: longer clips on warm long
+sentences (listener's stated obstacle), fresh controls, fresh shuffle.
+
+**Listener's product insight, adopted into the record:** context/semantics is
+now a MEASURED control channel (the map quantified it: zero-vector baseline
+non-neutral on 7/19 sentences). For LoRa this is a lever, not a confound —
+the mouth authors its own sentences, so sentence-conditional emotion is
+usable by design: choose the words and the delivery together.
