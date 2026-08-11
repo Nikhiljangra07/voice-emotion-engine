@@ -1492,3 +1492,57 @@ headline claim (Gate-4 #5).
 
 **Next per sequence:** P5A sadness run (same protocol, mel-route seed), then
 exploratory fear; live-voice demo independent.
+
+---
+
+## P5A SADNESS — optimization + hull diagnostic: acoustics generalize, the verdict doesn't (2026-08-12)
+
+Same pre-registered protocol as P5A-JOY (10 gens × 8 cands × 2 draws, s08+s09
+train, hull identical, judge frozen, system indextts2-p5a-sad, 168 rows).
+
+**Training saturated immediately.** Gen 1: 14/16 sadness verdicts; best score
+2.383 — nearly double joy's best (1.224). The winner IS the seeded mel route
+at the hull edge: `[mel +0.784, calm +0.206, surp −0.095, ...]`. No later
+generation beat it; the evolution explored subtract-brightness variants
+(negative happy/disgusted/surprised, sad up to +0.35) — all close, none
+better. On somber carriers the judge boundary is wide open. Per-gen counts:
+14,9,9,13,15,10,11,13,13,14 of 16.
+
+**Held-out one-shot: 1/6 by judge verdict — the mirror image of joy.** But
+the second instrument disagrees, and both are reported (Gate-4 rule 2):
+
+| clip | judge (d0 / d1) | V (d0/d1) | dVAD (d0/d1) |
+|------|-----------------|-----------|--------------|
+| s10 photograph | neutral / neutral | −0.10 / −0.19 | 0.200 / 0.130 |
+| h03 old clock | **sadness@40%** / neutral@100% | −0.24 / −0.25 | 0.122 / **0.089** |
+| h04 nothing the same | neutral / neutral | −0.27 / −0.31 | 0.119 / 0.105 |
+| s07 warm CONTROL | neutral / neutral | +0.16 / +0.14 | — |
+
+Every somber held-out clip lands essentially ON the MSP sadness centroid
+(V=−0.28): h03-d1 at d=0.089 would be the 2nd-best distance in ledger
+history — judged neutral@100%. **Acoustically the vector generalizes to
+unseen sentences; categorically it doesn't cross the judge's boundary.** The
+control stayed clean both draws — no smearing, unlike the raw P4.6 route.
+
+**Hull diagnostic (indextts2-p5a-sad-diag, +8 rows):** the UNCLAMPED P4.6
+recipe (mel 1.0 + calm 0.3, Σ=1.3, outside the hull) on the same held-out
+set: 2/6 somber hits (h03-d1@40%, h04-d0@60%) — within sampling noise of the
+optimized 1/6 — **but it smeared the control: s07-d1 judged sadness@100%**
+("we are going to see them again this weekend" delivered sad). Verdict:
+extra intensity does not reliably buy judge crossings on new sentences; it
+buys smearing. The in-hull optimized vector is the better product config:
+on-centroid V/A/D, clean control.
+
+**What sadness now lacks (honest):** not valence, not arousal, not dominance —
+all three sit on the centroid. emotion2vec withholds "sadness" on unseen
+sentences unless some draw-level prosodic event occurs (h03 flipped between
+draws at the same distance). Whatever that cue is (voice breaks? tempo?
+spectral tilt?), it is NOT captured by the V/A/D position — a judge-side
+sensitivity, not a mouth-side failure. Options logged: (a) accept the
+dimensional signal as the product output for sadness (LoRa-style V/A/D is
+what downstream consumes anyway), (b) study which draws flip the verdict and
+what distinguishes them acoustically, (c) ear-v2.
+
+Scoreboard after both 5A runs: joy held-out 4/6 (repeatable, control clean),
+sadness held-out 1/6 by verdict but ~6/6 by centroid proximity (control
+clean). Ledger 743 rows. Human long-clip gate still owed.
