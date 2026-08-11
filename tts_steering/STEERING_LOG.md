@@ -1546,3 +1546,54 @@ what distinguishes them acoustically, (c) ear-v2.
 Scoreboard after both 5A runs: joy held-out 4/6 (repeatable, control clean),
 sadness held-out 1/6 by verdict but ~6/6 by centroid proximity (control
 clean). Ledger 743 rows. Human long-clip gate still owed.
+
+---
+
+## P5A FEAR (exploratory) — the blind spot was ours: held-out 4/6, text-INDEPENDENT (2026-08-12)
+
+Protocol identical to joy/sadness (pre-registered AND committed before
+results — e72577a). Seed: the native afraid bank, never pushed in any prior
+run. MSP fear centroid derived fresh from 794 Train labels: (−0.21, 0.51,
+−0.01) — anxiety, not screams. System indextts2-p5a-fear, 168 rows.
+
+**The "judge fear blind spot" dissolved on contact.** Gen 1: 13/16 fear
+verdicts. The judge reads fear fine — in 743 prior ledger rows we had simply
+never seeded the afraid bank. Per-gen: 13,11,10,11,11,8,10,13,11,10 of 16;
+best climbed 1.976 → 2.343.
+
+**Best vector (score 2.343, gen 9):**
+`[happy +0.115, angry −0.286, sad +0.319, afraid +0.296, disg +0.069,
+mel +0.165, surp +0.071, calm −0.278]`
+Third run, third subtraction discovery — this time **subtract anger and
+subtract calm**. Dimensionally exact: fear and anger share high arousal but
+sit at opposite dominance poles (−0.01 vs +0.41); removing the anger bank
+buys powerlessness, removing calm buys unsettledness. The final winner leans
+sad+afraid blended, not afraid-pure — natural fear is anxious, not shrieking.
+
+**Held-out one-shot: 4/6 — ties joy. And the control result reframes
+everything:**
+
+| clip | draw 0 | draw 1 |
+|------|--------|--------|
+| s15 "what happened at the station" | **fear@83%** | **fear@83%** |
+| h05 "someone is following us" | joy@40% | **fear@80%** |
+| h06 "everyone got out in time" | **fear@100%** | sadness@60% |
+| s03 flat CONTROL "report on the desk" | **fear@100%** | **fear@83%** |
+
+The control hit fear on BOTH draws. Where joy needed warm text (control
+clean) and sadness stayed polite (control clean), the fear vector paints
+fear onto flat administrative content. Reported without spin, both readings:
+as a P4.6-style single-config-for-everything this is smearing; as STEERING
+it is the strongest control yet — command fear and the mouth sounds afraid
+regardless of what the words say (a frightened voice reading "the report is
+on the desk" is exactly how dread works). 6/8 held-out clips total went fear.
+Fear delivery is text-independent; joy is text-conditional; sadness sits
+between (acoustics transfer, verdict needs a prosodic event). That
+three-way split is now a documented property of the emotion space, not a
+guess. h06's draw-1 sadness@60% is honest kinship, not noise.
+
+**Scoreboard after all three 5A runs:** anger 19/19 (P4.6) · fear 4/6 + 2/2
+control (text-independent) · joy 4/6 (repeatable, text-conditional) ·
+sadness 1/6 verdict but ~6/6 on-centroid · surprise 16/19 (P4.6) · disgust
+untouched (no disgusted-bank run yet — the last unexplored bank). Ledger 911
+rows. Human long-clip gate still owed before headline claims.
