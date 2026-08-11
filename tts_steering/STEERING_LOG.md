@@ -1434,3 +1434,61 @@ noise flips verdicts. Two consequences, recorded:
 Phase 5A thesis status: **acoustically confirmed at record level; judge
 confirmation pending the optimization run** (which now knows to fight the
 noise). Ledger 399 rows.
+
+---
+
+## P5A JOY — first native-space optimization run: held-out 4/6 (2026-08-11)
+
+The first true Phase 5 run: seeded (μ=3, λ=8) evolution strategy over signed,
+hull-bounded coefficients on the 8 emotion banks, 10 generations, 2 draws per
+candidate (s07 + s05), score = 2·conf·(judge==joy) + max(0, 0.5−dVAD). 160
+optimization clips + 8 held-out, every one a ledger row (indextts2-p5a-joy).
+Judge untouched. One transient bridge failure at gen 5 (funasr import hiccup;
+judge verified healthy, retry-with-cooldown added, run resumed from cache —
+zero clips lost).
+
+**Best vector (score 1.224, gen 10):**
+`[happy +0.409, angry −0.266, sad +0.022, afraid +0.131, disg +0.058,
+mel −0.190, surp −0.230, calm +0.003]`
+The optimizer generalized subtract-tension into subtract-EVERYTHING-dark:
+negative angry AND melancholic AND surprised. Happy stays moderate (~0.41) —
+the search confirmed the smoke lesson that pushing happy up buys arousal, not
+valence; valence is bought by removing the other banks' contamination.
+
+**Held-out one-shot (pre-registered, zero iteration, sentences never seen by
+the optimizer): 4/6 joy verdicts.**
+
+| clip | draw 0 | draw 1 |
+|------|--------|--------|
+| h01 "lovely afternoon" | **joy@80%, V=+0.96** | **joy@80%, V=+0.94** |
+| h02 "good news about the baby" | **joy@100%, V=+0.09** | **joy@60%, V=+0.13** |
+| s06 "garden full of flowers" | neutral@100%, V=+0.35 | neutral@80%, V=+0.32 |
+| s03 control "report on the desk" | neutral@100%, V=−0.06 | neutral@100%, V=−0.06 |
+
+What this means, honestly:
+1. **Repeatability under sampling noise — first time ever.** h01 and h02 hit
+   joy on BOTH independent draws. No prior joy verdict in this log survived a
+   second draw (the P5A-smoke parity flip). This is the difference between
+   "joy happened once" and "joy is steerable."
+2. **V=+0.96 is the highest valence the mouth has ever produced** (previous
+   record +0.34). It overshoots the MSP joy centroid (+0.30) — d is large
+   (0.67) for h01 precisely because valence is TOO positive. Dual-instrument
+   note: judge and valence agree on direction; the distance metric penalizes
+   the overshoot. Not hidden.
+3. **The control behaved.** Flat administrative content stayed neutral@100%
+   at V≈−0.06 both draws. The vector does not paint joy onto everything — it
+   amplifies warmth where the text affords it. Sentence-conditionality (P4.6)
+   persists but is now an asset: context-appropriate joy, not a joy sticker.
+4. **s06 split the instruments**: V=+0.32–0.35 (essentially ON the joy
+   centroid, d=0.113) yet judged neutral. The garden sentence is descriptive,
+   not relational — consistent with the P4.6 finding that joy needs a warm
+   PERSONAL frame. Both relational held-out sentences hit 4/4.
+
+Per-gen joy counts stayed noisy (6,3,6,2,0,4,3,1,3,3 of 16) — the judge
+boundary is razor-thin on TRAIN sentences while held-out relational sentences
+hit reliably. Sentence choice matters more than another 0.05 on any
+coefficient. Ledger 567 rows. Human long-clip gate still owed before any
+headline claim (Gate-4 #5).
+
+**Next per sequence:** P5A sadness run (same protocol, mel-route seed), then
+exploratory fear; live-voice demo independent.
