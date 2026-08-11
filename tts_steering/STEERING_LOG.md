@@ -1388,3 +1388,49 @@ vendor code line by line:
    ($5-15). The RTX PRO 6000 is never required.
 
 Next: emovec_worker + smoke, live-voice demo, then the 5A joy run.
+
+---
+
+## CORRECTION to P4.12 discovery 1 (2026-08-11)
+
+The "hidden bias" (`normalize_emo_vec`: per-knob bias + Σ≤0.8 clamp) is
+called **only from webui.py — NOT from the inference path our synth_worker
+uses.** Our ledger's `emo_vector` control strings were therefore delivered to
+the model EXACTLY as recorded — no correction factor applies to any of our
+395+ rows. The P4.12 note stands only as a warning for webui users. Found
+while building the P5A worker: the vendor infer path takes raw signed
+coefficients natively (emovec = Σw·bank + (1−Σw)·speaker_emovec), which means
+the Phase 5A search space required NO code changes — only removing our own
+harness clamps. Error mine; corrected the same day it mattered.
+
+---
+
+## P5A SMOKE — first signed emovec clips: a record, a confirmation, a warning (2026-08-11)
+
+Four probes on s07, raw signed coefficients through the untouched vendor path.
+
+**The record: `happy +0.60, angry −0.30` → d = 0.096 to the joy centroid —
+the closest ANY clip has come to ANY centroid in 399 ledger rows** (previous
+all-time best: EL's 0.144). V = +0.34, beyond the +0.30 centroid. The
+subtract-tension arithmetic works exactly as P4.13 predicted: removing the
+anger bank is worth more valence than adding the happy bank. The blend probe
+(happy .45, calm .35, angry −.15) confirms: d = 0.115, V = +0.30. Extrapolation
+past 1.0 (happy 1.10) blows up arousal (0.93 → surprise@60%) — the hull
+constraint is justified.
+
+**The warning (honest, important): all three warm probes judged NEUTRAL —
+including the parity clip (happy 0.35 on s07) that was judged JOY in P4.6.**
+Same config, same sentence, different verdict. Cause identified: GPT
+generation samples (do_sample=True, temperature 0.8) — `use_random=False`
+fixes only the emovec bank row, NOT the autoregressive sampling. Synthesis is
+stochastic across runs; near the judge's razor-thin joy boundary, sampling
+noise flips verdicts. Two consequences, recorded:
+1. All single-clip verdicts in this log carry sampling variance; the P4.6
+   map's verdicts are real but each is one draw. Multi-draw confirmation is
+   now required for any headline claim.
+2. The 5A objective must be noise-aware: ≥2 draws per candidate, optimize
+   judge-confidence + V/A/D distance jointly, hull-bounded coefficients.
+
+Phase 5A thesis status: **acoustically confirmed at record level; judge
+confirmation pending the optimization run** (which now knows to fight the
+noise). Ledger 399 rows.

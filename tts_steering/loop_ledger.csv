@@ -394,3 +394,7 @@ iteration,system,target_emotion,control_params,judged_V,judged_A,judged_D,judge_
 393,indextts2-p46,joy,"emo_vector=[0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4];sent=s19;cat=somber",0.062,0.413,0.176,neutral,0.4,0.291,0
 394,indextts2-p46,joy,emo_ref=rav_happy_male;alpha=1.0;sent=s19;cat=somber,0.112,0.572,0.377,joy,0.8,0.265,1
 395,indextts2-p46,neutral,"emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s19;cat=somber",0.058,0.425,0.14,neutral,0.6,0.149,1
+396,indextts2-p5a-smoke,joy,"raw_emo_vector=[0.35, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s07;uncapped_signed",0.472,0.586,0.314,neutral,0.6,0.212,0
+397,indextts2-p5a-smoke,joy,"raw_emo_vector=[0.6, -0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s07;uncapped_signed",0.344,0.523,0.253,neutral,1.0,0.096,0
+398,indextts2-p5a-smoke,joy,"raw_emo_vector=[1.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];sent=s07;uncapped_signed",0.099,0.934,0.77,surprise,0.6,0.708,0
+399,indextts2-p5a-smoke,joy,"raw_emo_vector=[0.45, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.35];sent=s07;uncapped_signed",0.303,0.482,0.132,neutral,0.6,0.115,0
