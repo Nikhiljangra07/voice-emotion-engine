@@ -1365,3 +1365,26 @@ completed — the repo began with points on the PAD plane; this experiment
 commands a PATH through that plane and watches the ear trace it back at
 r≈0.92. Ear and mouth demonstrably speak the same geometric language over
 time. $0, ~10 min compute.
+
+---
+
+## P5.0 — FEASIBILITY SPIKE: Phase 5 is local (2026-08-11)
+
+Full verdict in `P5_FEASIBILITY.md`. Headline findings from reading the
+vendor code line by line:
+1. IndexTTS-2 ships NO training code — a LoRA would mean building a training
+   stack against undocumented internals.
+2. **It doesn't matter: the entire emotion pathway collapses into ONE
+   embedding vector (`emovec`)**, assembled by plain arithmetic from tensor
+   banks stored in the checkpoint (`emo_matrix`). The 8 sliders are just
+   capped, biased weights over those banks.
+3. **Phase 5A = optimize `emovec` directly** against the frozen judge:
+   10-15-dim search (uncapped, sign-free bank coefficients + reference-derived
+   vectors — "subtract tension" becomes a literal operation), CMA-ES,
+   ~150 evals/emotion, overnight, local, $0. No GPU. No weights touched.
+   Judge frozen. Gate-4 mitigation pre-registered in the doc (held-out
+   sentences, dual instruments, hull constraint, eval cap, human final gate).
+4. Phase 5B fallback only if 5A saturates: Maya1 LoRA on a cheap A40/4090
+   ($5-15). The RTX PRO 6000 is never required.
+
+Next: emovec_worker + smoke, live-voice demo, then the 5A joy run.
