@@ -110,7 +110,10 @@ def main():
 
     if not args.input and not args.record:
         sys.exit("need --input file.wav or --record SECONDS")
-    heard_wav = args.input or record(args.record)
+    heard_wav = str(Path(args.input).resolve()) if args.input \
+        else record(args.record)
+    if args.speaker:
+        args.speaker = str(Path(args.speaker).resolve())
 
     print("\n=== EAR ===")
     m = judge([heard_wav])[0]
