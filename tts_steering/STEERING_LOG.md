@@ -1651,3 +1651,39 @@ vectors + honest held-out numbers:** anger 19/19 (P4.6) · fear 4/6
 text-independent · joy 4/6 text-conditional · sadness 1/6 verdict but
 on-centroid · surprise 16/19 (P4.6) · disgust 2/6 strict, 6/6 family.
 Ledger 1,079 rows. Human long-clip gate owed before headline claims.
+
+---
+
+## THREE-STEP CLOSE-OUT — live demo, human gate pack, judge-v2 (2026-08-12)
+
+**1. LIVE DEMO — the loop closed on a real human voice.** own_voice/001 →
+ear: joy@80% (V=+0.41) → mouth replied with the P5A joy vector in the
+user's own cloned voice → frozen judge on the reply: joy@80%, V=+0.86.
+Heard joy → replied joy → certified joy. First full ear→mouth→ear circle on
+live human input. Exchange 2 (007, respond mode): heard fear@60% → neutral
+zero-vector reply → drifted sadness@60% — consistent with the P4.6
+zero-baseline instability; proven vectors hold, the zero vector wobbles.
+System indextts2-live-demo, 4 rows.
+
+**2. HUMAN BLIND GATE PACK built (awaiting the human).** 8 long clips, ONE
+fixed neutral paragraph for all (train station text) — voice alone carries
+the emotion, no text leakage. Six Ekman best vectors + zero-vector neutral +
+duplicate joy (consistency control). Seed-5814 shuffle, key sealed to
+out/blind_p5a_key.json with machine verdicts recorded unseen. Fixes the
+VOID'd session's design gaps. System indextts2-p5a-blind, 8 rows.
+
+**3. JUDGE-V2 — disgust certified, zero collateral.** Built a SECOND e2v
+retrieval DB (models/adaptors_v2/): v1's 175 exemplars copied + 36 dataset
+disgust exemplars (24 RAVDESS actors + 12 CREMA-D speakers — never mouth
+clips). v1 untouched byte-for-byte; all 1,092 prior rows stay comparable.
+Side-by-side re-judge of 14 clips:
+
+- **d02 heldout (both draws): anger@38% → disgust@100%.** The two clips
+  WavLM had called disgust are exactly the two v2 certifies — the two
+  instruments now agree, through a third instrument neither trained on.
+- **12/14 verdicts identical** — joy/fear/sadness sanity set unchanged,
+  contempt-flavored clips (d03/s16) NOT over-claimed, controls untouched.
+
+Disgust now has categorical certification: 2/6 held-out strict is
+instrument-confirmed, not WavLM's opinion alone. The v2 namer is an
+INSTRUMENT UPGRADE, not a judge retrain — the law held. Ledger 1,092 rows.
