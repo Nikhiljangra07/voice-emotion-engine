@@ -1739,3 +1739,48 @@ character), fear, disgust. No prior session to void; controls clean; this
 is the first human gate that COUNTS. Headline claims may now say: "anger
 and surprise human-ratified; sadness audible to humans where the machine
 judge is silent."
+
+---
+
+## CONGRUENCE GATE — the carrier/resonance law CONFIRMED, accuracy doubles (2026-08-12)
+
+Pre-registered (predictions committed at 846ee7e BEFORE synthesis). Six best
+vectors × {flat train text, emotion-congruent text} × 2 draws, long-form.
+24 clips, all ledgered (indextts2-congruence). Judges frozen; disgust
+additionally scored by WavLM + judge-v2.
+
+| emotion | type (predicted) | FLAT | CONGRUENT | verdict |
+|---------|-----------------|------|-----------|---------|
+| anger | carrier | 2/2 @100% | 2/2 @100% | carrier CONFIRMED |
+| surprise | carrier | 2/2 | 1/2 (d1→anger@80%) | carrier, but text can INTERFERE |
+| fear | carrier? (open cell) | 0/2 (both→surprise) | **2/2 fear@100%** | RECLASSIFIED resonance at long-form |
+| joy | resonance | 0/2 (→anger) | **2/2 (joy@80%, joy@60%)** | FULL RESCUE as predicted |
+| sadness | resonance | 0/2 (→neutral) | 1/2 (sadness@60%) | rescue ≥1/2 as predicted — first long-form sadness verdict ever |
+| disgust | resonance | pdis .09/.11, V≈0 | pdis .23/.23, V=−0.37; v2 top-1 disgust d0; WavLM top-1 disgust d1 | gain on ALL instruments as predicted |
+
+**LAW INTERACTION: +0.67** (resonance mean gain +1.00, carrier +0.33).
+**Long-form accuracy DOUBLES under congruence: 4/12 flat → 8/12 congruent.**
+
+Refinements the data forced (kept, not smoothed over):
+1. **Fear moved cells.** Short-form (P5A held-out, 1-sentence) fear carried
+   on flat text — even the flat control hit fear@100%. Long-form flat fear
+   reads as surprise; congruent text locks fear@100% both draws. The
+   carrier/resonance boundary is DURATION-DEPENDENT: sustained fear needs
+   narrative fuel; a short burst carries alone.
+2. **Text can hurt a carrier.** Surprise's congruent exclaim text pushed one
+   draw to anger@80% — for carriers, vector alone is not just sufficient
+   but sometimes SAFER. Congruence is for resonance emotions.
+3. Disgust remains the faintest: real gains on every instrument, verdicts
+   still marginal (v2@20%, wavlm one draw). Congruence helps; doesn't solve.
+
+**THE CONGRUENCE LAW (codified, joins the binding laws):**
+> Steer resonance emotions (joy, sadness, disgust — and fear beyond ~1
+> sentence) with VECTOR + CONGRUENT TEXT together; never evaluate them on
+> flat text and call the miss a steering failure. Steer carrier emotions
+> (anger, surprise — and short-burst fear) by vector alone; congruent text
+> is optional and may even interfere. Mechanism: the GPT acts the words —
+> text is a steering input, not a semantic leak (judges are acoustic).
+
+Answer to "do we gain accuracy making a law out of it": YES — measured,
+long-form emotion delivery goes 33% → 67% when text and vector are chosen
+together. Ledger 1,116 rows.
