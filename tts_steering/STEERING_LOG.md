@@ -1597,3 +1597,57 @@ control (text-independent) · joy 4/6 (repeatable, text-conditional) ·
 sadness 1/6 verdict but ~6/6 on-centroid · surprise 16/19 (P4.6) · disgust
 untouched (no disgusted-bank run yet — the last unexplored bank). Ledger 911
 rows. Human long-clip gate still owed before headline claims.
+
+---
+
+## P5A DISGUST — last bank explored: strict 2/6, family 6/6, control clean (2026-08-12)
+
+Final 5A run (pre-registered + committed before results, e42400d). Structural
+discovery logged in-protocol: the frozen judge has NO disgust class
+(FAMILIES in scripts/retrieval_namer.py) — zero disgust verdicts in 911 rows
+was architecture, not acoustics. Judge untouched (the law); scoring moved to
+the loop's other frozen instruments: 2·P_wavlm(disgust) + proximity to the
+MSP disgust centroid (−0.34, 0.59, +0.24; derived from 1,325 Train labels).
+System indextts2-p5a-disgust, 168 rows.
+
+**Training was the hardest of the four:** top-1 counts 0,3,4,7,4,6,5,5,7,6
+of 16; best score only 0.900 (joy 1.224, sadness 2.383, fear 2.343 on the
+same 2.5-max scale). Disgust is REACHABLE but FAINT for this mouth — peak
+P(disgust) ≈ 0.3–0.35, never near-certain.
+
+**Best vector (score 0.900, gen 9):**
+`[happy +0.237, angry −0.146, sad −0.442, afraid −0.048, disg +0.360,
+mel +0.041, surp −0.258, calm +0.057]`
+Fourth run, fourth subtraction signature — the strongest yet: **subtract sad
+(−0.44) and subtract surprise (−0.26)**. Disgust = negative-valence
+rejection that is energized (anti-sad), closed (anti-surprise), with a
+sneer of brightness (happy +0.24). Each 5A emotion now has a documented
+subtraction identity: joy −dark, fear −anger/−calm, disgust −sad/−surprise.
+
+**Held-out one-shot: 2/6 strict — but read the whole table:**
+
+| clip | draw 0 | draw 1 |
+|------|--------|--------|
+| d02 "not touching that" | **disgust** (pdis .26) | **disgust** (pdis .25) |
+| d03 "how can you eat this" | contempt | contempt |
+| s16 "stop it right now" | contempt | contempt |
+| s03 flat CONTROL | neutral | neutral |
+
+Every non-control clip landed in the rejection family — disgust twice
+(REPEATABLE, both draws on d02), contempt four times. Contempt is disgust's
+blend-sibling (disgust+anger) and sits one WavLM class over; strictly scored
+it is a miss, honestly read it is near-field. Control clean both draws. And
+the pre-registered prediction confirmed exactly: the 6-way judge read the
+disgust clips as anger@38–40% — the nearest name it is allowed to say.
+
+**Verdict:** disgust is UNLOCKED at the dimensional + WavLM level with the
+weakest margin of the six — repeatable on one unseen sentence, family-correct
+on all, invisible to the 6-way judge by construction. A categorical upgrade
+requires judge-v2 (enroll dataset disgust clips in a SECOND namer, original
+untouched) — user's decision, not taken.
+
+**PHASE 5A COMPLETE. All 8 banks explored, all Ekman-6 have optimized
+vectors + honest held-out numbers:** anger 19/19 (P4.6) · fear 4/6
+text-independent · joy 4/6 text-conditional · sadness 1/6 verdict but
+on-centroid · surprise 16/19 (P4.6) · disgust 2/6 strict, 6/6 family.
+Ledger 1,079 rows. Human long-clip gate owed before headline claims.
