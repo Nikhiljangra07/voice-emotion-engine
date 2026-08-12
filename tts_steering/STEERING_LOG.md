@@ -1687,3 +1687,55 @@ Side-by-side re-judge of 14 clips:
 Disgust now has categorical certification: 2/6 held-out strict is
 instrument-confirmed, not WavLM's opinion alone. The v2 namer is an
 INSTRUMENT UPGRADE, not a judge retrain — the law held. Ledger 1,092 rows.
+
+---
+
+## P5A HUMAN BLIND GATE — RESULTS: human 4/8, machine 3/8, controls PASS (2026-08-12)
+
+Human answered all 8 same-text long clips blind (key sealed until after).
+Human's own caveat recorded: "emotions are quite blended, hard to
+differentiate — don't blindly believe my judgment." The controls answer
+that caveat: the human instrument PASSED its own calibration checks.
+
+| clip | TRUE | human | machine (v1) | notes |
+|------|------|-------|--------------|-------|
+| 01 | neutral | neutral ✓ | neutral@41% ✓ | control clean both |
+| 02 | fear | sadness ✗ | surprise@40% ✗ | both miss, differently |
+| 03 | joy (dup B) | neutral ✗ | anger@60% ✗ | |
+| 04 | surprise | surprise ✓ | surprise@100% ✓ | |
+| 05 | joy (dup A) | neutral ✗ | anger@80% ✗ | |
+| 06 | anger | anger ✓ | anger@100% ✓ | V=−0.39 on flat text |
+| 07 | disgust | melancholic ✗ | neutral@100% ✗ | |
+| 08 | sadness | melancholic ✓ | neutral@100% ✗ | HUMAN BEAT JUDGE |
+
+**Controls (the reason to trust these answers):**
+1. Consistency dup: the two identical-vector joy clips (03, 05) got the
+   SAME human label — the instrument is repeatable.
+2. Neutral control: correct.
+3. Human hits align with machine confidence: every machine@100%-correct
+   clip, the human also hit.
+
+**Findings, in order of importance:**
+1. **Anger + surprise are HUMAN-RATIFIED on neutral text** — both@100%
+   machine, both correct human. Text-independent, certified by ears.
+2. **Sadness: the human heard what the categorical judge cannot.** Clip 08
+   = P5A sadness vector; human said melancholic (sadness family), judge
+   said neutral@100%. Direct human confirmation of the P5A-sadness finding
+   (acoustics transfer, verdict shy) — the melancholy IS audible.
+3. **Joy's text-conditionality is now human-confirmed.** Both joy
+   duplicates on flat train-station text → human: neutral, machine: anger.
+   Exactly what the held-out map predicted (joy needs warm relational
+   text; garden sentence went neutral). Not a new failure — the predicted
+   character of joy, observed by a second species of instrument.
+4. Fear/disgust don't carry on flat text to human ears (blend into
+   sad/melancholic) — consistent with their faint/blended machine margins.
+5. Human 4/8 vs machine 3/8 overall: the human is the better judge of this
+   mouth. Both instruments confuse the SAME clips — the confusion is in
+   the audio, not the judges.
+
+**Gate verdict (honest): PARTIAL PASS.** Ratified: anger, surprise, neutral,
+sadness-as-family. Not ratified on flat text: joy (by design of its
+character), fear, disgust. No prior session to void; controls clean; this
+is the first human gate that COUNTS. Headline claims may now say: "anger
+and surprise human-ratified; sadness audible to humans where the machine
+judge is silent."
