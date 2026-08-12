@@ -1784,3 +1784,52 @@ Refinements the data forced (kept, not smoothed over):
 Answer to "do we gain accuracy making a law out of it": YES — measured,
 long-form emotion delivery goes 33% → 67% when text and vector are chosen
 together. Ledger 1,116 rows.
+
+---
+
+## REAL-WORLD TEST — the ear on 'Sorry, Wrong Number' (1943): dimensions track history, categories break (2026-08-12)
+
+First fully-found audio: the original Suspense broadcast (May 25 1943,
+public domain, archive.org) — 30 min, telephone-filtered voices, organ
+music, AM-broadcast bandwidth. Chosen because its emotional arc is
+documented theater history. 1,196 windows (3.0s / 50% overlap, the P4.14
+protocol), both instruments, ~8 min of compute. Graph committed:
+docs/real_world_trajectory.png.
+
+**What the DIMENSIONAL ear (WavLM V/A/D) got right — at the right clock
+positions, with no labels given:**
+1. **The shock lands at 4–6 min: V dives +0.04 → −0.21 (raw floor −0.85)
+   while A jumps 0.57 → 0.79.** That is where Mrs. Stevenson overhears the
+   murder plot. The ear found the inciting incident on its own.
+2. **Sustained tension through the middle acts:** A holds 0.74–0.81 from
+   minute 4 to 20 — the escalating desperate-calls sequence — with dips to
+   ~0.6 exactly at scene/announcer transitions (9.5, 14.5–16 min).
+3. **The anger peaks are real scenes:** most-negative window of the whole
+   broadcast (V=−0.91, A=1.00, judged anger) at 18.1 min; anger clusters
+   6–8 and 16–18 min — her fury at operators/dismissal. Top-15 arousal
+   windows cluster at 15.6–18.2, not randomly.
+4. **A fear cluster appears at ~28.3–29 min — the climax window** (the
+   murder/scream) — visible as the only purple block in the family band.
+
+**What it got wrong / could not do (honest):**
+1. **No clean terminal climax in the medians.** The last 5-min slice reads
+   V=+0.30 — the cheerful announcer sign-off and closing organ music sit
+   right on top of the murder scene and wash it out at median scale. The
+   fear cluster survives at window scale, dies at summary scale.
+2. **The categorical judge is UNUSABLE out-of-domain: joy = 610/1196
+   windows (51%).** The e2v kNN reference DB is enrolled on modern
+   close-mic voices; 1943 AM broadcast is a different acoustic planet, and
+   the nearest-neighbor default lands on joy. Family colors are mostly
+   noise here (the anger/fear clusters at extremes are the exception).
+   Same lesson as every cross-domain failure since the RAVDESS days: the
+   dimensional signal generalizes, the categorical layer is domain-bound.
+3. Music/announcer segments are read as speech (the ear has no
+   music/speech gate) — a real product would need VAD + music rejection
+   up front.
+
+**Verdict for the product question ("can it track live conversation?"):
+the V/A trajectory engine works on found audio** — it located the inciting
+shock, the sustained-tension acts, the anger scenes, and the climax
+cluster of an 83-year-old drama at the correct timestamps. The family
+layer needs domain-matched enrollment (the judge-v2 mechanism exists for
+exactly this). Ledger unchanged (windows are analysis, not steering evals).
