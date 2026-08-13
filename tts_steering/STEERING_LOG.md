@@ -1913,3 +1913,16 @@ fear 2/2, sadness 2/2, anger 1/2 (draw noise), neutral 0/2 (zero-vector
 remains the weakest recipe — inherits/wobbles). Product recipe for
 arbitrary voices is now: carriers by bank vector, resonance by reference
 channel or Σw≥0.8 vector, congruent text throughout.
+
+---
+
+## 2-MIN NARRATION — calm register locked, identity preserved (2026-08-13)
+
+Per the user's register finding: five reflective paragraphs, zero vector
+throughout (emovec = pure speaker inheritance), never leaving the prompt's
+calm register. Single 1.86-min file. All five paragraphs judged
+sadness@60–100% at A=0.14–0.20 — i.e., EXACTLY the profile of the prompt
+itself (clone_ref_1: sadness@100%, A=0.19). The uniformity is the point:
+the zero vector reproduced the user's own register faithfully across ~350
+words. Identity via inheritance, confirmed at length. System
+indextts2-user-narration, ledger 1,135.
