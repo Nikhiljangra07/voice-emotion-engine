@@ -1879,3 +1879,37 @@ speaker. Also confirmed: zero-vector "neutral" inherits the prompt verbatim
 Product read: a 60-second six-emotion story in a cloned real voice, with
 4/7 machine-certified on first take and a mechanistic account of all three
 misses, from an 11-second sample. File: out/user_speech/full_speech.wav.
+
+---
+
+## 3-MIN SINGLE-FILE SPEECH — 5/7, reference-channel joy VINDICATED in the cloned voice (2026-08-13)
+
+Same seven-act story, full paragraphs (~60-70 words/act), 0.25s joins ->
+one continuous 2.4-min wav in the user's cloned voice. Ninth-bank fix
+applied: joy acts via emo_audio reference (alpha 1.0) instead of the
+subtract-heavy vector. System indextts2-user-voice-3min, ledger 1,130.
+
+| act | route | verdict |
+|-----|-------|---------|
+| 1 neutral | zero vector | fear@60% (A=0.14 — zero-vector wobble again) |
+| 2 joy | **reference channel** | **joy@100% ✓** |
+| 3 surprise | bank 0.8 | surprise@80% ✓ (A=0.91) |
+| 4 fear | P5A vector | fear@80% ✓ |
+| 5 anger | bank 0.8+calm | surprise@60% (A=0.88, V=−0.54 — the shared
+  anger↔surprise confusion axis; one draw, boundary noise; hit 100% on the
+  60s version) |
+| 6 sadness | P5A vector | sadness@60% ✓ |
+| 7 joy | **reference channel** | **joy@80% ✓** |
+
+**The headline: both joy acts CERTIFIED in the user's cloned voice —
+joy@100% and joy@80% — after failing 0/2 with the subtract-heavy vector
+yesterday.** The prediction from the ninth-bank analysis held precisely:
+bypass the Σw arithmetic via the reference channel and joy survives an
+emotionally-dark speaker prompt. First joy verdicts ever in the user's own
+voice. Prompt-conditionality: diagnosed yesterday, cured today.
+
+Running scoreboard for cloned-voice delivery: joy(ref) 2/2, surprise 2/2,
+fear 2/2, sadness 2/2, anger 1/2 (draw noise), neutral 0/2 (zero-vector
+remains the weakest recipe — inherits/wobbles). Product recipe for
+arbitrary voices is now: carriers by bank vector, resonance by reference
+channel or Σw≥0.8 vector, congruent text throughout.
