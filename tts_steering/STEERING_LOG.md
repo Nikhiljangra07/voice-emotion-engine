@@ -1833,3 +1833,49 @@ shock, the sustained-tension acts, the anger scenes, and the climax
 cluster of an 83-year-old drama at the correct timestamps. The family
 layer needs domain-matched enrollment (the judge-v2 mechanism exists for
 exactly this). Ledger unchanged (windows are analysis, not steering evals).
+
+---
+
+## FULL SPEECH IN THE USER'S CLONED VOICE — 4/7, and the NINTH BANK discovered (2026-08-13)
+
+User provided two fresh recordings; clone_ref_1 (11.3s, ear reads it
+sadness@100% A=0.19 — a calm flat read) became the speaker prompt. Seven-act
+story, congruent text + proven vectors, concatenated to 60.3s. Every act
+judged (indextts2-user-voice-speech, ledger 1,123).
+
+| act | target | verdict | V / A |
+|-----|--------|---------|-------|
+| 1 | neutral | sadness@100% | +0.00 / 0.17 |
+| 2 | joy | **fear@80%** | −0.33 / 0.20 |
+| 3 | surprise | surprise@80% ✓ | −0.57 / 0.89 |
+| 4 | fear | fear@60% ✓ | −0.28 / 0.10 |
+| 5 | anger | anger@100% ✓ | −0.57 / 0.85 |
+| 6 | sadness | sadness@80% ✓ | −0.26 / 0.20 |
+| 7 | joy | sadness@60% | +0.02 / 0.18 |
+
+**THE DISCOVERY — the speaker prompt is a hidden ninth bank.** The vendor
+merge is `emovec = Σw·banks + (1−Σw)·speaker_emovec`. The prompt's own
+emotional residue is weighted by (1−Σw) — and Σw varies wildly across our
+proven vectors:
+
+- anger Σw=1.00 → speaker emotion fully REPLACED → anger@100% ✓
+- surprise Σw=0.80 → mostly replaced → surprise@80% ✓
+- sadness Σw=1.10 → replaced (and prompt was sad anyway) → ✓
+- fear Σw=0.47 → half speaker, but prompt-calm pulled A to 0.10 → weak ✓
+- **joy Σw=−0.06 → (1−Σw)=1.06 → the subtract-heavy P5A joy vector
+  AMPLIFIES the prompt's own emotion above unity.** With a melancholic
+  prompt, "joy" delivered the prompt's sadness (A stuck at prompt's 0.19,
+  both joy acts dark). The P5A vectors were optimized against ONE neutral
+  RAVDESS prompt — subtract-heavy solutions are PROMPT-CONDITIONAL.
+
+Law implication (joins congruence): subtraction buys valence only when the
+speaker residue is neutral; for arbitrary cloned voices either (a) keep
+Σw ≥ ~0.8 so banks dominate, (b) re-optimize per voice, or (c) drive joy
+via the emo_audio reference channel (bypasses the Σw arithmetic). The
+carriers were IMMUNE precisely because their recipes already replace the
+speaker. Also confirmed: zero-vector "neutral" inherits the prompt verbatim
+(act 1 = the prompt's own sadness@100%).
+
+Product read: a 60-second six-emotion story in a cloned real voice, with
+4/7 machine-certified on first take and a mechanistic account of all three
+misses, from an 11-second sample. File: out/user_speech/full_speech.wav.

@@ -1115,3 +1115,10 @@ iteration,system,target_emotion,control_params,judged_V,judged_A,judged_D,judge_
 1114,indextts2-congruence,disgust,"raw_emo_vector=[0.237, -0.146, -0.442, -0.048, 0.36, 0.041, -0.258, 0.057];arm=flat;draw1;wavlm=neutral;pdis=0.11",-0.036,0.507,0.202,neutral,0.8,,0
 1115,indextts2-congruence,disgust,"raw_emo_vector=[0.237, -0.146, -0.442, -0.048, 0.36, 0.041, -0.258, 0.057];arm=cong;draw0;wavlm=contempt;pdis=0.23",-0.361,0.502,0.23,anger,0.4,,0
 1116,indextts2-congruence,disgust,"raw_emo_vector=[0.237, -0.146, -0.442, -0.048, 0.36, 0.041, -0.258, 0.057];arm=cong;draw1;wavlm=disgust;pdis=0.23",-0.377,0.493,0.214,neutral,0.4,,0
+1117,indextts2-user-voice-speech,neutral,"raw_emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];act1;congruent;spk=user",0.001,0.169,-0.23,sadness,1.0,,0
+1118,indextts2-user-voice-speech,joy,"raw_emo_vector=[0.409, -0.266, 0.022, 0.131, 0.058, -0.19, -0.23, 0.003];act2;congruent;spk=user",-0.329,0.201,-0.293,fear,0.8,,0
+1119,indextts2-user-voice-speech,surprise,"raw_emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];act3;congruent;spk=user",-0.573,0.893,0.763,surprise,0.8,,1
+1120,indextts2-user-voice-speech,fear,"raw_emo_vector=[0.115, -0.286, 0.319, 0.296, 0.069, 0.165, 0.071, -0.278];act4;congruent;spk=user",-0.276,0.1,-0.404,fear,0.6,,1
+1121,indextts2-user-voice-speech,anger,"raw_emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];act5;congruent;spk=user",-0.574,0.85,0.704,anger,1.0,,1
+1122,indextts2-user-voice-speech,sadness,"raw_emo_vector=[0.007, 0.063, 0.005, 0.052, 0.079, 0.784, -0.095, 0.206];act6;congruent;spk=user",-0.26,0.204,-0.28,sadness,0.8,,1
+1123,indextts2-user-voice-speech,joy,"raw_emo_vector=[0.409, -0.266, 0.022, 0.131, 0.058, -0.19, -0.23, 0.003];act7;congruent;spk=user",0.017,0.177,-0.274,sadness,0.6,,0
