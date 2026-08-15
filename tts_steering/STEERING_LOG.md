@@ -1926,3 +1926,31 @@ itself (clone_ref_1: sadness@100%, A=0.19). The uniformity is the point:
 the zero vector reproduced the user's own register faithfully across ~350
 words. Identity via inheritance, confirmed at length. System
 indextts2-user-narration, ledger 1,135.
+
+---
+
+## DEREVERB — the room leaves the voice (2026-08-15)
+
+User heard reverb in the narration. Diagnosis: the cloning reference
+carried real room reverb + noise (floor −71 dB), and IndexTTS-2 clones the
+ROOM as faithfully as the voice; the vocoder adds slight smear on top.
+
+**Fix at the source, not the output.** WPE dereverberation
+(tts_steering/dereverb.py — STFT late-tail prediction, taps=10, delay=3):
+- On the REFERENCE: floor −71 → **−98 dB**, speech-to-floor gap +16 dB.
+  Re-normalized to peak 0.6, saved as own_voice/clone_ref_1_dry.wav.
+- On the synthesized OUTPUT: no improvement (the synth smear is not
+  predictable room reverb) — route tested, documented, dropped.
+
+**Re-render from the dry prompt (user_narration_dry.py, system
+indextts2-user-narration-dry, ledger 1,140):** pause floor in the output
+went from ~−71 dB room tone to DIGITAL SILENCE (speech-to-floor gap ~40 dB
+→ ~160 dB). The model cloned the dead room exactly as it had cloned the
+live one — proof that prompt hygiene is a first-class steering input.
+Judge note (honest): the dry voice reads slightly brighter (para 1/4 joy@
+40–80%, A up to 0.28 vs 0.14–0.20 wet) — register shifted subtly; the
+user's ear is the final gate on identity.
+
+Law addendum (ninth bank): the prompt contributes not just emotional
+residue and register-bound identity, but the ROOM. Standing rule for all
+future references: record dry, then WPE + normalize before first use.
