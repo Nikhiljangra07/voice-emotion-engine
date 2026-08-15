@@ -1954,3 +1954,41 @@ user's ear is the final gate on identity.
 Law addendum (ninth bank): the prompt contributes not just emotional
 residue and register-bound identity, but the ROOM. Standing rule for all
 future references: record dry, then WPE + normalize before first use.
+
+---
+
+## MULTI-REGISTER + AUTO-RETRY — ninth bank becomes an ally; surprise teaches headroom (2026-08-15)
+
+First combined run of the two product mechanisms. Register bank: three
+user memos (neutral V=−0.01/A=0.25 · excited V=+0.43/A=0.45 — the user's
+highest-ever recorded valence · sad V=−0.19/A=0.13/D=−0.52), all WPE'd +
+normalized per the room law. 7-act story, register-matched prompts,
+certification loop (≤3 rounds, best take assembled). System
+indextts2-multi-register, 12 attempts ledgered, total 1,152.
+
+**HEADLINE — joy by VECTOR in the user's voice, both acts, round 1.**
+Act 2 joy@60%; act 7 joy@40% at d=0.15 (V=+0.17, A=0.58 — essentially ON
+the centroid). Two days ago the same vector delivered the prompt's
+melancholy (0/2); with the excited prompt its (1−Σw)=1.06 residue
+amplifies +0.43 valence instead. The ninth bank flipped from saboteur to
+fuel exactly as the arithmetic predicted. No reference clip needed —
+prompt selection IS an emotional steering input.
+
+Scoreboard: joy ✓✓ (vector, r1) · anger ✓@100% (r1, excited prompt) ·
+fear ✓ (r1) · sadness ✓ (r2 — the retry loop earning its keep) ·
+neutral ✗ (3 rounds, dimensionally fine V=+0.02/A=0.31 but no categorical
+verdict — the known weakest recipe) · surprise ✗✗✗.
+
+**The surprise failure is a new law tile — HEADROOM.** With the excited
+prompt, surp 0.8 pegged arousal at 1.00 all three rounds and read as
+anger/joy (V=−0.65). Surprise was 16–17/19 with CALM prompts: the sudden
+pitch spike needs CONTRAST against a quiet baseline. A saturated prompt
+leaves no headroom for the spike that IS surprise. Register matching is
+per-emotion physics, not "loud emotion ← loud prompt": anger wants a hot
+baseline; surprise wants a cold one.
+
+Auto-retry verdict: works as designed (sadness rescued in r2; misses kept
+best-effort by centroid distance; every attempt ledgered). Final file
+1.53 min, 5/7 certified: out/user_speech/multi_register_speech.wav.
+Next fixes queued: surprise → neutral prompt; neutral → needs its own
+optimization run.

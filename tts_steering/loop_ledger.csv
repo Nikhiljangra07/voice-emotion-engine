@@ -1139,3 +1139,15 @@ iteration,system,target_emotion,control_params,judged_V,judged_A,judged_D,judge_
 1138,indextts2-user-narration-dry,narration,raw_emo_vector=[0]*8;para3;calm_register;spk=user,-0.102,0.279,-0.17,neutral,0.6,,
 1139,indextts2-user-narration-dry,narration,raw_emo_vector=[0]*8;para4;calm_register;spk=user,-0.131,0.19,-0.251,joy,0.8,,
 1140,indextts2-user-narration-dry,narration,raw_emo_vector=[0]*8;para5;calm_register;spk=user,-0.246,0.174,-0.375,sadness,1.0,,
+1141,indextts2-multi-register,neutral,"raw_emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];act1;round1;reg_prompt=reg_neutral",0.014,0.286,-0.14,sadness,0.8,0.243,0
+1142,indextts2-multi-register,joy,"raw_emo_vector=[0.409, -0.266, 0.022, 0.131, 0.058, -0.19, -0.23, 0.003];act2;round1;reg_prompt=reg_joy",-0.159,0.535,0.188,joy,0.6,0.461,1
+1143,indextts2-multi-register,surprise,"raw_emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];act3;round1;reg_prompt=reg_joy",-0.689,1.0,0.933,anger,0.6,1.063,0
+1144,indextts2-multi-register,fear,"raw_emo_vector=[0.115, -0.286, 0.319, 0.296, 0.069, 0.165, 0.071, -0.278];act4;round1;reg_prompt=reg_sad",-0.271,0.2,-0.263,fear,0.6,0.405,1
+1145,indextts2-multi-register,anger,"raw_emo_vector=[0.0, 0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2];act5;round1;reg_prompt=reg_joy",-0.54,1.0,0.91,anger,1.0,0.596,1
+1146,indextts2-multi-register,sadness,"raw_emo_vector=[0.007, 0.063, 0.005, 0.052, 0.079, 0.784, -0.095, 0.206];act6;round1;reg_prompt=reg_sad",-0.239,0.209,-0.216,fear,0.6,0.235,0
+1147,indextts2-multi-register,joy,"raw_emo_vector=[0.409, -0.266, 0.022, 0.131, 0.058, -0.19, -0.23, 0.003];act7;round1;reg_prompt=reg_joy",0.166,0.584,0.262,joy,0.4,0.152,1
+1148,indextts2-multi-register,neutral,"raw_emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];act1;round2;reg_prompt=reg_neutral",-0.053,0.289,-0.163,sadness,0.2,0.251,0
+1149,indextts2-multi-register,surprise,"raw_emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];act3;round2;reg_prompt=reg_joy",-0.673,1.0,0.942,joy,0.8,1.057,0
+1150,indextts2-multi-register,sadness,"raw_emo_vector=[0.007, 0.063, 0.005, 0.052, 0.079, 0.784, -0.095, 0.206];act6;round2;reg_prompt=reg_sad",-0.195,0.261,-0.134,sadness,0.6,0.167,1
+1151,indextts2-multi-register,neutral,"raw_emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];act1;round3;reg_prompt=reg_neutral",0.023,0.307,-0.102,joy,0.4,0.205,0
+1152,indextts2-multi-register,surprise,"raw_emo_vector=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0];act3;round3;reg_prompt=reg_joy",-0.643,1.0,0.901,anger,0.4,1.01,0
