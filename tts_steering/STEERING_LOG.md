@@ -2065,3 +2065,34 @@ Usage (the parallel-playing demo):
 Known limits, honest: file-based (true system-audio capture of e.g. a
 Netflix stream needs a loopback device — BlackHole — queued); no
 music/speech gate yet; ambiguity flag shown per window.
+
+---
+
+## SPEECH GATE — the ear learns what not to feel (2026-08-15)
+
+Silero VAD integrated into live_ear.py as a resident per-window gate:
+mean speech probability over the 3s window, causal 3-window median
+smoothing (a single flicker can't gate mid-sentence), threshold flag
+--speech-gate (default 0.5; 0 disables). Gated windows cost 9 ms (WavLM
+skipped) vs 216 ms — the gate SPEEDS UP music-heavy audio. Raw per-window
+probabilities always recorded in the JSON: gating is auditable, never
+silent.
+
+**Full-broadcast validation (1943, 1,196 windows): 443 suppressed (37%),
+and the suppression map matches the program structure exactly** — intro
+music/announcer (0–4 min) heavily gated, mid-show break (14–16) gated,
+closing organ (28–30, p=0.00–0.05) gated, while the continuous-dialogue
+stretch at 10–12 min runs 0/80 gated after smoothing (was 3/80 raw).
+
+**Family distribution over speech windows, PAD-centroid naming:**
+surprise 246 · anger 202 · joy 112 · contempt 90 · fear 54 · neutral 34 ·
+disgust 10 · sadness 5. For a suspense drama about alarm and
+confrontation, 79% negative-activated is the RIGHT shape — against the
+old ungated e2v run's 51%-joy nonsense. Gate + domain-general naming
+together fix what the real-world test exposed. Graph:
+docs/live_ear_gated_1943.png.
+
+Live-ear v1 is now: resident WavLM + Silero, 3s/1.5s protocol, 216 ms/
+window (7x headroom), speech gate, live graph, parallel playback, JSON
+audit trail. Remaining roadmap: system-audio loopback capture (BlackHole)
+· emotion-name smoothing · identity judge (side gig).

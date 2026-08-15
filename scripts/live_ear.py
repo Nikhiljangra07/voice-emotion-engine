@@ -34,6 +34,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from scripts.predict_wavlm_ft import (WavLMRegressor, load_audio,  # noqa: E402
                                       normalize_vad, Namer)
+from silero_vad import load_silero_vad  # noqa: E402
 
 COLORS = {"anger": "#d62728", "fear": "#9467bd", "joy": "#e6b800",
           "sadness": "#1f77b4", "surprise": "#ff7f0e", "neutral": "#909090",
@@ -49,6 +50,9 @@ def main():
                     help="no pacing — process as fast as possible")
     ap.add_argument("--window", type=float, default=3.0)
     ap.add_argument("--stride", type=float, default=1.5)
+    ap.add_argument("--speech-gate", type=float, default=0.5,
+                    help="min mean speech prob (Silero) to emote a window; "
+                         "0 disables the gate")
     ap.add_argument("--model", default="models/wavlm_vad_ft")
     ap.add_argument("--namer", default="models/namer_msp_final")
     args = ap.parse_args()
@@ -65,6 +69,7 @@ def main():
     model.head.load_state_dict(head_sd)
     model.to(device).eval()
     namer = Namer(str(ROOT / args.namer))
+    vad = load_silero_vad()  # resident speech/music-noise gate
 
     y = load_audio(args.input, max_s=1e9)   # full file (loader caps at 8s by default)
     sr = 16000
@@ -94,6 +99,7 @@ def main():
     t_start = time.time()
     rows, ts, vs, As = [], [], [], []
     lat = []
+    sp_hist = []
     warm = None  # MPS warmup on first window
     for k in range(n_steps):
         t_pos = k * args.stride
@@ -105,6 +111,34 @@ def main():
         peak = float(np.max(np.abs(seg))) or 1.0
         seg = seg / peak
         t0 = time.time()
+        # speech gate: Silero on 512-sample chunks, mean prob over window
+        if args.speech_gate > 0:
+            st = torch.from_numpy(seg)
+            probs = []
+            vad.reset_states()
+            for c0 in range(0, len(st) - 512, 512):
+                probs.append(float(vad(st[c0:c0 + 512], sr).item()))
+            sp = float(np.mean(probs)) if probs else 0.0
+            sp_hist.append(sp)
+            sp_s = float(np.median(sp_hist[-3:]))  # causal 3-win median
+            if sp_s < args.speech_gate:
+                ms = (time.time() - t0) * 1000
+                if warm is None:
+                    warm = ms
+                rows.append({"t": round(t_pos, 2), "V": None, "A": None,
+                             "D": None, "emotion": "no-speech",
+                             "speech_prob": round(sp, 2),
+                             "ms": round(ms, 1)})
+                print(f"[{t_pos:6.1f}s] --- no speech (p={sp:.2f}) --- "
+                      f"{ms:5.0f}ms", flush=True)
+                axv.axvspan(t_pos, t_pos + args.stride, color="#000000",
+                            alpha=0.06)
+                if live:
+                    fig.canvas.draw_idle()
+                    fig.canvas.flush_events()
+                continue
+        else:
+            sp = -1.0
         wav = torch.from_numpy(seg).unsqueeze(0).to(device)
         mask = torch.ones_like(wav, dtype=torch.long)
         with torch.no_grad():
@@ -121,7 +155,8 @@ def main():
         emo = r["emotion"]
         rows.append({"t": round(t_pos, 2), "V": round(V, 3),
                      "A": round(A, 3), "D": round(D, 3), "emotion": emo,
-                     "ambiguous": bool(r["ambiguous"]), "ms": round(ms, 1)})
+                     "ambiguous": bool(r["ambiguous"]),
+                     "speech_prob": round(sp, 2), "ms": round(ms, 1)})
         ts.append(t_pos); vs.append(V); As.append(A)
         bar = "#" * int((V + 1) * 10)
         print(f"[{t_pos:6.1f}s] V={V:+.2f} A={A:.2f} {emo:9s} "
@@ -140,8 +175,11 @@ def main():
     (out_dir / f"{stem}_traj.json").write_text(json.dumps(rows))
     fig.savefig(out_dir / f"{stem}_traj.png", dpi=130)
     med = np.median(lat) if lat else float("nan")
-    fams = [r["emotion"] for r in rows]
-    top = max(set(fams), key=fams.count)
+    gated = sum(1 for r in rows if r["emotion"] == "no-speech")
+    fams = [r["emotion"] for r in rows if r["emotion"] != "no-speech"]
+    top = max(set(fams), key=fams.count) if fams else "-"
+    print(f"speech gate: {gated}/{len(rows)} windows suppressed "
+          f"(music/silence/noise)")
     print(f"\n{len(rows)} windows · median inference {med:.0f} ms/window "
           f"(first {warm:.0f} ms incl. warmup) · stride budget "
           f"{args.stride*1000:.0f} ms -> real-time headroom "
