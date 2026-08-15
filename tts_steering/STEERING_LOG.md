@@ -1992,3 +1992,42 @@ best-effort by centroid distance; every attempt ledgered). Final file
 1.53 min, 5/7 certified: out/user_speech/multi_register_speech.wav.
 Next fixes queued: surprise → neutral prompt; neutral → needs its own
 optimization run.
+
+---
+
+## STATIC FIX + HEADROOM VINDICATED — v2 render (2026-08-15)
+
+User heard old-TV static in the multi-register speech. Diagnosis: the three
+register memos were HISSY (speech only 20–29 dB above floor; the neutral
+memo worst at 20 dB) and the model cloned the hiss — v1 joy act carried
+2.7x the high-frequency quiet-frame noise of the clean-prompt baseline
+(0.239 vs 0.088). WPE was the wrong tool (reverb ≠ hiss); spectral
+denoising (noisereduce, stationary, 0.92) lifted prompt gaps to 31–40 dB.
+
+**Prompt-hygiene chain now settled: record → DENOISE (hiss) → WPE
+(reverb, only if present) → normalize.** Each link was taught by a
+different failure the user's ear caught (reverb 08-15a, hiss 08-15b).
+
+v2 render (denoised prompts + surprise→neutral-prompt headroom fix,
+indextts2-multi-register-v2, 12 attempts, ledger 1,164):
+
+- **Static measurably gone:** joy-act HF ratio 0.239 → 0.093 (baseline
+  0.088). At baseline. The ear should hear a clean voice.
+- **Joy: CERTIFIED @100% BOTH acts, round 1** (was 60/40% through the
+  hiss) — cleaner prompt, stronger verdict.
+- **SURPRISE: CERTIFIED (r2) — first surprise ever in the user's voice.**
+  The headroom law works: cold neutral baseline, arousal off the 1.00
+  ceiling (0.91–0.93), verdict flipped from anger to surprise.
+- fear ✓ r1, sadness ✓ r1.
+- **Anger: 0/3 this run** (all draws → surprise, A 0.86–0.94) — with the
+  DENOISED excited prompt, anger keeps sliding across the shared
+  high-arousal boundary. Noted honestly: v1's noisy prompt certified
+  anger@100% — the hiss may have read as vocal grit. Anger vs surprise on
+  a hot prompt is now the last unstable pair; candidate fixes: neutral
+  prompt for anger too (headroom), or bank 0.9 + calm 0.1.
+- neutral: 0/3, as always (dimensionally clean V≈+0.05/A≈0.29).
+
+Certified 5/7. File: out/user_speech/multi_register_speech_v2.wav
+(1.96 min). Register-matched identity + clean audio + certified emotions —
+the user's three complaints (different-person shouting, reverb, static)
+each diagnosed to mechanism and fixed in sequence.
