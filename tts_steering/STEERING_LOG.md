@@ -2096,3 +2096,26 @@ Live-ear v1 is now: resident WavLM + Silero, 3s/1.5s protocol, 216 ms/
 window (7x headroom), speech gate, live graph, parallel playback, JSON
 audit trail. Remaining roadmap: system-audio loopback capture (BlackHole)
 · emotion-name smoothing · identity judge (side gig).
+
+---
+
+## LIVE CAPTURE MODE — the ear grows a device input (2026-08-15)
+
+live_ear.py refactored around a resident `Ear` class with two sources:
+file mode (--input/--play/--fast, unchanged) and STREAM mode — an ffmpeg
+f32le pipe read in stride-sized chunks into a rolling window buffer:
+  --device N     avfoundation capture (mic, or BlackHole loopback for
+                 system audio); Ctrl-C or --duration to stop
+  --simulate f   the SAME pipe fed by ffmpeg -re (real-time paced file) —
+                 validates the live plumbing with no driver or permission
+
+Validation (--simulate, 1943 shock segment, 30s): chunks flow at wall-
+clock pace, gate + emotion + plot all live, verdicts consistent with
+file-mode on the same audio, median 262 ms/window -> 6x headroom.
+Note: the causal gate median lags ~1 window at speech onsets (documented).
+
+BlackHole status: brew present, cask NOT installed (driver needs the
+user's admin password — interactive). Remaining user steps: (1) `brew
+install blackhole-2ch`, (2) Audio MIDI Setup -> Multi-Output Device
+(speakers + BlackHole) as system output, (3) run `--device <BlackHole
+index>`. The engine side is plug-and-play ready.
