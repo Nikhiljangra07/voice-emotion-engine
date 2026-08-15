@@ -2031,3 +2031,37 @@ Certified 5/7. File: out/user_speech/multi_register_speech_v2.wav
 (1.96 min). Register-matched identity + clean audio + certified emotions —
 the user's three complaints (different-person shouting, reverb, static)
 each diagnosed to mechanism and fixed in sequence.
+
+---
+
+## LIVE EAR v1 — real-time parallel emotion mapping, 8x headroom (2026-08-15)
+
+Goal reframe (user): THE EAR IS THE MAIN PRODUCT — map emotions of
+parallel-playing audio (interview/movie) in real time: 3s intervals, V/A/D
+vectors, named emotions, live graph. Cloning = side gig.
+
+Built scripts/live_ear.py: WavLM-ft RESIDENT in memory (no subprocess per
+call), full-file streaming walk (3.0s window / 1.5s stride — the P4.14
+protocol), PAD-centroid naming (domain-general; the enrollment-bound kNN
+judge is deliberately NOT in this path — the 1943 test showed why), live
+matplotlib trajectory while afplay plays the same file in parallel
+(--play), JSON + PNG per run. Two loader fixes: predict_wavlm_ft.load_audio
+caps at 8s (training mirror) → max_s override; per-WINDOW peak
+normalization to mirror per-clip training norm.
+
+**Validation (1943 broadcast, minutes 4:00–5:30 — the overheard-murder
+region), fast mode, 59 windows:**
+- **Median inference 196 ms/window on MPS → 7.6x real-time headroom** at
+  the 1.5s stride. Real-time is proven with margin to spare.
+- The trajectory READS: light neutral/joy opening → surprise build →
+  spike (V=+0.52, A=0.93) → fear at 30s → two sustained ANGER blocks
+  (V −0.5…−0.83, A ~0.85) exactly where the plot turns. Named emotions at
+  1.5s resolution track the scene structure without any enrollment.
+- Bonus: the MSP namer speaks a richer palette than the 6-family judge
+  (contempt and disgust appear natively).
+
+Usage (the parallel-playing demo):
+  .venv_diar/bin/python scripts/live_ear.py --input any.wav --play
+Known limits, honest: file-based (true system-audio capture of e.g. a
+Netflix stream needs a loopback device — BlackHole — queued); no
+music/speech gate yet; ambiguity flag shown per window.
