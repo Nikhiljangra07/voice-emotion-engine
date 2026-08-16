@@ -2202,3 +2202,19 @@ Predictions (registered before the Japanese run):
 - Known confound to expect: seiyuu delivery tends hotter than dub
   delivery — a constant arousal offset with correlated SHAPE would still
   support language-independence; uncorrelated shapes would refute it.
+
+**User's prediction, registered before the Japanese run:** the patterns
+WILL differ — languages place pitch, jitter, and timing differently on
+words, so the graph should not match. Formalized as a three-level
+scoring, so whatever happens is interpretable:
+- MICRO (window-by-window values): both hypotheses expect DIFFERENCE
+  (different actors, words, takes) — not diagnostic.
+- MESO (scene-by-scene V/A shape, aligned): the battleground. User's
+  instinct -> weak correlation; language-independence -> strong.
+- MACRO (three-act arc direction): if even THIS diverges, the ear is
+  strongly language-bound.
+Additional registered question: does Japanese shift the BASELINE (e.g.,
+pitch-accent prosody reading as systematically hotter A to an
+English-trained model = calibration bias) vs scramble the SHAPE
+(= genuine language dependence)? Offset and correlation are scored
+separately for exactly this reason.
