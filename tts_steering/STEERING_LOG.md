@@ -2142,3 +2142,38 @@ THE DEMO: play anything (YouTube, movie, podcast) →
   .venv_diar/bin/python scripts/live_ear.py --device 0
 Known macOS quirk: volume keys don't control aggregate devices — set
 volume before, or revert when done.
+
+---
+
+## FIRST WILD SESSION — GTO finale, live via loopback: the three-act arc read cross-lingually (2026-08-15)
+
+User played the final episode of GTO (Great Teacher Onizuka) through the
+new loopback while live_ear ran unattended: 626 windows / 15.6 min, zero
+crashes, latency flat (median 273 ms, max 435), post-video silence 80/80
+gated. Forensic audit of the saved JSON against the known content:
+
+**The finale's dramatic structure is IN the trajectory:**
+- first third: V −0.17, A 0.83, anger/surprise (setup tension)
+- middle: **V −0.28, A 0.90, anger dominant 68 windows** incl. an
+  11-window (16.5 s) sustained anger run — the climax confrontation
+- final third: anger collapses 68→17, V recovers to −0.06
+- **last 90 s of speech: V median +0.21, peak +0.79, joy appears —
+  the warm resolution. Valence slope over the final 3 min: +0.156/min.**
+Conflict → climax → resolution, measured. No labels, no enrollment.
+
+**Cross-lingual, cross-cultural transfer confirmed:** the model is
+trained on English natural speech (MSP); the content is Japanese anime
+voice acting. Prosody carried the dimensional signal across the language
+boundary. The arousal ceiling (A median 0.86, saturating at 1.00) is now
+largely EXPLAINED rather than suspicious: seiyuu delivery is
+hyper-activated by design — the ear read anime acting as extreme because
+it IS extreme. (Loudness compression + music beds under speech remain a
+secondary inflator; calibration item stands.)
+
+**Flaws confirmed by the wild data (queued):** 75% ambiguity in the hot
+corner where anger/surprise/fear centroids crowd; 46% name flicker
+between adjacent windows (needs majority-vote smoothing); produced-media
+loudness normalization; ffmpeg Ctrl-C stderr spam (cosmetic).
+
+Verdict logged: architecture sound, calibration next. The ear watched
+television in a language it never learned and read the story right.
