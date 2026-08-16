@@ -2119,3 +2119,26 @@ user's admin password — interactive). Remaining user steps: (1) `brew
 install blackhole-2ch`, (2) Audio MIDI Setup -> Multi-Output Device
 (speakers + BlackHole) as system output, (3) run `--device <BlackHole
 index>`. The engine side is plug-and-play ready.
+
+---
+
+## LOOPBACK COMPLETE — system audio to live emotion graph, zero GUI (2026-08-15)
+
+The full chain the goal reframe asked for now exists:
+1. BlackHole 2ch installed (user's password), loaded WITHOUT reboot via
+   coreaudiod restart — device [0].
+2. **Audio MIDI Setup step automated away**: scripts/ear_multiout.swift
+   (CoreAudio, ~120 lines) creates a stacked aggregate "Ear Multi-Output"
+   (speakers master + BlackHole with drift compensation) and sets it as
+   system default output. `out/ear_multiout revert` restores speakers and
+   destroys the aggregate. No GUI touched.
+3. End-to-end proof: afplay through the multi-output while live_ear
+   captured --device 0 — the playing clip was heard, gated, and mapped
+   live (surprise/anger/joy at plausible story points, 277 ms/window, 5x
+   headroom). Heavy gating on this test = the 1943 telephone-filtered
+   source sits near the speech threshold; modern audio passes cleanly.
+
+THE DEMO: play anything (YouTube, movie, podcast) →
+  .venv_diar/bin/python scripts/live_ear.py --device 0
+Known macOS quirk: volume keys don't control aggregate devices — set
+volume before, or revert when done.
