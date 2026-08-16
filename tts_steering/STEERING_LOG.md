@@ -2177,3 +2177,28 @@ loudness normalization; ffmpeg Ctrl-C stderr spam (cosmetic).
 
 Verdict logged: architecture sound, calibration next. The ear watched
 television in a language it never learned and read the story right.
+
+---
+
+## CORRECTION to the GTO entry — it was the ENGLISH DUB (2026-08-16)
+
+The user played the English dub, not the Japanese original. The
+"cross-lingual transfer confirmed" claim in the previous entry is
+WITHDRAWN — the three-act-arc reading stands (that verification was about
+dramatic structure, not language), but no cross-language evidence was
+collected. Error mine: I assumed the language instead of asking.
+
+**Turned into a pre-registered experiment (user's design): DUB vs SUB.**
+The user will replay the SAME episode in Japanese through the same
+loopback pipeline. Protocol:
+1. Align the two trajectories automatically (cross-correlation of the
+   arousal curves finds the time offset — start points differ).
+2. Compare over the aligned overlap: V and A correlation, per-third
+   medians, family distributions, ambiguity rates.
+Predictions (registered before the Japanese run):
+- If the ear reads prosody independent of language: aligned V/A
+  correlation clearly positive (r >= ~0.5 despite different actors,
+  mixes, and takes).
+- Known confound to expect: seiyuu delivery tends hotter than dub
+  delivery — a constant arousal offset with correlated SHAPE would still
+  support language-independence; uncorrelated shapes would refute it.
