@@ -2325,3 +2325,50 @@ Remaining from the queue: the +0.13 per-language valence offset (known,
 measured, not yet corrected — needs >1 language pair before fitting
 anything), hot-corner centroid crowding (72–75% ambiguity — the one
 real design problem left in the naming layer).
+
+---
+
+## THE AFFECTOGRAM — full-detail session report (2026-08-17)
+
+The live ear's saved graph was two bare line plots (V, A) — while the
+pipeline computed dominance, ambiguity, speech probability, raw names,
+smoothed names, and latency that were never drawn. Deep-dive into how
+the field presents continuous emotion found four presentation families:
+AVEC/RECOLA-style stacked dimension time-series; Russell's circumplex
+V-A plane with the session drawn as a time-colored PATH (FEELtrace's
+design — the canonical affective-computing display since 2000);
+categorical timeline ribbons (EmoCo, Imentiv's Emotion Graph, Hume's
+expression timelines); and uncertainty/quality bands (rarely done well).
+The Affectogram combines all four. Name chosen deliberately: a
+spectrogram shows the frequency content of sound; an AFFECTOGRAM shows
+the emotional content of speech.
+
+**One figure, eight panels** (`scripts/affectogram.py`, torch-free,
+numpy+matplotlib only):
+A. emotion ribbon — smoothed band over raw ticks (flicker made visible)
+B/C/D. valence / arousal / DOMINANCE traces — per-window points
+   (ambiguous = hollow), 30s rolling median that goes dark over gated
+   stretches, silence shaded
+E. Silero speech-probability strip with the gate threshold line
+F. circumplex path — the session as a time-colored trajectory through
+   the V-A plane, MSP centroids starred, quadrants labeled, start/end
+   marked
+G. family share bars (smoothed)
+H. fact box — duration, speech %, V/A/D medians, ambiguity, flicker
+   raw→smoothed, latency, and the EXACT protocol (window/stride/gate/
+   smooth-k) + model IDs, so every Affectogram is reproducible from its
+   own footer
+
+**Wiring:** live_ear.finish() renders it automatically after every
+session (<stem>_affectogram.png next to the traj JSON). Standalone CLI
+re-renders any saved session: `venv/bin/python scripts/affectogram.py
+out/live_ear/X_traj.json`. Pre-smoothing sessions are re-scored offline
+through the same NameSmoother (moved to affectogram.py, torch-free;
+live_ear now imports it from there — no duplication).
+
+Rendered for all three wild sessions. The GTO English Affectogram shows
+the three-act arc, the anger block at 3:00–7:30, the warm ending, and
+the D panel — drawn for the first time since the model started
+predicting it — tracking the anger block at D≈0.9 (dominant/aggressive)
+and collapsing toward 0 in the quiet passages. First time all seven
+measured signals appear in one artifact.

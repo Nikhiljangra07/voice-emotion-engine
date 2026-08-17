@@ -28,7 +28,6 @@ import argparse
 import json
 import subprocess
 import time
-from collections import Counter
 from pathlib import Path
 
 import numpy as np
@@ -41,50 +40,10 @@ from scripts.predict_wavlm_ft import (WavLMRegressor, load_audio,  # noqa: E402
                                       normalize_vad, Namer)
 from silero_vad import load_silero_vad  # noqa: E402
 
+from scripts.affectogram import (NameSmoother, flicker_rate,  # noqa: E402
+                                 COLORS, render as render_affectogram)
+
 SR = 16000
-COLORS = {"anger": "#d62728", "fear": "#9467bd", "joy": "#e6b800",
-          "sadness": "#1f77b4", "surprise": "#ff7f0e", "neutral": "#909090",
-          "disgust": "#2ca02c", "contempt": "#8c564b"}
-
-
-class NameSmoother:
-    """Causal majority vote over the last k speech-window names.
-
-    Sticky tie-break: the current smoothed name wins ties (hysteresis),
-    else the most recent raw name among the tied winners. A gap of more
-    than max_gap gated windows resets the buffer — a name should not
-    survive across a scene break. k=5 at 1.5s stride = 7.5s memory;
-    a genuine emotion change takes ~3 windows (4.5s) to flip the vote.
-    """
-
-    def __init__(self, k=5, max_gap=3):
-        self.k, self.max_gap = k, max_gap
-        self.buf, self.gap, self.state = [], 0, None
-
-    def gate(self):
-        self.gap += 1
-        if self.gap > self.max_gap:
-            self.buf, self.state = [], None
-
-    def update(self, raw):
-        self.gap = 0
-        self.buf = (self.buf + [raw])[-self.k:]
-        counts = Counter(self.buf)
-        top = max(counts.values())
-        winners = {n for n, v in counts.items() if v == top}
-        if self.state not in winners:
-            self.state = next(n for n in reversed(self.buf) if n in winners)
-        return self.state
-
-
-def flicker_rate(rows):
-    """Name changes between strictly adjacent speech windows."""
-    pairs = trans = 0
-    for a, b in zip(rows, rows[1:]):
-        if a and b:
-            pairs += 1
-            trans += a != b
-    return trans / pairs if pairs else 0.0
 
 
 class Ear:
@@ -204,6 +163,12 @@ class Ear:
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / f"{stem}_traj.json").write_text(json.dumps(self.rows))
         self.fig.savefig(out_dir / f"{stem}_traj.png", dpi=130)
+        render_affectogram(self.rows, stem,
+                           out_dir / f"{stem}_affectogram.png",
+                           params={"window": self.args.window,
+                                   "stride": self.args.stride,
+                                   "speech_gate": self.args.speech_gate,
+                                   "smooth_k": self.args.smooth_k})
         med = np.median(self.lat) if self.lat else float("nan")
         gated = sum(1 for r in self.rows if r["emotion"] == "no-speech")
         fams = [r["emotion"] for r in self.rows
@@ -223,7 +188,8 @@ class Ear:
               f"{self.args.stride*1000/max(med,1):.0f}x headroom")
         if fams:
             print(f"dominant: {top} ({fams.count(top)}/{len(fams)})")
-        print(f"saved: out/live_ear/{stem}_traj.json + .png")
+        print(f"saved: out/live_ear/{stem}_traj.json + .png + "
+              f"{stem}_affectogram.png")
         print("LIVE_EAR_DONE")
 
 
