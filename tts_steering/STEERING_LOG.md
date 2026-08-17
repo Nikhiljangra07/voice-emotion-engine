@@ -2271,3 +2271,57 @@ languages and drew the same arc both times, 0.13 warmer in Japanese.
 
 Ambiguity 75%→72% (unchanged — hot-corner crowding is content-driven,
 not language-driven).
+
+---
+
+## CALIBRATION PASS: smoothing works, loudnorm is a dead end (2026-08-17)
+
+Two queued fixes tested, one shipped, one killed by its own data.
+
+**1. Name smoothing — SHIPPED (live_ear.py `NameSmoother`, default on,
+`--smooth-k 5`, 0 disables).** Causal majority vote over the last 5
+speech-window names: 7.5s memory, ~4.5s to honor a genuine emotion
+change, sticky tie-break (current name wins ties — hysteresis), buffer
+reset after >3 gated windows so a name never survives a scene break.
+V/A/D are NEVER smoothed — only the display name. JSON rows now carry
+`emotion` (smoothed) + `emotion_raw`.
+
+Validated offline on all three wild sessions (replaying saved raw
+sequences through the same class):
+
+| Session | Flicker raw → k=5 | Median stable run |
+|---|---|---|
+| GTO English dub | 44% → 12% | 1 → 4 windows |
+| GTO Japanese | 52% → 13% | 1 → 3 windows |
+| 1943 broadcast | 52% → 16% | 1 → 3 windows |
+
+The evidence it removes noise rather than repainting it: EN↔JA aligned
+cross-language family agreement IMPROVES after smoothing, 33% → 39%.
+If smoothing were only cosmetic, agreement would be unchanged; two
+independent recordings of the same story agreeing more means the
+flicker it removed was window-level noise, not signal. k=7 gains ~2pp
+more suppression but adds latency; k=5 kept.
+
+**2. Loudness normalization — DEAD END, removed.** Pre-registered test:
+render the 1943 broadcast through EBU R128 loudnorm (I=−24, TP=−2,
+LRA=7), run both versions through the identical offline ear, compare.
+Result over 741 shared speech windows: V r=1.000, A r=0.999, mean
+same-window delta |V| 0.005 / |A| 0.003, raw name agreement 99%,
+arousal distribution identical (median 0.749 vs 0.752, frac>0.9 5%
+both). The per-window peak normalization the ear already does (which
+mirrors training) absorbs any slow gain riding before the model sees
+the signal. Flag removed; a knob that provably does nothing is clutter.
+Corollary: the GTO arousal ceiling is NOT a loudness artifact — it is
+the content (hyper-activated anime delivery), as suspected. Caveat
+logged: loudnorm's dynamic-range compression could in principle matter
+on very wide-DR content; the broadcast is already compressed. Revisit
+only if a wide-DR session shows a problem.
+
+**3. ffmpeg Ctrl-C spam — fixed.** ffmpeg now starts in its own session
+(`start_new_session=True`); the interrupt hits our loop only, which
+terminates ffmpeg cleanly in `finally`. No more muxer-error wall.
+
+Remaining from the queue: the +0.13 per-language valence offset (known,
+measured, not yet corrected — needs >1 language pair before fitting
+anything), hot-corner centroid crowding (72–75% ambiguity — the one
+real design problem left in the naming layer).

@@ -28,6 +28,7 @@ import argparse
 import json
 import subprocess
 import time
+from collections import Counter
 from pathlib import Path
 
 import numpy as np
@@ -46,6 +47,46 @@ COLORS = {"anger": "#d62728", "fear": "#9467bd", "joy": "#e6b800",
           "disgust": "#2ca02c", "contempt": "#8c564b"}
 
 
+class NameSmoother:
+    """Causal majority vote over the last k speech-window names.
+
+    Sticky tie-break: the current smoothed name wins ties (hysteresis),
+    else the most recent raw name among the tied winners. A gap of more
+    than max_gap gated windows resets the buffer — a name should not
+    survive across a scene break. k=5 at 1.5s stride = 7.5s memory;
+    a genuine emotion change takes ~3 windows (4.5s) to flip the vote.
+    """
+
+    def __init__(self, k=5, max_gap=3):
+        self.k, self.max_gap = k, max_gap
+        self.buf, self.gap, self.state = [], 0, None
+
+    def gate(self):
+        self.gap += 1
+        if self.gap > self.max_gap:
+            self.buf, self.state = [], None
+
+    def update(self, raw):
+        self.gap = 0
+        self.buf = (self.buf + [raw])[-self.k:]
+        counts = Counter(self.buf)
+        top = max(counts.values())
+        winners = {n for n, v in counts.items() if v == top}
+        if self.state not in winners:
+            self.state = next(n for n in reversed(self.buf) if n in winners)
+        return self.state
+
+
+def flicker_rate(rows):
+    """Name changes between strictly adjacent speech windows."""
+    pairs = trans = 0
+    for a, b in zip(rows, rows[1:]):
+        if a and b:
+            pairs += 1
+            trans += a != b
+    return trans / pairs if pairs else 0.0
+
+
 class Ear:
     """Resident models + live plot + rolling state. One instance per run."""
 
@@ -62,6 +103,8 @@ class Ear:
         self.device = device
         self.namer = Namer(str(ROOT / args.namer))
         self.vad = load_silero_vad()
+        self.smoother = (NameSmoother(args.smooth_k)
+                         if args.smooth_k > 0 else None)
 
         import matplotlib
         matplotlib.use("MacOSX" if live else "Agg")
@@ -105,6 +148,8 @@ class Ear:
                 ms = (time.time() - t0) * 1000
                 if self.warm is None:
                     self.warm = ms
+                if self.smoother:
+                    self.smoother.gate()
                 self.rows.append({"t": round(t_pos, 2), "V": None,
                                   "A": None, "D": None,
                                   "emotion": "no-speech",
@@ -129,10 +174,11 @@ class Ear:
         else:
             self.lat.append(ms)
         V, A = float(pad[0]), float(pad[1])
-        emo = r["emotion"]
+        raw = r["emotion"]
+        emo = self.smoother.update(raw) if self.smoother else raw
         self.rows.append({"t": round(t_pos, 2), "V": round(V, 3),
                           "A": round(A, 3), "D": round(float(pad[2]), 3),
-                          "emotion": emo,
+                          "emotion": emo, "emotion_raw": raw,
                           "ambiguous": bool(r["ambiguous"]),
                           "speech_prob": round(sp, 2),
                           "ms": round(ms, 1)})
@@ -164,6 +210,14 @@ class Ear:
                 if r["emotion"] != "no-speech"]
         top = max(set(fams), key=fams.count) if fams else "-"
         print(f"\nspeech gate: {gated}/{len(self.rows)} suppressed")
+        if self.smoother:
+            seq_r = [r.get("emotion_raw") if r["emotion"] != "no-speech"
+                     else None for r in self.rows]
+            seq_s = [r["emotion"] if r["emotion"] != "no-speech"
+                     else None for r in self.rows]
+            print(f"name flicker: raw {flicker_rate(seq_r)*100:.0f}% -> "
+                  f"smoothed {flicker_rate(seq_s)*100:.0f}% "
+                  f"(majority-{self.args.smooth_k})")
         print(f"{len(self.rows)} windows · median inference {med:.0f} ms "
               f"· stride budget {self.args.stride*1000:.0f} ms -> "
               f"{self.args.stride*1000/max(med,1):.0f}x headroom")
@@ -186,10 +240,15 @@ def stream_loop(ear, args):
         stem = Path(args.simulate).stem + "_live"
         print(f"SIMULATED live stream from {args.simulate}", flush=True)
     ear.title(stem)
+    # NO loudness normalization: tested (R128 loudnorm vs raw, 1943
+    # broadcast, 741 shared speech windows) — V r=1.000, A r=0.999,
+    # 99% name agreement. Per-window peak norm already absorbs it.
     proc = subprocess.Popen(
         ["ffmpeg", "-v", "error", *src, "-ar", str(SR), "-ac", "1",
          "-f", "f32le", "pipe:1"],
-        stdout=subprocess.PIPE)
+        stdout=subprocess.PIPE,
+        start_new_session=True)  # Ctrl-C hits our loop, not ffmpeg —
+    # we terminate it cleanly in finally; kills the muxer-error spam
     stride_bytes = int(args.stride * SR) * 4
     win_n = int(args.window * SR)
     buf = np.zeros(0, dtype=np.float32)
@@ -251,6 +310,9 @@ def main():
     ap.add_argument("--window", type=float, default=3.0)
     ap.add_argument("--stride", type=float, default=1.5)
     ap.add_argument("--speech-gate", type=float, default=0.5)
+    ap.add_argument("--smooth-k", type=int, default=5,
+                    help="majority-vote name smoothing over last K speech "
+                         "windows (0 disables; V/A/D never smoothed)")
     ap.add_argument("--model", default="models/wavlm_vad_ft")
     ap.add_argument("--namer", default="models/namer_msp_final")
     args = ap.parse_args()
