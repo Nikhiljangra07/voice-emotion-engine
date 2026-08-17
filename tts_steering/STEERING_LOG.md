@@ -2218,3 +2218,56 @@ pitch-accent prosody reading as systematically hotter A to an
 English-trained model = calibration bias) vs scramble the SHAPE
 (= genuine language dependence)? Offset and correlation are scored
 separately for exactly this reason.
+
+---
+
+## DUB vs SUB — RESULTS: the shape survives the language (2026-08-17)
+
+Japanese run captured through the same loopback: 575 windows / 14.4 min,
+`out/live_ear/device0_1786960341_traj.json`. Speech gate 287/575 (50%)
+vs English 306/626 (51%) — Silero gates Japanese identically. Alignment
+by arousal cross-correlation: lag +21.0s (JA started earlier in the
+episode), aligned overlap 13.5 min, 263 windows where both runs heard
+speech.
+
+**Scored against the pre-registered three levels:**
+
+| Level | Metric | Result | Verdict |
+|---|---|---|---|
+| MICRO (window) | V r=0.364 · A r=0.693 · family agreement 33% | different | as both predicted — not diagnostic |
+| MESO (30s scenes) | V r=0.596 · A r=0.735 | above the r≥0.5 bar | shape correlates |
+| MESO (60s scenes) | V r=0.667 · A r=0.801 | strongly correlated | shape correlates |
+| MACRO (thirds) | act-2 dip + act-3 recovery in BOTH (EN −0.14/−0.28/−0.07 · JA +0.09/−0.15/+0.01) | same arc | language-independent |
+
+Aligned same-content final act: warm resolution present in both — V
+median +0.21 (EN) vs +0.17 (JA), peak +0.79 vs +0.69. (Tail slope not
+scoreable: only 6 speech windows survive the gate there — ending is
+music.)
+
+**OFFSET vs SHAPE (the registered split): both hypotheses were partly
+right.**
+- SHAPE: scene-level V/A correlation r=0.6–0.8 across different
+  languages, different actors, different mixes, different takes. The ear
+  tracks the STORY's emotional dynamics, not English phonetics. My
+  registered prediction — supported at MESO/MACRO.
+- OFFSET: valence baseline shifts +0.13 warmer in Japanese (arousal
+  offset −0.04, negligible). Family naming redistributes: anger 38%→24%,
+  fear 19%→12%, joy 5%→12%, neutral 2%→7%. The user's registered
+  instinct — supported at the calibration level: language DOES move
+  where the values sit, exactly as "same words, different pitch/jitter
+  placement" predicts. Window-level naming is language-sensitive.
+- Direction note: I had guessed Japanese might read HOTTER
+  (pitch-accent → higher A). Wrong direction — it reads WARMER-VALENCED
+  and equally aroused. The dub's line delivery lands as angrier to the
+  ear than the seiyuu original.
+
+**Standing conclusion:** the dimensional ear (V/A/D) is
+language-independent at the scene scale and above — the level the
+product operates at. The categorical namer inherits a per-language
+valence offset (+0.13), which folds into the existing calibration queue
+(loudness norm, name smoothing) as a known, measured bias — not a
+structural failure. The ear watched the same story twice in two
+languages and drew the same arc both times, 0.13 warmer in Japanese.
+
+Ambiguity 75%→72% (unchanged — hot-corner crowding is content-driven,
+not language-driven).
