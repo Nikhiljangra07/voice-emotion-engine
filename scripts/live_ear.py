@@ -83,6 +83,8 @@ class Ear:
         self.rows, self.ts, self.vs, self.As = [], [], [], []
         self.lat, self.sp_hist = [], []
         self.warm = None
+        self.spans = []  # (patch, t) — pruned to the display window so
+        # redraw stays flat (~36ms) instead of growing ~300ms/3h
 
     def title(self, stem):
         self.fig.suptitle(f"LIVE EAR — {stem}  "
@@ -116,8 +118,9 @@ class Ear:
                                   "ms": round(ms, 1)})
                 print(f"[{t_pos:6.1f}s] --- no speech (p={sp:.2f}) --- "
                       f"{ms:5.0f}ms", flush=True)
-                self.axv.axvspan(t_pos, t_pos + self.args.stride,
-                                 color="#000000", alpha=0.06)
+                self.spans.append(
+                    (self.axv.axvspan(t_pos, t_pos + self.args.stride,
+                                      color="#000000", alpha=0.06), t_pos))
                 self._draw(t_pos)
                 return
         wav = torch.from_numpy(seg).unsqueeze(0).to(self.device)
@@ -146,14 +149,29 @@ class Ear:
         print(f"[{t_pos:6.1f}s] V={V:+.2f} A={A:.2f} {emo:9s} "
               f"{'(?)' if r['ambiguous'] else '   '} {ms:5.0f}ms  {bar}",
               flush=True)
-        self.lv.set_data(self.ts, self.vs)
-        self.la.set_data(self.ts, self.As)
-        self.axv.axvspan(t_pos, t_pos + self.args.stride,
-                         color=COLORS.get(emo, "#cccccc"), alpha=0.10)
+        self.spans.append(
+            (self.axv.axvspan(t_pos, t_pos + self.args.stride,
+                              color=COLORS.get(emo, "#cccccc"),
+                              alpha=0.10), t_pos))
         self._draw(t_pos)
 
     def _draw(self, t_pos):
-        self.axv.set_xlim(0, max(30, t_pos + self.args.window))
+        win = self.args.display_window
+        if win > 0:
+            cut = t_pos - win
+            while self.spans and self.spans[0][1] < cut:
+                self.spans.pop(0)[0].remove()
+            i0 = 0
+            while i0 < len(self.ts) and self.ts[i0] < cut:
+                i0 += 1
+            self.lv.set_data(self.ts[i0:], self.vs[i0:])
+            self.la.set_data(self.ts[i0:], self.As[i0:])
+            self.axv.set_xlim(max(0, cut),
+                              max(30, t_pos + self.args.window))
+        else:
+            self.lv.set_data(self.ts, self.vs)
+            self.la.set_data(self.ts, self.As)
+            self.axv.set_xlim(0, max(30, t_pos + self.args.window))
         if self.live:
             self.fig.canvas.draw_idle()
             self.fig.canvas.flush_events()
@@ -279,6 +297,10 @@ def main():
     ap.add_argument("--smooth-k", type=int, default=5,
                     help="majority-vote name smoothing over last K speech "
                          "windows (0 disables; V/A/D never smoothed)")
+    ap.add_argument("--display-window", type=float, default=900,
+                    help="live plot shows the last N seconds (0 = whole "
+                         "session; full history always kept for the "
+                         "Affectogram). Keeps multi-hour redraw flat.")
     ap.add_argument("--model", default="models/wavlm_vad_ft")
     ap.add_argument("--namer", default="models/namer_msp_final")
     args = ap.parse_args()
