@@ -2372,3 +2372,57 @@ the D panel — drawn for the first time since the model started
 predicting it — tracking the anger block at D≈0.9 (dominant/aggressive)
 and collapsing toward 0 in the quiet passages. First time all seven
 measured signals appear in one artifact.
+
+---
+
+## NAMER SCORED AGAINST GROUND TRUTH — the ceiling is the finding (2026-08-18)
+
+The dimensional ear was validated on MSP Test1 long ago (CCC V .705 /
+A .714 / D .626); the NAMER — V/A/D point → family name — never was.
+Closed via scripts/eval_namer_msp.py: 5,000 Test1 utterances, 4,083
+usable after dropping no_agreement/other (8 classes, heavily imbalanced:
+neutral 2,017 · joy 1,134 · fear 31). WavLM-ft inference on all files
+(0.46s/file, MPS), cached at out/wavlm_test1_pred.npy. Statistics-only
+MSP use; nothing feeds the mouth.
+
+**N1 — naming from GROUND-TRUTH V/A/D (the ceiling):**
+acc 42.2% · balanced 41.8% · ambiguous 73%. Per-class recall: joy 65,
+anger 56, fear 52, surprise 42, sadness 40, neutral 31, disgust 27,
+contempt 21. Even PERFECT dimensions name 8-class natural speech at
+only ~42%: three numbers under-determine the category. Contempt and
+disgust are nearly unnamable from PAD alone.
+
+**N2 — naming from PREDICTED V/A/D (the system as deployed):**
+acc 38.3% · balanced 33.1% · ambiguous 73%. Per-class: joy 59,
+sadness 42, anger 40, surprise/neutral 30, fear 23, disgust 22,
+contempt 20. The model costs only −3.9pp accuracy vs the ceiling — the
+naming bottleneck is GEOMETRY, not dimension error. (Also explains the
+wild sessions: 33–39% cross-language name agreement is exactly what a
+~40% naming layer produces. And the 73% ambiguous rate on Test1 matches
+the 72–75% seen on anime/broadcast — the flag is calibrated honestly.)
+
+**N3 — distance variants (hot-corner hypothesis TESTED, REFUTED):**
+My registered suspicion was that dominance is underweighted. Wrong in
+DIRECTION: D×1.5→3.0 degrades monotonically (38.3→23.9 on predicted);
+D×0.5 is a wash (acc −0.3pp, balanced +0.4pp); V-A-only gets +4.6pp raw
+accuracy but its ambiguity margin saturates (100%) and balanced gains
+only +1.6pp. VERDICT: no variant earns a semantics change to the live
+namer — kept exactly as is. The hot corner is not a weighting bug; it
+is an information limit of categorical naming from a 3-D point.
+
+**Standing conclusions:**
+1. The dimensional layer is the product's trustworthy signal (validated
+   twice over). The names are a HINT — now with a measured number:
+   ~38% raw / ~33% balanced on natural speech, joy/sadness/anger most
+   reliable, contempt/disgust/fear least.
+2. Upgrade paths, in order of honesty: (a) display-level merging
+   (e.g. contempt+disgust → "rejection"), free, no retraining;
+   (b) a namer-v2 categorical head trained on audio directly — allowed
+   under the additive-instruments law (judge-v2 precedent), post-MVP;
+   (c) more dimensions (the literature's answer: categories carry
+   information beyond V/A/D).
+3. Ambiguity flag is honest across domains (73% lab = 72–75% wild) —
+   the display already treats names with exactly the right skepticism.
+
+Artifacts: out/namer_eval/report.txt · confusion_gt.csv ·
+confusion_pred.csv · out/wavlm_test1_pred.npy (5,000×3 cache).
