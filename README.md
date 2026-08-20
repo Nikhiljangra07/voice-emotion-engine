@@ -23,6 +23,48 @@ model that broke the axis everyone said was unrecoverable from audio alone.
 
 ---
 
+## ⭐ The Live Ear (August 2026) — real-time emotion mapping of anything playing
+
+Play any audio on the machine — an interview, a film, a YouTube video — and the ear
+maps it **in parallel, live**: every 1.5 seconds a V/A/D point, a named emotion, a
+growing trajectory on screen. Every session ends with an **Affectogram** — one figure
+holding everything the ear measured (a spectrogram shows the frequency content of
+sound; an Affectogram shows the emotional content of speech):
+
+![Affectogram of a 30-minute 1943 radio broadcast](docs/affectogram_1943_broadcast.png)
+
+- **Resident fine-tuned WavLM** at 5–8× real-time headroom (~200–280 ms per 3 s window
+  on Apple-silicon MPS) — no cloud, no cost, no audio leaving the machine
+- **Speech gate** (Silero VAD, causal median smoothing) — music, silence and noise are
+  suppressed, not mislabeled
+- **Name smoothing** (causal majority vote) — window-level flicker 44–52% → 12–16%,
+  measured on three wild sessions; V/A/D never smoothed
+- **System-audio loopback automated** — BlackHole + a CoreAudio multi-output device
+  created programmatically (`out/ear_multiout`), reverted with one command
+- Multi-hour safe: rolling display window keeps live redraw flat (~36 ms) where the
+  naive plot degrades to ~300 ms by hour three — measured, then fixed
+
+**Validated in the wild, not just on benchmarks:**
+
+| Test | Result |
+|---|---|
+| 30-min 1943 radio drama (documented plot) | V/A trajectory tracks the documented arc at correct timestamps |
+| Full anime episode via loopback | Three-act structure (conflict → climax → warm resolution) read blind from the graph, then verified against the episode |
+| **Same episode, English dub vs Japanese original** | Scene-level V/A shape correlates **r = 0.6–0.8** across languages — the ear hears the *story*, not the language. Japanese reads +0.13 warmer in valence: a measured calibration bias, logged |
+| Naming layer vs 4,083 human-labeled utterances | System 38.3 % (8-class, chance 12.5 %); ceiling from *perfect* dimensions is only 42.2 % — so names are displayed as hints, dimensions carry the signal, and the ambiguity flag fires at the same rate in the lab (73 %) as in the wild (72–75 %) |
+
+```bash
+# live capture of system audio (loopback), Ctrl-C to stop
+.venv_diar/bin/python scripts/live_ear.py --device 0
+# or map a file, clock-paced with playback / as fast as the GPU goes
+.venv_diar/bin/python scripts/live_ear.py --input clip.wav --play
+.venv_diar/bin/python scripts/live_ear.py --input clip.wav --fast
+# re-render the full report for any past session
+venv/bin/python scripts/affectogram.py out/live_ear/<session>_traj.json
+```
+
+→ **[DEMO.md](DEMO.md)** — the 5-minute "show it to someone" runbook.
+
 ## What this engine does
 
 Given any speech audio:
@@ -114,9 +156,9 @@ Every result in the docs is reproducible from code in this repo + the datasets a
 1. **Serving layer** — one persistent process wrapping all models behind a single
    `SignalPacket` API; owns the input gates the stress test specified (voicedness,
    duration, safe model loading). *Spec already written — by the stress test itself.*
-2. **Trajectory on the fine-tuned model** — windowed V/A/D over long audio → emotion
-   *flow* through a conversation (the demo exists on the classical engine; the rebuild
-   uses the 0.705-valence model).
+2. ~~**Trajectory on the fine-tuned model**~~ — **SHIPPED (Aug 2026) as the Live Ear**
+   (see the section at the top): real-time windowed V/A/D over anything playing,
+   speech-gated, name-smoothed, reported as an Affectogram.
 3. **Two consumer projects** (separate repos): a relational-framing engine and a
    misinterpretation-recovery engine, consuming the packet — never the internals.
 4. **Deferred, scoped, documented:** emotion2vec fine-tuning (~$5 GPU bet), instrumental
@@ -152,6 +194,7 @@ and the engine doesn't notice; break the engine and the bridge fails *loudly*.
 | [ARTICLE.md](ARTICLE.md) | The narrative essay: the 0.06 → 0.35 → 0.705 valence arc, written for a general ML audience |
 | [tts_steering/WRITEUP.md](tts_steering/WRITEUP.md) | **Project 2**: TTS steering loop + fair 5-system benchmark (bridge-linked, code-isolated) |
 | [RESULTS_AT_A_GLANCE.md](RESULTS_AT_A_GLANCE.md) | One-page summary |
+| [DEMO.md](DEMO.md) | **The 5-minute live demo runbook** — loopback on, play anything, watch the ear |
 | [JOURNEY.md](JOURNEY.md) | The build story: every phase, every problem hit, every fix (31 and counting) |
 | [TRAJECTORY_ENGINE.md](TRAJECTORY_ENGINE.md) | Phase-2/3 spec, binding laws, progress log |
 | [REFERENCES.md](REFERENCES.md) | 21 citations, each verified against its primary source |
