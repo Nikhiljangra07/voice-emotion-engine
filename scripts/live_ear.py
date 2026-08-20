@@ -83,12 +83,18 @@ class Ear:
         self.rows, self.ts, self.vs, self.As = [], [], [], []
         self.lat, self.sp_hist = [], []
         self.warm = None
+        self.emit = bool(getattr(args, "emit_jsonl", False))
         self.spans = []  # (patch, t) — pruned to the display window so
         # redraw stays flat (~36ms) instead of growing ~300ms/3h
 
     def title(self, stem):
         self.fig.suptitle(f"LIVE EAR — {stem}  "
                           f"({self.args.window}s windows)")
+
+    def _emit(self, obj):
+        """Machine-readable stream for the UI (scripts/ear_ui.py)."""
+        if self.emit:
+            print("EAR " + json.dumps(obj), flush=True)
 
     def process(self, seg, t_pos):
         """One window: gate -> V/A/D -> name -> plot -> record."""
@@ -116,6 +122,7 @@ class Ear:
                                   "emotion": "no-speech",
                                   "speech_prob": round(sp, 2),
                                   "ms": round(ms, 1)})
+                self._emit(self.rows[-1])
                 print(f"[{t_pos:6.1f}s] --- no speech (p={sp:.2f}) --- "
                       f"{ms:5.0f}ms", flush=True)
                 self.spans.append(
@@ -144,6 +151,7 @@ class Ear:
                           "ambiguous": bool(r["ambiguous"]),
                           "speech_prob": round(sp, 2),
                           "ms": round(ms, 1)})
+        self._emit(self.rows[-1])
         self.ts.append(t_pos); self.vs.append(V); self.As.append(A)
         bar = "#" * int((V + 1) * 10)
         print(f"[{t_pos:6.1f}s] V={V:+.2f} A={A:.2f} {emo:9s} "
@@ -208,6 +216,10 @@ class Ear:
             print(f"dominant: {top} ({fams.count(top)}/{len(fams)})")
         print(f"saved: out/live_ear/{stem}_traj.json + .png + "
               f"{stem}_affectogram.png")
+        self._emit({"event": "done", "stem": stem,
+                    "windows": len(self.rows), "gated": gated,
+                    "dominant": top,
+                    "median_ms": None if not self.lat else round(med, 1)})
         print("LIVE_EAR_DONE")
 
 
@@ -301,12 +313,18 @@ def main():
                     help="live plot shows the last N seconds (0 = whole "
                          "session; full history always kept for the "
                          "Affectogram). Keeps multi-hour redraw flat.")
+    ap.add_argument("--headless", action="store_true",
+                    help="no matplotlib window (the UI is the display); "
+                         "Affectogram still rendered on exit")
+    ap.add_argument("--emit-jsonl", action="store_true",
+                    help="print each window as an 'EAR {json}' line "
+                         "(machine stream for scripts/ear_ui.py)")
     ap.add_argument("--model", default="models/wavlm_vad_ft")
     ap.add_argument("--namer", default="models/namer_msp_final")
     args = ap.parse_args()
 
     live = bool(args.play or args.device is not None or args.simulate)
-    if args.fast:
+    if args.fast or args.headless:
         live = False
     ear = Ear(args, live)
     if args.input:

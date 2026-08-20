@@ -6,6 +6,21 @@ it was never told apart."**
 
 ---
 
+## Easiest path: the Ear Console (browser UI)
+
+```bash
+venv/bin/python scripts/ear_ui.py     # opens http://127.0.0.1:8377
+```
+
+One page, four clicks: **Route audio** → **Start listening** → play the
+video → **Stop & render**. Live emotion readout + rolling V/A traces
+while it listens; the Affectogram appears on the page the moment you
+stop. Past sessions are listed at the bottom with their reports.
+**Un-route** when done. Everything below is the terminal version of the
+same flow (and the fallback knowledge if the UI misbehaves).
+
+---
+
 ## Before they arrive (2 minutes, do once)
 
 ```bash

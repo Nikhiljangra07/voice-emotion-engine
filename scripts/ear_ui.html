@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ear Console</title>
+<style>
+  :root {
+    --bg: #0e131c; --panel: #151c28;
+    --line: #2f3a4d; --ink: #e9edf4; --dim: #8b98ad;
+    --vblue: #6ea3f0; --ared: #ee8f6a; --ok: #6fd08c; --warn: #eec66a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: "Avenir Next", Avenir, "Helvetica Neue", sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 20px 22px 60px; }
+  header { display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+           padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  h1 { font-size: 19px; font-weight: 600; letter-spacing: 0.02em; margin: 0; }
+  h1 small { color: var(--dim); font-weight: 500; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #5b6575; }
+  .dot.on { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+  .spacer { flex: 1; }
+  button, select, input {
+    font: inherit; font-size: 14px; color: var(--ink);
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 7px; padding: 8px 14px;
+  }
+  button { cursor: pointer; }
+  button:hover { border-color: var(--dim); }
+  button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 2px solid var(--vblue); outline-offset: 1px; }
+  button.primary { background: var(--vblue); color: #0b1524;
+                   border-color: var(--vblue); font-weight: 600; }
+  button.danger { background: #7a2e1d; border-color: #a04128; font-weight: 600; }
+  button:disabled { opacity: 0.45; cursor: default; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+         margin-top: 14px; }
+  label { color: var(--dim); font-size: 13px; }
+  /* live readout */
+  .board { display: grid; grid-template-columns: 260px 1fr; gap: 14px;
+           margin-top: 18px; }
+  @media (max-width: 860px) { .board { grid-template-columns: 1fr; } }
+  .panel { background: var(--panel); border: 1px solid var(--line);
+           border-radius: 10px; padding: 16px; }
+  .now .emo { font-size: 34px; font-weight: 700; margin: 2px 0 4px;
+              min-height: 44px; }
+  .now .sub { color: var(--dim); font-size: 13px; min-height: 18px; }
+  .kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px;
+        margin-top: 14px; font-size: 13.5px; }
+  .kv div:nth-child(odd) { color: var(--dim); }
+  .kv div:nth-child(even) { font-family: ui-monospace, "SF Mono", Menlo, monospace;
+                            font-variant-numeric: tabular-nums; }
+  .meter { height: 8px; border-radius: 4px; background: #232c3c;
+           overflow: hidden; margin-top: 4px; }
+  .meter i { display: block; height: 100%; width: 0; transition: width 0.4s; }
+  canvas { width: 100%; height: auto; display: block; }
+  .caption { color: var(--dim); font-size: 12px; margin-top: 8px; }
+  .legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px;
+            color: var(--dim); margin-top: 10px; }
+  .legend span::before { content: "●"; margin-right: 5px; }
+  /* affectogram + sessions */
+  #afWrap { display: none; margin-top: 18px; }
+  #afWrap img { width: 100%; border-radius: 8px; background: #fff; }
+  h2 { font-size: 15px; font-weight: 600; color: var(--dim);
+       text-transform: uppercase; letter-spacing: 0.1em; margin: 34px 0 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { text-align: left; color: var(--dim); font-weight: 500; font-size: 12px;
+       text-transform: uppercase; letter-spacing: 0.08em;
+       padding: 6px 12px 6px 0; border-bottom: 1px solid var(--line); }
+  td { padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line);
+       font-variant-numeric: tabular-nums; }
+  td a { color: var(--vblue); cursor: pointer; text-decoration: underline; }
+  #log { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11.5px;
+         color: var(--dim); white-space: pre-wrap; max-height: 90px;
+         overflow-y: auto; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="dot" id="dot"></div>
+    <h1>Ear Console <small id="src">idle</small></h1>
+    <div class="spacer"></div>
+    <button id="routeOn" title="Send system audio to speakers + the ear">Route audio</button>
+    <button id="routeOff" title="Audio back to plain speakers">Un-route</button>
+  </header>
+
+  <div class="row">
+    <label>Source</label>
+    <select id="mode">
+      <option value="device">System audio (loopback)</option>
+      <option value="simulate">File (simulated live)</option>
+    </select>
+    <input id="device" type="number" value="0" min="0" max="9"
+           style="width:70px" title="avfoundation device index">
+    <input id="path" placeholder="path/to/audio.wav" style="width:280px; display:none">
+    <button id="start" class="primary">▶ Start listening</button>
+    <button id="stop" class="danger" disabled>■ Stop &amp; render</button>
+  </div>
+
+  <div class="board">
+    <div class="panel now">
+      <div class="sub">current emotion</div>
+      <div class="emo" id="emo">—</div>
+      <div class="sub" id="amb"></div>
+      <div class="kv">
+        <div>valence</div><div id="v">—</div>
+        <div>arousal</div><div id="a">—</div>
+        <div>dominance</div><div id="d">—</div>
+        <div>windows</div><div id="n">0</div>
+        <div>inference</div><div id="ms">—</div>
+        <div>elapsed</div><div id="el">0:00</div>
+      </div>
+      <div class="sub" style="margin-top:14px">arousal</div>
+      <div class="meter"><i id="am" style="background:var(--ared)"></i></div>
+      <div class="sub" style="margin-top:8px">valence (− ↔ +)</div>
+      <div class="meter"><i id="vm" style="background:var(--vblue)"></i></div>
+    </div>
+    <div class="panel">
+      <canvas id="cv" width="1600" height="560"></canvas>
+      <div class="legend" id="legend"></div>
+      <div class="caption">last 10 minutes · top: valence · bottom: arousal ·
+        colored strip: smoothed emotion · grey: no speech</div>
+      <div id="log"></div>
+    </div>
+  </div>
+
+  <div id="afWrap" class="panel">
+    <h2 style="margin-top:0">Affectogram — <span id="afStem"></span></h2>
+    <img id="afImg" alt="Affectogram of the finished session">
+  </div>
+
+  <h2>Past sessions</h2>
+  <table id="sessions"><tr><th>session</th><th>length</th><th>speech</th>
+    <th>dominant</th><th>report</th></tr></table>
+</div>
+
+<script>
+const COLORS = {anger:"#d62728", fear:"#9467bd", joy:"#e6b800",
+  sadness:"#1f77b4", surprise:"#ff7f0e", neutral:"#909090",
+  disgust:"#2ca02c", contempt:"#8c564b", "no-speech":"#3a4356"};
+const $ = id => document.getElementById(id);
+let rows = [], listening = false, t0 = null;
+
+// legend
+for (const [k,c] of Object.entries(COLORS)) {
+  if (k === "no-speech") continue;
+  const s = document.createElement("span");
+  s.textContent = k; s.style.color = c; $("legend").appendChild(s);
+}
+
+function setListening(on, src) {
+  listening = on;
+  $("dot").classList.toggle("on", on);
+  $("start").disabled = on; $("stop").disabled = !on;
+  $("src").textContent = on ? ("listening — " + (src || "")) : "idle";
+  if (on) { rows = []; t0 = Date.now(); $("afWrap").style.display = "none"; draw(); }
+}
+
+function fmt(x, signed) {
+  if (x === null || x === undefined) return "—";
+  return (signed && x >= 0 ? "+" : "") + x.toFixed(2);
+}
+
+function onRow(r) {
+  rows.push(r);
+  $("n").textContent = rows.length;
+  const mins = Math.floor(r.t / 60), secs = Math.floor(r.t % 60);
+  $("el").textContent = mins + ":" + String(secs).padStart(2, "0");
+  if (r.emotion === "no-speech") {
+    $("emo").textContent = "· · ·";
+    $("emo").style.color = "var(--dim)";
+    $("amb").textContent = "no speech (p=" + r.speech_prob.toFixed(2) + ")";
+  } else {
+    $("emo").textContent = r.emotion;
+    $("emo").style.color = COLORS[r.emotion] || "var(--ink)";
+    $("amb").textContent = r.ambiguous ? "ambiguous — between families" : "confident";
+    $("v").textContent = fmt(r.V, true);
+    $("a").textContent = fmt(r.A);
+    $("d").textContent = fmt(r.D, true);
+    $("ms").textContent = Math.round(r.ms) + " ms";
+    $("am").style.width = (r.A * 100) + "%";
+    $("vm").style.width = ((r.V + 1) / 2 * 100) + "%";
+  }
+  draw();
+}
+
+function draw() {
+  const cv = $("cv"), ctx = cv.getContext("2d");
+  const W = cv.width, H = cv.height;
+  ctx.clearRect(0, 0, W, H);
+  const WIN = 600;  // seconds shown
+  const tEnd = rows.length ? rows[rows.length-1].t + 1.5 : 30;
+  const tStart = Math.max(0, tEnd - WIN);
+  const x = t => (t - tStart) / (tEnd - tStart || 1) * W;
+  const ribbonH = 46, gap = 18;
+  const vTop = ribbonH + gap, vH = (H - vTop - gap) / 2 - gap/2;
+  const aTop = vTop + vH + gap;
+  // panel grounds
+  ctx.fillStyle = "#101724";
+  ctx.fillRect(0, vTop, W, vH); ctx.fillRect(0, aTop, W, vH);
+  // zero line (valence)
+  ctx.strokeStyle = "#33405a"; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(0, vTop + vH/2); ctx.lineTo(W, vTop + vH/2); ctx.stroke();
+  const vis = rows.filter(r => r.t >= tStart - 2);
+  // ribbon
+  for (const r of vis) {
+    ctx.fillStyle = COLORS[r.emotion] || "#666";
+    ctx.globalAlpha = r.emotion === "no-speech" ? 0.5 : 0.95;
+    ctx.fillRect(x(r.t), 0, Math.max(1, x(r.t + 1.5) - x(r.t) + 0.5), ribbonH);
+  }
+  ctx.globalAlpha = 1;
+  // traces
+  function trace(key, top, h, lo, hi, color) {
+    ctx.strokeStyle = color; ctx.lineWidth = 2.5; ctx.beginPath();
+    let pen = false;
+    for (const r of vis) {
+      if (r[key] === null || r[key] === undefined) { pen = false; continue; }
+      const y = top + h - (r[key] - lo) / (hi - lo) * h;
+      pen ? ctx.lineTo(x(r.t), y) : ctx.moveTo(x(r.t), y);
+      pen = true;
+    }
+    ctx.stroke();
+  }
+  trace("V", vTop, vH, -1, 1, "#6ea3f0");
+  trace("A", aTop, vH, 0, 1, "#ee8f6a");
+  // labels
+  ctx.fillStyle = "#8b98ad"; ctx.font = "20px Avenir Next, sans-serif";
+  ctx.fillText("valence", 12, vTop + 26);
+  ctx.fillText("arousal", 12, aTop + 26);
+}
+
+// SSE
+const es = new EventSource("/api/events");
+es.onmessage = e => {
+  const m = JSON.parse(e.data);
+  if (m.event === "started") setListening(true, m.source);
+  else if (m.event === "stopped" || m.event === "done") {
+    setListening(false);
+    if (m.stem) showAffectogram(m.stem);
+    loadSessions();
+  } else if (m.event === "log") {
+    const el = $("log");
+    el.textContent = (el.textContent + "\n" + m.line).split("\n").slice(-6).join("\n");
+  } else if (m.t !== undefined) onRow(m);
+};
+
+function showAffectogram(stem) {
+  $("afStem").textContent = stem;
+  $("afImg").src = "/api/affectogram/" + stem + "?t=" + Date.now();
+  $("afWrap").style.display = "block";
+  $("afWrap").scrollIntoView({behavior: "smooth"});
+}
+
+async function api(path, body) {
+  const r = await fetch(path, {method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(body || {})});
+  const j = await r.json();
+  if (j.error) alert(j.error);
+  return j;
+}
+
+$("mode").onchange = () => {
+  const sim = $("mode").value === "simulate";
+  $("path").style.display = sim ? "" : "none";
+  $("device").style.display = sim ? "none" : "";
+};
+$("start").onclick = () => api("/api/start",
+  $("mode").value === "simulate"
+    ? {mode: "simulate", path: $("path").value.trim()}
+    : {mode: "device", device: +$("device").value});
+$("stop").onclick = () => api("/api/stop");
+$("routeOn").onclick = () => api("/api/route", {on: true});
+$("routeOff").onclick = () => api("/api/route", {on: false});
+
+async function loadSessions() {
+  const list = await (await fetch("/api/sessions")).json();
+  const tb = $("sessions");
+  tb.querySelectorAll("tr:not(:first-child)").forEach(tr => tr.remove());
+  for (const s of list) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${s.stem}</td><td>${s.minutes} min</td>` +
+      `<td>${s.speech}/${s.windows}</td><td>${s.dominant}</td>` +
+      `<td>${s.affectogram ? '<a data-stem="' + s.stem + '">Affectogram</a>' : "—"}</td>`;
+    tb.appendChild(tr);
+  }
+  tb.querySelectorAll("a[data-stem]").forEach(a =>
+    a.onclick = () => showAffectogram(a.dataset.stem));
+}
+
+fetch("/api/status").then(r => r.json())
+  .then(s => setListening(s.status === "listening", s.source));
+loadSessions();
+draw();
+</script>
+</body>
+</html>
