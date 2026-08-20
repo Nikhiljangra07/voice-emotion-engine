@@ -2426,3 +2426,21 @@ is an information limit of categorical naming from a 3-D point.
 
 Artifacts: out/namer_eval/report.txt · confusion_gt.csv ·
 confusion_pred.csv · out/wavlm_test1_pred.npy (5,000×3 cache).
+
+---
+
+## EAR CONSOLE — one-click browser UI for the live ear (2026-08-19)
+
+`venv/bin/python scripts/ear_ui.py` → http://127.0.0.1:8377. Stdlib-only
+server (no new dependencies), localhost-bound. Buttons: Route audio /
+Un-route (wraps out/ear_multiout), Start listening (system audio or
+simulated file), Stop & render. Live panel: current emotion + V/A/D
+readout + arousal/valence meters + rolling 10-min canvas (ribbon + two
+traces). On stop, the ear's SIGINT path runs finish() normally — the
+Affectogram renders and appears inline; past sessions listed with their
+reports. Plumbing: live_ear gained --headless (no matplotlib window; UI
+is the display) and --emit-jsonl ("EAR {json}" per window); ear_ui
+subprocesses the unchanged pipeline and rebroadcasts over SSE — same
+code path as the terminal, zero forked logic. Verified end-to-end via
+API: simulate session ran, stopped gracefully, Affectogram served
+(HTTP 200). Suite 184/184.
